@@ -1,260 +1,260 @@
-# Changelog
+# Nhật Ký Thay Đổi
 
-All notable changes to this project will be documented in this file.
+Tất cả các thay đổi đáng chú ý của dự án này sẽ được ghi lại trong file này.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Định dạng dựa trên [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+và dự án này tuân theo [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Added
-- **Sensing server UI API completion (ADR-043)** — 14 fully-functional REST endpoints for model management, CSI recording, and training control
+### Đã thêm
+- **Hoàn thiện API giao diện sensing server (ADR-043)** — 14 REST endpoints hoạt động đầy đủ cho quản lý model, ghi CSI, và điều khiển huấn luyện
   - Model CRUD: `GET /api/v1/models`, `GET /api/v1/models/active`, `POST /api/v1/models/load`, `POST /api/v1/models/unload`, `DELETE /api/v1/models/:id`, `GET /api/v1/models/lora/profiles`, `POST /api/v1/models/lora/activate`
-  - CSI recording: `GET /api/v1/recording/list`, `POST /api/v1/recording/start`, `POST /api/v1/recording/stop`, `DELETE /api/v1/recording/:id`
-  - Training control: `GET /api/v1/train/status`, `POST /api/v1/train/start`, `POST /api/v1/train/stop`
-  - Recording writes CSI frames to `.jsonl` files via tokio background task
-  - Model/recording directories scanned at startup, state managed via `Arc<RwLock<AppStateInner>>`
-- **ADR-044: Provisioning tool enhancements** — 5-phase plan for complete NVS coverage (7 missing keys), JSON config files, mesh presets, read-back/verify, and auto-detect
-- **25 real mobile tests** replacing `it.todo()` placeholders — 205 assertions covering components, services, stores, hooks, screens, and utils
-- **Project MERIDIAN (ADR-027)** — Cross-environment domain generalization for WiFi pose estimation (1,858 lines, 72 tests)
-  - `HardwareNormalizer` — Catmull-Rom cubic interpolation resamples any hardware CSI to canonical 56 subcarriers; z-score + phase sanitization
-  - `DomainFactorizer` + `GradientReversalLayer` — adversarial disentanglement of pose-relevant vs environment-specific features
-  - `GeometryEncoder` + `FilmLayer` — Fourier positional encoding + DeepSets + FiLM for zero-shot deployment given AP positions
-  - `VirtualDomainAugmentor` — synthetic environment diversity (room scale, wall material, scatterers, noise) for 4x training augmentation
-  - `RapidAdaptation` — 10-second unsupervised calibration via contrastive test-time training + LoRA adapters
-  - `CrossDomainEvaluator` — 6-metric evaluation protocol (MPJPE in-domain/cross-domain/few-shot/cross-hardware, domain gap ratio, adaptation speedup)
-- ADR-027: Cross-Environment Domain Generalization — 10 SOTA citations (PerceptAlign, X-Fi ICLR 2025, AM-FM, DGSense, CVPR 2024)
-- **Cross-platform RSSI adapters** — macOS CoreWLAN (`MacosCoreWlanScanner`) and Linux `iw` (`LinuxIwScanner`) Rust adapters with `#[cfg(target_os)]` gating
-- macOS CoreWLAN Python sensing adapter with Swift helper (`mac_wifi.swift`)
-- macOS synthetic BSSID generation (FNV-1a hash) for Sonoma 14.4+ BSSID redaction
-- Linux `iw dev <iface> scan` parser with freq-to-channel conversion and `scan dump` (no-root) mode
+  - Ghi CSI: `GET /api/v1/recording/list`, `POST /api/v1/recording/start`, `POST /api/v1/recording/stop`, `DELETE /api/v1/recording/:id`
+  - Điều khiển huấn luyện: `GET /api/v1/train/status`, `POST /api/v1/train/start`, `POST /api/v1/train/stop`
+  - Ghi chép CSI frames vào file `.jsonl` qua tokio background task
+  - Thư mục model/recording được quét khi khởi động, trạng thái được quản lý qua `Arc<RwLock<AppStateInner>>`
+- **ADR-044: Cải tiến công cụ provisioning** — Kế hoạch 5 giai đoạn cho phạm vi NVS đầy đủ (7 keys còn thiếu), file cấu hình JSON, mesh presets, đọc lại/xác minh, và tự động phát hiện
+- **25 mobile tests thực tế** thay thế các placeholder `it.todo()` — 205 assertions bao gồm components, services, stores, hooks, screens, và utils
+- **Project MERIDIAN (ADR-027)** — Tổng quát hóa domain xuyên môi trường cho WiFi pose estimation (1.858 dòng, 72 tests)
+  - `HardwareNormalizer` — Nội suy cubic Catmull-Rom lấy mẫu lại bất kỳ CSI phần cứng nào về 56 subcarriers chuẩn; z-score + làm sạch pha
+  - `DomainFactorizer` + `GradientReversalLayer` — Tách biệt đối kháng các đặc trưng liên quan tư thế vs đặc trưng môi trường
+  - `GeometryEncoder` + `FilmLayer` — Mã hóa vị trí Fourier + DeepSets + FiLM cho triển khai zero-shot khi biết vị trí AP
+  - `VirtualDomainAugmentor` — Đa dạng hóa môi trường tổng hợp (tỷ lệ phòng, vật liệu tường, scatterers, nhiễu) cho tăng cường huấn luyện 4x
+  - `RapidAdaptation` — Hiệu chỉnh không giám sát 10 giây qua contrastive test-time training + LoRA adapters
+  - `CrossDomainEvaluator` — Giao thức đánh giá 6 chỉ số (MPJPE in-domain/cross-domain/few-shot/cross-hardware, tỷ lệ domain gap, tốc độ thích nghi)
+- ADR-027: Tổng quát hóa Domain Xuyên Môi trường — 10 trích dẫn SOTA (PerceptAlign, X-Fi ICLR 2025, AM-FM, DGSense, CVPR 2024)
+- **Các adapter RSSI đa nền tảng** — Adapter Rust macOS CoreWLAN (`MacosCoreWlanScanner`) và Linux `iw` (`LinuxIwScanner`) với điều kiện `#[cfg(target_os)]`
+- Adapter sensing Python macOS CoreWLAN với trình trợ giúp Swift (`mac_wifi.swift`)
+- Tạo BSSID tổng hợp macOS (FNV-1a hash) cho redaction BSSID Sonoma 14.4+
+- Trình phân tích cú pháp `iw dev <iface> scan` Linux với chuyển đổi tần số sang kênh và chế độ `scan dump` (không cần root)
 - ADR-025: macOS CoreWLAN WiFi Sensing (ORCA)
 
-### Fixed
-- **sendto ENOMEM crash (Issue #127)** — CSI callbacks in promiscuous mode exhaust lwIP pbuf pool causing guru meditation crash. Fixed with 50 Hz rate limiter in `csi_collector.c` and 100 ms ENOMEM backoff in `stream_sender.c`. Hardware-verified on ESP32-S3 (200+ callbacks, zero crashes)
-- **Provisioning script missing TDM/edge flags (Issue #130)** — Added `--tdm-slot`, `--tdm-total`, `--edge-tier`, `--pres-thresh`, `--fall-thresh`, `--vital-win`, `--vital-int`, `--subk-count` to `provision.py`
-- **WebSocket "RECONNECTING" on Dashboard/Live Demo** — `sensingService.start()` now called on app init in `app.js` so WebSocket connects immediately instead of waiting for Sensing tab visit
-- **Mobile WebSocket port** — `ws.service.ts` `buildWsUrl()` uses same-origin port instead of hardcoded port 3001
-- **Mobile Jest config** — `testPathIgnorePatterns` no longer silently ignores the entire test directory
-- Removed synthetic byte counters from Python `MacosWifiCollector` — now reports `tx_bytes=0, rx_bytes=0` instead of fake incrementing values
+### Đã sửa
+- **Sự cố crash sendto ENOMEM (Issue #127)** — Các CSI callbacks trong chế độ promiscuous làm cạn kiệt pool lwIP pbuf gây crash guru meditation. Đã sửa với bộ giới hạn tốc độ 50 Hz trong `csi_collector.c` và backoff ENOMEM 100 ms trong `stream_sender.c`. Đã xác minh trên phần cứng ESP32-S3 (200+ callbacks, không crash)
+- **Script provisioning thiếu cờ TDM/edge (Issue #130)** — Đã thêm `--tdm-slot`, `--tdm-total`, `--edge-tier`, `--pres-thresh`, `--fall-thresh`, `--vital-win`, `--vital-int`, `--subk-count` vào `provision.py`
+- **WebSocket "RECONNECTING" trên Dashboard/Live Demo** — `sensingService.start()` bây giờ được gọi khi khởi tạo ứng dụng trong `app.js` để WebSocket kết nối ngay thay vì chờ truy cập tab Sensing
+- **Cổng WebSocket trên mobile** — `ws.service.ts` `buildWsUrl()` sử dụng cổng same-origin thay vì cổng hardcoded 3001
+- **Cấu hình Jest mobile** — `testPathIgnorePatterns` không còn bỏ qua toàn bộ thư mục test một cách thầm lặng
+- Đã loại bỏ bộ đếm byte tổng hợp khỏi Python `MacosWifiCollector` — bây giờ báo cáo `tx_bytes=0, rx_bytes=0` thay vì giá trị tăng dần giả
 
 ---
 
 ## [3.0.0] - 2026-03-01
 
-Major release: AETHER contrastive embedding model, Docker Hub images, and comprehensive UI overhaul.
+Phiên bản chính: Model embedding contrastive AETHER, Docker Hub images, và cải tiến toàn diện giao diện người dùng.
 
-### Added — AETHER Contrastive Embedding Model (ADR-024)
-- **Project AETHER** — self-supervised contrastive learning for WiFi CSI fingerprinting, similarity search, and anomaly detection (`9bbe956`)
-- `embedding.rs` module: `ProjectionHead`, `InfoNceLoss`, `CsiAugmenter`, `FingerprintIndex`, `PoseEncoder`, `EmbeddingExtractor` (909 lines, zero external ML dependencies)
-- SimCLR-style pretraining with 5 physically-motivated augmentations (temporal jitter, subcarrier masking, Gaussian noise, phase rotation, amplitude scaling)
-- CLI flags: `--pretrain`, `--pretrain-epochs`, `--embed`, `--build-index <type>`
-- Four HNSW-compatible fingerprint index types: `env_fingerprint`, `activity_pattern`, `temporal_baseline`, `person_track`
-- Cross-modal `PoseEncoder` for WiFi-to-camera embedding alignment
-- VICReg regularization for embedding collapse prevention
-- 53K total parameters (55 KB at INT8) — fits on ESP32
+### Đã thêm — Model Embedding Contrastive AETHER (ADR-024)
+- **Project AETHER** — Học contrastive tự giám sát cho WiFi CSI fingerprinting, tìm kiếm độ tương đồng, và phát hiện bất thường (`9bbe956`)
+- Module `embedding.rs`: `ProjectionHead`, `InfoNceLoss`, `CsiAugmenter`, `FingerprintIndex`, `PoseEncoder`, `EmbeddingExtractor` (909 dòng, không có dependencies ML bên ngoài)
+- Tiền huấn luyện kiểu SimCLR với 5 augmentations có động lực vật lý (jitter thời gian, che subcarrier, nhiễu Gaussian, xoay pha, tỷ lệ biên độ)
+- Cờ CLI: `--pretrain`, `--pretrain-epochs`, `--embed`, `--build-index <type>`
+- Bốn loại fingerprint index tương thích HNSW: `env_fingerprint`, `activity_pattern`, `temporal_baseline`, `person_track`
+- `PoseEncoder` đa phương thức cho căn chỉnh embedding WiFi-to-camera
+- Regularization VICReg để ngăn embedding collapse
+- Tổng 53K tham số (55 KB ở INT8) — vừa với ESP32
 
-### Added — Docker & Deployment
-- Published Docker Hub images: `ruvnet/wifi-densepose:latest` (132 MB Rust) and `ruvnet/wifi-densepose:python` (569 MB) (`add9f19`)
-- Multi-stage Dockerfile for Rust sensing server with RuVector crates
-- `docker-compose.yml` orchestrating both Rust and Python services
-- RVF model export via `--export-rvf` and load via `--load-rvf` CLI flags
+### Đã thêm — Docker & Triển Khai
+- Đã phát hành Docker Hub images: `ruvnet/wifi-densepose:latest` (132 MB Rust) và `ruvnet/wifi-densepose:python` (569 MB) (`add9f19`)
+- Dockerfile đa giai đoạn cho Rust sensing server với RuVector crates
+- `docker-compose.yml` điều phối cả hai dịch vụ Rust và Python
+- Xuất model RVF qua `--export-rvf` và tải qua cờ CLI `--load-rvf`
 
-### Added — Documentation
-- 33 use cases across 4 vertical tiers: Everyday, Specialized, Robotics & Industrial, Extreme (`0afd9c5`)
-- "Why WiFi Wins" comparison table (WiFi vs camera vs LIDAR vs wearable vs PIR)
-- Mermaid architecture diagrams: end-to-end pipeline, signal processing detail, deployment topology (`50f0fc9`)
-- Models & Training section with RuVector crate links (GitHub + crates.io), SONA component table (`965a1cc`)
-- RVF container section with deployment targets table (ESP32 0.7 MB to server 50+ MB)
-- Collapsible README sections for improved navigation (`478d964`, `99ec980`, `0ebd6be`)
-- Installation and Quick Start moved above Table of Contents (`50acbf7`)
-- CSI hardware requirement notice (`528b394`)
+### Đã thêm — Tài Liệu
+- 33 trường hợp sử dụng trên 4 tầng dọc: Hàng ngày, Chuyên biệt, Robotics & Công nghiệp, Cực đoan (`0afd9c5`)
+- Bảng so sánh "Tại Sao WiFi Chiến Thắng" (WiFi vs camera vs LIDAR vs thiết bị đeo vs PIR)
+- Sơ đồ kiến trúc Mermaid: pipeline end-to-end, chi tiết xử lý tín hiệu, cấu trúc liên kết triển khai (`50f0fc9`)
+- Phần Models & Training với liên kết crate RuVector (GitHub + crates.io), bảng thành phần SONA (`965a1cc`)
+- Phần container RVF với bảng mục tiêu triển khai (ESP32 0,7 MB đến server 50+ MB)
+- Các phần README có thể thu gọn để điều hướng tốt hơn (`478d964`, `99ec980`, `0ebd6be`)
+- Cài đặt và Bắt đầu Nhanh được di chuyển lên trên Mục lục (`50acbf7`)
+- Thông báo yêu cầu phần cứng CSI (`528b394`)
 
-### Fixed
-- **UI auto-detects server port from page origin** — no more hardcoded `localhost:8080`; works on any port (Docker :3000, native :8080, custom) (`3b72f35`, closes #55)
-- **Docker port mismatch** — server now binds 3000/3001 inside container as documented (`44b9c30`)
-- Added `/ws/sensing` WebSocket route to the HTTP server so UI only needs one port
-- Fixed README API endpoint references: `/api/v1/health` → `/health`, `/api/v1/sensing` → `/api/v1/sensing/latest`
-- Multi-person tracking limit corrected: configurable default 10, no hard software cap (`e2ce250`)
+### Đã sửa
+- **Giao diện người dùng tự động phát hiện cổng server từ nguồn gốc trang** — không còn hardcoded `localhost:8080`; hoạt động trên bất kỳ cổng nào (Docker :3000, native :8080, tùy chỉnh) (`3b72f35`, đóng #55)
+- **Docker port mismatch** — server bây giờ bind 3000/3001 bên trong container như đã ghi lại (`44b9c30`)
+- Đã thêm route WebSocket `/ws/sensing` vào HTTP server để giao diện người dùng chỉ cần một cổng
+- Đã sửa tham chiếu API endpoint trong README: `/api/v1/health` → `/health`, `/api/v1/sensing` → `/api/v1/sensing/latest`
+- Giới hạn theo dõi đa người đã được sửa: mặc định có thể cấu hình 10, không có giới hạn phần mềm cứng (`e2ce250`)
 
 ---
 
 ## [2.0.0] - 2026-02-28
 
-Major release: complete Rust sensing server, full DensePose training pipeline, RuVector v2.0.4 integration, ESP32-S3 firmware, and 6 security hardening patches.
+Phiên bản chính: Rust sensing server hoàn chỉnh, pipeline huấn luyện DensePose đầy đủ, tích hợp RuVector v2.0.4, firmware ESP32-S3, và 6 bản vá tăng cường bảo mật.
 
-### Added — Rust Sensing Server
-- **Full DensePose-compatible REST API** served by Axum (`d956c30`)
-  - `GET /health` — server health
-  - `GET /api/v1/sensing/latest` — live CSI sensing data
-  - `GET /api/v1/vital-signs` — breathing rate (6-30 BPM) and heartbeat (40-120 BPM)
-  - `GET /api/v1/pose/current` — 17 COCO keypoints derived from WiFi signal field
-  - `GET /api/v1/info` — server build and feature info
-  - `GET /api/v1/model/info` — RVF model container metadata
-  - `ws://host/ws/sensing` — real-time WebSocket stream
-- Three data sources: `--source esp32` (UDP CSI), `--source windows` (netsh RSSI), `--source simulated` (deterministic reference)
-- Auto-detection: server probes ESP32 UDP and Windows WiFi, falls back to simulated
-- Three.js visualization UI with 3D body skeleton, signal heatmap, phase plot, Doppler bars, vital signs panel
-- Static UI serving via `--ui-path` flag
-- Throughput: 9,520–11,665 frames/sec (release build)
+### Đã thêm — Rust Sensing Server
+- **REST API đầy đủ tương thích DensePose** phục vụ bởi Axum (`d956c30`)
+  - `GET /health` — trạng thái server
+  - `GET /api/v1/sensing/latest` — dữ liệu CSI sensing trực tiếp
+  - `GET /api/v1/vital-signs` — nhịp thở (6-30 BPM) và nhịp tim (40-120 BPM)
+  - `GET /api/v1/pose/current` — 17 COCO keypoints được suy ra từ trường tín hiệu WiFi
+  - `GET /api/v1/info` — thông tin build và tính năng server
+  - `GET /api/v1/model/info` — metadata container model RVF
+  - `ws://host/ws/sensing` — luồng WebSocket thời gian thực
+- Ba nguồn dữ liệu: `--source esp32` (UDP CSI), `--source windows` (netsh RSSI), `--source simulated` (tham chiếu tất định)
+- Tự động phát hiện: server thăm dò ESP32 UDP và Windows WiFi, rơi về simulated
+- Giao diện người dùng Three.js với bộ khung xương 3D, heatmap tín hiệu, đồ thị pha, Doppler bars, bảng vital signs
+- Phục vụ giao diện người dùng tĩnh qua cờ `--ui-path`
+- Thông lượng: 9.520–11.665 frames/giây (bản release)
 
-### Added — ADR-021: Vital Sign Detection
-- `VitalSignDetector` with breathing (6-30 BPM) and heartbeat (40-120 BPM) extraction from CSI fluctuations (`1192de9`)
-- FFT-based spectral analysis with configurable band-pass filters
-- Confidence scoring based on spectral peak prominence
-- REST endpoint `/api/v1/vital-signs` with real-time JSON output
+### Đã thêm — ADR-021: Phát Hiện vital signs
+- `VitalSignDetector` với trích xuất nhịp thở (6-30 BPM) và nhịp tim (40-120 BPM) từ CSI fluctuations (`1192de9`)
+- Phân tích phổ FFT với bộ lọc band-pass có thể cấu hình
+- Tính điểm confidence dựa trên độ nổi bật đỉnh phổ
+- REST endpoint `/api/v1/vital-signs` với đầu ra JSON thời gian thực
 
-### Added — ADR-023: DensePose Training Pipeline (Phases 1-8)
-- `wifi-densepose-train` crate with complete 8-phase pipeline (`fc409df`, `ec98e40`, `fce1271`)
-  - Phase 1: `DataPipeline` with MM-Fi and Wi-Pose dataset loaders
-  - Phase 2: `CsiToPoseTransformer` — 4-head cross-attention + 2-layer GCN on COCO skeleton
-  - Phase 3: 6-term composite loss (MSE, bone length, symmetry, joint angle, temporal, confidence)
-  - Phase 4: `DynamicPersonMatcher` via ruvector-mincut (O(n^1.5 log n) Hungarian assignment)
-  - Phase 5: `SonaAdapter` — MicroLoRA rank-4 with EWC++ memory preservation
-  - Phase 6: `SparseInference` — progressive 3-layer model loading (A: essential, B: refinement, C: full)
-  - Phase 7: `RvfContainer` — single-file model packaging with segment-based binary format
-  - Phase 8: End-to-end training with cosine-annealing LR, early stopping, checkpoint saving
+### Đã thêm — ADR-023: Pipeline Huấn Luyện DensePose (Giai đoạn 1-8)
+- Crate `wifi-densepose-train` với pipeline 8 giai đoạn hoàn chỉnh (`fc409df`, `ec98e40`, `fce1271`)
+  - Giai đoạn 1: `DataPipeline` với bộ tải dataset MM-Fi và Wi-Pose
+  - Giai đoạn 2: `CsiToPoseTransformer` — cross-attention 4 đầu + GCN 2 lớp trên COCO skeleton
+  - Giai đoạn 3: Loss tổng hợp 6 thành phần (MSE, độ dài xương, đối xứng, góc khớp, thời gian, confidence)
+  - Giai đoạn 4: `DynamicPersonMatcher` qua ruvector-mincut (gán Hungary O(n^1.5 log n))
+  - Giai đoạn 5: `SonaAdapter` — MicroLoRA rank-4 với bảo tồn bộ nhớ EWC++
+  - Giai đoạn 6: `SparseInference` — tải model 3 lớp lũy tiến (A: cơ bản, B: tinh chỉnh, C: đầy đủ)
+  - Giai đoạn 7: `RvfContainer` — đóng gói model một file với định dạng nhị phân dựa trên segment
+  - Giai đoạn 8: Huấn luyện end-to-end với cosine-annealing LR, early stopping, lưu checkpoint
 - CLI: `--train`, `--dataset`, `--epochs`, `--save-rvf`, `--load-rvf`, `--export-rvf`
-- Benchmark: ~11,665 fps inference, 229 tests passing
+- Benchmark: ~11.665 fps inference, 229 tests đạt
 
-### Added — ADR-016: RuVector Training Integration (all 5 crates)
-- `ruvector-mincut` → `DynamicPersonMatcher` in `metrics.rs` + subcarrier selection (`81ad09d`, `a7dd31c`)
-- `ruvector-attn-mincut` → antenna attention in `model.rs` + noise-gated spectrogram
-- `ruvector-temporal-tensor` → `CompressedCsiBuffer` in `dataset.rs` + compressed breathing/heartbeat
-- `ruvector-solver` → sparse subcarrier interpolation (114→56) + Fresnel triangulation
-- `ruvector-attention` → spatial attention in `model.rs` + attention-weighted BVP
-- Vendored all 11 RuVector crates under `vendor/ruvector/` (`d803bfe`)
+### Đã thêm — ADR-016: Tích Hợp Huấn Luyện RuVector (tất cả 5 crates)
+- `ruvector-mincut` → `DynamicPersonMatcher` trong `metrics.rs` + lựa chọn subcarrier (`81ad09d`, `a7dd31c`)
+- `ruvector-attn-mincut` → attention anten trong `model.rs` + spectrogram gated nhiễu
+- `ruvector-temporal-tensor` → `CompressedCsiBuffer` trong `dataset.rs` + nhịp thở/nhịp tim nén
+- `ruvector-solver` → nội suy subcarrier thưa (114→56) + tam giác đo Fresnel
+- `ruvector-attention` → spatial attention trong `model.rs` + BVP có trọng số attention
+- Đã vendored tất cả 11 RuVector crates trong `vendor/ruvector/` (`d803bfe`)
 
-### Added — ADR-017: RuVector Signal & MAT Integration (7 integration points)
-- `gate_spectrogram()` — attention-gated noise suppression (`18170d7`)
-- `attention_weighted_bvp()` — sensitivity-weighted velocity profiles
-- `mincut_subcarrier_partition()` — dynamic sensitive/insensitive subcarrier split
-- `solve_fresnel_geometry()` — TX-body-RX distance estimation
+### Đã thêm — ADR-017: Tích Hợp Tín Hiệu RuVector & MAT (7 điểm tích hợp)
+- `gate_spectrogram()` — suppression nhiễu gated attention (`18170d7`)
+- `attention_weighted_bvp()` — profile vận tốc có trọng số độ nhạy
+- `mincut_subcarrier_partition()` — phân chia dynamic subcarrier nhạy/không nhạy
+- `solve_fresnel_geometry()` — ước lượng khoảng cách TX-body-RX
 - `CompressedBreathingBuffer` + `CompressedHeartbeatSpectrogram`
-- `BreathingDetector` + `HeartbeatDetector` (MAT crate, real FFT + micro-Doppler)
-- Feature-gated behind `cfg(feature = "ruvector")` (`ab2453e`)
+- `BreathingDetector` + `HeartbeatDetector` (crate MAT, FFT thực + micro-Doppler)
+- Được bật bởi feature `cfg(feature = "ruvector")` (`ab2453e`)
 
-### Added — ADR-018: ESP32-S3 Firmware & Live CSI Pipeline
-- ESP32-S3 firmware with FreeRTOS CSI extraction (`92a5182`)
-- ADR-018 binary frame format: `[0xAD, 0x18, len_hi, len_lo, payload]`
-- Rust `Esp32Aggregator` receiving UDP frames on port 5005
-- `bridge.rs` converting I/Q pairs to amplitude/phase vectors
-- NVS provisioning for WiFi credentials
-- Pre-built binary quick start documentation (`696a726`)
+### Đã thêm — ADR-018: Firmware ESP32-S3 & Pipeline CSI Trực Tiếp
+- Firmware ESP32-S3 với trích xuất CSI FreeRTOS (`92a5182`)
+- Định dạng frame nhị phân ADR-018: `[0xAD, 0x18, len_hi, len_lo, payload]`
+- Rust `Esp32Aggregator` nhận UDP frames trên cổng 5005
+- `bridge.rs` chuyển đổi cặp I/Q thành vector biên độ/pha
+- NVS provisioning cho thông tin xác thực WiFi
+- Tài liệu khởi động nhanh binary có sẵn (`696a726`)
 
-### Added — ADR-014: SOTA Signal Processing
-- 6 algorithms, 83 tests (`fcb93cc`)
-  - Hampel filter (median + MAD, resistant to 50% contamination)
-  - Conjugate multiplication (reference-antenna ratio, cancels common-mode noise)
-  - Phase sanitization (unwrap + linear detrend, removes CFO/SFO)
-  - Fresnel zone geometry (TX-body-RX distance from first-principles physics)
-  - Body Velocity Profile (micro-Doppler extraction, 5.7x speedup)
-  - Attention-gated spectrogram (learned noise suppression)
+### Đã thêm — ADR-014: Xử Lý Tín Hiệu SOTA
+- 6 thuật toán, 83 tests (`fcb93cc`)
+  - Bộ lọc Hampel (median + MAD, kháng đến 50% contamination)
+  - Nhân liên hợp (tỷ lệ anten tham chiếu, triệt nhiễu common-mode)
+  - Làm sạch pha (unwrap + detrend tuyến tính, loại bỏ CFO/SFO)
+  - Hình học vùng Fresnel (khoảng cách TX-body-RX từ vật lý nguyên lý đầu tiên)
+  - Body Velocity Profile (trích xuất micro-Doppler, tăng tốc 5,7x)
+  - Spectrogram gated attention (suppression nhiễu có học)
 
-### Added — ADR-015: Public Dataset Training Strategy
-- MM-Fi and Wi-Pose dataset specifications with download links (`4babb32`, `5dc2f66`)
-- Verified dataset dimensions, sampling rates, and annotation formats
-- Cross-dataset evaluation protocol
+### Đã thêm — ADR-015: Chiến Lược Huấn Luyện Bộ Dữ Liệu Công Khai
+- Đặc điểm kỹ thuật bộ dữ liệu MM-Fi và Wi-Pose với liên kết tải xuống (`4babb32`, `5dc2f66`)
+- Đã xác minh kích thước bộ dữ liệu, tốc độ lấy mẫu, và định dạng annotation
+- Giao thức đánh giá cross-dataset
 
-### Added — WiFi-Mat Disaster Detection Module
-- Multi-AP triangulation for through-wall survivor detection (`a17b630`, `6b20ff0`)
-- Triage classification (breathing, heartbeat, motion)
+### Đã thêm — Module Phát Hiện Thảm Họa WiFi-Mat
+- Tam giác đo đa AP cho phát hiện người sống sót xuyên tường (`a17b630`, `6b20ff0`)
+- Phân loại triage (nhịp thở, nhịp tim, chuyển động)
 - Domain events: `survivor_detected`, `survivor_updated`, `alert_created`
-- WebSocket broadcast at `/ws/mat/stream`
+- Broadcast WebSocket tại `/ws/mat/stream`
 
-### Added — Infrastructure
-- Guided 7-step interactive installer with 8 hardware profiles (`8583f3e`)
-- Comprehensive build guide for Linux, macOS, Windows, Docker, ESP32 (`45f8a0d`)
-- 12 Architecture Decision Records (ADR-001 through ADR-012) (`337dd96`)
+### Đã thêm — Cơ Sở Hạ Tầng
+- Trình cài đặt tương tác 7 bước có hướng dẫn với 8 hồ sơ phần cứng (`8583f3e`)
+- Hướng dẫn build toàn diện cho Linux, macOS, Windows, Docker, ESP32 (`45f8a0d`)
+- 12 Architecture Decision Records (ADR-001 đến ADR-012) (`337dd96`)
 
-### Added — UI & Visualization
-- Sensing-only UI mode with Gaussian splat visualization (`b7e0f07`)
-- Three.js 3D body model (17 joints, 16 limbs) with signal-viz components
-- Tabs: Dashboard, Hardware, Live Demo, Sensing, Architecture, Performance, Applications
-- WebSocket client with automatic reconnection and exponential backoff
+### Đã thêm — Giao Diện Người Dùng & Trực Quan Hóa
+- Chế độ giao diện người dùng chỉ sensing với trực quan hóa Gaussian splat (`b7e0f07`)
+- Mô hình cơ thể 3D Three.js (17 khớp, 16 chi) với các thành phần signal-viz
+- Các tab: Dashboard, Hardware, Live Demo, Sensing, Architecture, Performance, Applications
+- WebSocket client với kết nối lại tự động và exponential backoff
 
-### Added — Rust Signal Processing Crate
-- Complete Rust port of WiFi-DensePose with modular workspace (`6ed69a3`)
-  - `wifi-densepose-signal` — CSI processing, phase sanitization, feature extraction
-  - `wifi-densepose-core` — shared types and configuration
-  - `wifi-densepose-nn` — neural network inference (DensePose head, RCNN)
-  - `wifi-densepose-hardware` — ESP32 aggregator, hardware interfaces
-  - `wifi-densepose-config` — configuration management
-- Comprehensive benchmarks and validation tests (`3ccb301`)
+### Đã thêm — Crate Xử Lý Tín Hiệu Rust
+- Rust port hoàn chỉnh của WiFi-DensePose với modular workspace (`6ed69a3`)
+  - `wifi-densepose-signal` — Xử lý CSI, làm sạch pha, trích xuất đặc trưng
+  - `wifi-densepose-core` — Các kiểu dữ liệu và cấu hình dùng chung
+  - `wifi-densepose-nn` — Suy luận neural network (DensePose head, RCNN)
+  - `wifi-densepose-hardware` — ESP32 aggregator, các giao diện phần cứng
+  - `wifi-densepose-config` — Quản lý cấu hình
+- Benchmark và validation tests toàn diện (`3ccb301`)
 
-### Added — Python Sensing Pipeline
-- `WindowsWifiCollector` — RSSI collection via `netsh wlan show networks`
-- `RssiFeatureExtractor` — variance, spectral bands (motion 0.5-4 Hz, breathing 0.1-0.5 Hz), change points
-- `PresenceClassifier` — rule-based 3-state classification (ABSENT / PRESENT_STILL / ACTIVE)
-- Cross-receiver agreement scoring for multi-AP confidence boosting
-- WebSocket sensing server (`ws_server.py`) broadcasting JSON at 2 Hz
-- Deterministic CSI proof bundles for reproducible verification (`v1/data/proof/`)
-- Commodity sensing unit tests (`b391638`)
+### Đã thêm — Pipeline Sensing Python
+- `WindowsWifiCollector` — Thu thập RSSI qua `netsh wlan show networks`
+- `RssiFeatureExtractor` — Phương sai, băng tần phổ (chuyển động 0,5-4 Hz, nhịp thở 0,1-0,5 Hz), điểm thay đổi
+- `PresenceClassifier` — Phân loại 3 trạng thái dựa trên quy tắc (ABSENT / PRESENT_STILL / ACTIVE)
+- Tính điểm đồng thuận cross-receiver để tăng cường confidence đa AP
+- WebSocket sensing server (`ws_server.py`) broadcast JSON ở 2 Hz
+- Gói proof CSI tất định để xác minh tái tạo (`v1/data/proof/`)
+- Unit tests sensing thiết bị thông thường (`b391638`)
 
-### Changed
-- Rust hardware adapters now return explicit errors instead of silent empty data (`6e0e539`)
+### Đã thay đổi
+- Các adapter phần cứng Rust bây giờ trả về lỗi rõ ràng thay vì dữ liệu rỗng thầm lặng (`6e0e539`)
 
-### Fixed
-- Review fixes for end-to-end training pipeline (`45f0304`)
-- Dockerfile paths updated from `src/` to `v1/src/` (`7872987`)
-- IoT profile installer instructions updated for aggregator CLI (`f460097`)
-- `process.env` reference removed from browser ES module (`e320bc9`)
+### Đã sửa
+- Các bản sửa review cho pipeline huấn luyện end-to-end (`45f0304`)
+- Các đường dẫn Dockerfile được cập nhật từ `src/` thành `v1/src/` (`7872987`)
+- Hướng dẫn trình cài đặt hồ sơ IoT được cập nhật cho aggregator CLI (`f460097`)
+- Tham chiếu `process.env` đã được xóa khỏi ES module trình duyệt (`e320bc9`)
 
-### Performance
-- 5.7x Doppler extraction speedup via optimized FFT windowing (`32c75c8`)
-- Single 2.1 MB static binary, zero Python dependencies for Rust server
+### Hiệu Suất
+- Tăng tốc trích xuất Doppler 5,7x qua FFT windowing được tối ưu hóa (`32c75c8`)
+- Binary tĩnh 2,1 MB, không có dependencies Python cho Rust server
 
-### Security
-- Fix SQL injection in status command and migrations (`f9d125d`)
-- Fix XSS vulnerabilities in UI components (`5db55fd`)
-- Fix command injection in statusline.cjs (`4cb01fd`)
-- Fix path traversal vulnerabilities (`896c4fc`)
-- Fix insecure WebSocket connections — enforce wss:// on non-localhost (`ac094d4`)
-- Fix GitHub Actions shell injection (`ab2e7b4`)
-- Fix 10 additional vulnerabilities, remove 12 dead code instances (`7afdad0`)
+### Bảo Mật
+- Sửa SQL injection trong lệnh status và migrations (`f9d125d`)
+- Sửa các lỗ hổng XSS trong các thành phần giao diện người dùng (`5db55fd`)
+- Sửa command injection trong statusline.cjs (`4cb01fd`)
+- Sửa các lỗ hổng path traversal (`896c4fc`)
+- Sửa kết nối WebSocket không an toàn — bắt buộc wss:// trên non-localhost (`ac094d4`)
+- Sửa shell injection GitHub Actions (`ab2e7b4`)
+- Sửa 10 lỗ hổng bổ sung, loại bỏ 12 trường hợp code dead (`7afdad0`)
 
 ---
 
 ## [1.1.0] - 2025-06-07
 
-### Added
-- Complete Python WiFi-DensePose system with CSI data extraction and router interface
-- CSI processing and phase sanitization modules
-- Batch processing for CSI data in `CSIProcessor` and `PhaseSanitizer`
-- Hardware, pose, and stream services for WiFi-DensePose API
-- Comprehensive CSS styles for UI components and dark mode support
-- API and Deployment documentation
+### Đã thêm
+- Hệ thống WiFi-DensePose Python hoàn chỉnh với trích xuất dữ liệu CSI và giao diện router
+- Các module xử lý CSI và làm sạch pha
+- Xử lý hàng loạt cho dữ liệu CSI trong `CSIProcessor` và `PhaseSanitizer`
+- Các dịch vụ hardware, pose, và stream cho WiFi-DensePose API
+- CSS styles toàn diện cho các thành phần giao diện người dùng và hỗ trợ dark mode
+- Tài liệu API và Triển Khai
 
-### Fixed
-- Badge links for PyPI and Docker in README
-- Async engine creation poolclass specification
+### Đã sửa
+- Liên kết badge cho PyPI và Docker trong README
+- Đặc điểm kỹ thuật poolclass tạo async engine
 
 ---
 
 ## [1.0.0] - 2024-12-01
 
-### Added
-- Initial release of WiFi-DensePose
-- Real-time WiFi-based human pose estimation using Channel State Information (CSI)
-- DensePose neural network integration for body surface mapping
-- RESTful API with comprehensive endpoint coverage
-- WebSocket streaming for real-time pose data
-- Multi-person tracking with configurable capacity (default 10, up to 50+)
-- Fall detection and activity recognition
-- Domain configurations: healthcare, fitness, smart home, security
-- CLI interface for server management and configuration
-- Hardware abstraction layer for multiple WiFi chipsets
-- Phase sanitization and signal processing pipeline
-- Authentication and rate limiting
-- Background task management
-- Cross-platform support (Linux, macOS, Windows)
+### Đã thêm
+- Phiên bản đầu tiên của WiFi-DensePose
+- Ước lượng tư thế người dựa trên WiFi thời gian thực sử dụng Channel State Information (CSI)
+- Tích hợp neural network DensePose cho ánh xạ bề mặt cơ thể
+- RESTful API với phạm vi endpoint toàn diện
+- WebSocket streaming cho dữ liệu pose thời gian thực
+- Theo dõi đa người với khả năng cấu hình (mặc định 10, lên đến 50+)
+- Phát hiện té ngã và nhận dạng hoạt động
+- Cấu hình domain: healthcare, fitness, smart home, security
+- Giao diện CLI để quản lý server và cấu hình
+- Tầng trừu tượng phần cứng cho nhiều chipset WiFi
+- Pipeline làm sạch pha và xử lý tín hiệu
+- Xác thực và giới hạn tốc độ
+- Quản lý background task
+- Hỗ trợ đa nền tảng (Linux, macOS, Windows)
 
-### Documentation
-- User guide and API reference
-- Deployment and troubleshooting guides
-- Hardware setup and calibration instructions
-- Performance benchmarks
-- Contributing guidelines
+### Tài Liệu
+- Hướng dẫn người dùng và tham chiếu API
+- Hướng dẫn triển khai và khắc phục sự cố
+- Hướng dẫn thiết lập và hiệu chỉnh phần cứng
+- Benchmark hiệu suất
+- Hướng dẫn đóng góp
 
 [Unreleased]: https://github.com/ruvnet/wifi-densepose/compare/v3.0.0...HEAD
 [3.0.0]: https://github.com/ruvnet/wifi-densepose/compare/v2.0.0...v3.0.0
