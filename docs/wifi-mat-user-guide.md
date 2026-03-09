@@ -1,110 +1,110 @@
-# WiFi-Mat User Guide
+# Hướng Dẫn Sử Dụng WiFi-Mat
 
-## Mass Casualty Assessment Tool for Disaster Response
+## Công Cụ Đánh Giá Thương Vong Hàng Loạt Cho Ứng Phó Thảm Họa
 
-WiFi-Mat (Mass Assessment Tool) is a modular extension of WiFi-DensePose designed specifically for search and rescue operations. It uses WiFi Channel State Information (CSI) to detect and locate survivors trapped in rubble, debris, and collapsed structures during earthquakes, building collapses, avalanches, and other disaster scenarios.
-
----
-
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Key Features](#key-features)
-3. [Installation](#installation)
-4. [Quick Start](#quick-start)
-5. [Architecture](#architecture)
-6. [Configuration](#configuration)
-7. [Detection Capabilities](#detection-capabilities)
-8. [Localization System](#localization-system)
-9. [Triage Classification](#triage-classification)
-10. [Alert System](#alert-system)
-11. [API Reference](#api-reference)
-12. [Hardware Setup](#hardware-setup)
-13. [Field Deployment Guide](#field-deployment-guide)
-14. [Troubleshooting](#troubleshooting)
-15. [Best Practices](#best-practices)
-16. [Safety Considerations](#safety-considerations)
+WiFi-Mat (Mass Assessment Tool) là một phần mở rộng mô-đun của WiFi-DensePose được thiết kế đặc biệt cho các hoạt động tìm kiếm và cứu nạn. Nó sử dụng WiFi Channel State Information (CSI) để phát hiện và định vị những người sống sót bị mắc kẹt trong đống đổ nát, mảnh vỡ và các công trình sụp đổ trong các trận động đất, sập nhà, tuyết lở và các tình huống thảm họa khác.
 
 ---
 
-## Overview
+## Mục Lục
 
-### What is WiFi-Mat?
+1. [Tổng Quan](#overview)
+2. [Tính Năng Chính](#key-features)
+3. [Cài Đặt](#installation)
+4. [Bắt Đầu Nhanh](#quick-start)
+5. [Kiến Trúc](#architecture)
+6. [Cấu Hình](#configuration)
+7. [Khả Năng Phát Hiện](#detection-capabilities)
+8. [Hệ Thống Định Vị](#localization-system)
+9. [Phân Loại Thương Vong](#triage-classification)
+10. [Hệ Thống Cảnh Báo](#alert-system)
+11. [Tài Liệu API](#api-reference)
+12. [Thiết Lập Phần Cứng](#hardware-setup)
+13. [Hướng Dẫn Triển Khai Thực Địa](#field-deployment-guide)
+14. [Khắc Phục Sự Cố](#troubleshooting)
+15. [Thực Hành Tốt Nhất](#best-practices)
+16. [Lưu Ý An Toàn](#safety-considerations)
 
-WiFi-Mat leverages the same WiFi-based sensing technology as WiFi-DensePose but optimizes it for the unique challenges of disaster response:
+---
 
-- **Through-wall detection**: Detect life signs through debris, rubble, and collapsed structures
-- **Non-invasive**: No need to disturb unstable structures during initial assessment
-- **Rapid deployment**: Portable sensor arrays can be set up in minutes
-- **Multi-victim triage**: Automatically prioritize rescue efforts using START protocol
-- **3D localization**: Estimate survivor position including depth through debris
+## Tổng Quan
 
-### Use Cases
+### WiFi-Mat là gì?
 
-| Disaster Type | Detection Range | Typical Depth | Success Rate |
+WiFi-Mat tận dụng cùng công nghệ cảm biến dựa trên WiFi như WiFi-DensePose nhưng được tối ưu hóa cho các thách thức đặc thù của ứng phó thảm họa:
+
+- **Phát hiện xuyên tường**: Phát hiện dấu hiệu sự sống qua đống đổ nát, mảnh vỡ và các công trình sụp đổ
+- **Không xâm lấn**: Không cần làm xáo trộn các công trình không ổn định trong quá trình đánh giá ban đầu
+- **Triển khai nhanh**: Mảng cảm biến di động có thể được thiết lập trong vài phút
+- **Phân loại nhiều nạn nhân**: Tự động ưu tiên nỗ lực cứu nạn bằng giao thức START
+- **Định vị 3D**: Ước tính vị trí người sống sót bao gồm độ sâu qua đống đổ nát
+
+### Các Trường Hợp Sử Dụng
+
+| Loại Thảm Họa | Phạm Vi Phát Hiện | Độ Sâu Điển Hình | Tỷ Lệ Thành Công |
 |--------------|-----------------|---------------|--------------|
-| Earthquake rubble | 15-30m radius | Up to 5m | 85-92% |
-| Building collapse | 20-40m radius | Up to 8m | 80-88% |
-| Avalanche | 10-20m radius | Up to 3m snow | 75-85% |
-| Mine collapse | 15-25m radius | Up to 10m | 70-82% |
-| Flood debris | 10-15m radius | Up to 2m | 88-95% |
+| Đống đổ nát động đất | Bán kính 15-30m | Đến 5m | 85-92% |
+| Sập nhà | Bán kính 20-40m | Đến 8m | 80-88% |
+| Tuyết lở | Bán kính 10-20m | Đến 3m tuyết | 75-85% |
+| Sập hầm mỏ | Bán kính 15-25m | Đến 10m | 70-82% |
+| Mảnh vỡ lũ lụt | Bán kính 10-15m | Đến 2m | 88-95% |
 
 ---
 
-## Key Features
+## Tính Năng Chính
 
-### 1. Vital Signs Detection
-- **Breathing detection**: 0.1-0.5 Hz (4-60 breaths/minute)
-- **Heartbeat detection**: 0.8-3.3 Hz (30-200 BPM) via micro-Doppler
-- **Movement classification**: Gross, fine, tremor, and periodic movements
+### 1. Phát Hiện Dấu Hiệu Sinh Tồn
+- **Phát hiện hô hấp**: 0.1-0.5 Hz (4-60 lần thở/phút)
+- **Phát hiện nhịp tim**: 0.8-3.3 Hz (30-200 BPM) qua micro-Doppler
+- **Phân loại chuyển động**: Chuyển động lớn, nhỏ, run và định kỳ
 
-### 2. Survivor Localization
-- **2D position**: ±0.5m accuracy with 3+ sensors
-- **Depth estimation**: ±0.3m through debris up to 5m
-- **Confidence scoring**: Real-time uncertainty quantification
+### 2. Định Vị Người Sống Sót
+- **Vị trí 2D**: Độ chính xác ±0.5m với 3+ cảm biến
+- **Ước tính độ sâu**: ±0.3m qua đống đổ nát đến 5m
+- **Chấm điểm tin cậy**: Lượng hóa độ không chắc chắn theo thời gian thực
 
-### 3. Triage Classification
-- **START protocol**: Immediate/Delayed/Minor/Deceased
-- **Automatic prioritization**: Based on vital signs and accessibility
-- **Dynamic updates**: Re-triage as conditions change
+### 3. Phân Loại Thương Vong
+- **Giao thức START**: Khẩn cấp/Trì hoãn/Nhẹ/Đã tử vong
+- **Ưu tiên tự động**: Dựa trên dấu hiệu sinh tồn và khả năng tiếp cận
+- **Cập nhật động**: Phân loại lại khi điều kiện thay đổi
 
-### 4. Alert System
-- **Priority-based**: Critical/High/Medium/Low alerts
-- **Multi-channel**: Audio, visual, mobile push, radio integration
-- **Escalation**: Automatic escalation for deteriorating survivors
+### 4. Hệ Thống Cảnh Báo
+- **Dựa trên mức độ ưu tiên**: Cảnh báo Nghiêm Trọng/Cao/Trung Bình/Thấp
+- **Đa kênh**: Tích hợp âm thanh, hình ảnh, thông báo di động, radio
+- **Leo thang**: Tự động leo thang cho người sống sót đang xấu đi
 
 ---
 
-## Installation
+## Cài Đặt
 
-### Prerequisites
+### Yêu Cầu Tiên Quyết
 
 ```bash
 # Rust toolchain (1.70+)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Required system dependencies (Ubuntu/Debian)
+# Các phụ thuộc hệ thống cần thiết (Ubuntu/Debian)
 sudo apt-get install -y build-essential pkg-config libssl-dev
 ```
 
-### Building from Source
+### Xây Dựng Từ Mã Nguồn
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/ruvnet/wifi-densepose.git
 cd wifi-densepose/rust-port/wifi-densepose-rs
 
-# Build the wifi-mat crate
+# Xây dựng crate wifi-mat
 cargo build --release --package wifi-densepose-mat
 
-# Run tests
+# Chạy kiểm tra
 cargo test --package wifi-densepose-mat
 
-# Build with all features
+# Xây dựng với tất cả tính năng
 cargo build --release --package wifi-densepose-mat --all-features
 ```
 
-### Feature Flags
+### Cờ Tính Năng
 
 ```toml
 # Cargo.toml features
@@ -120,9 +120,9 @@ full = ["serde", "async", "hardware", "neural"]
 
 ---
 
-## Quick Start
+## Bắt Đầu Nhanh
 
-### Basic Example
+### Ví Dụ Cơ Bản
 
 ```rust
 use wifi_densepose_mat::{
@@ -132,7 +132,7 @@ use wifi_densepose_mat::{
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    // Configure for earthquake response
+    // Cấu hình cho ứng phó động đất
     let config = DisasterConfig::builder()
         .disaster_type(DisasterType::Earthquake)
         .sensitivity(0.85)
@@ -141,14 +141,14 @@ async fn main() -> anyhow::Result<()> {
         .continuous_monitoring(true)
         .build();
 
-    // Initialize the response system
+    // Khởi tạo hệ thống ứng phó
     let mut response = DisasterResponse::new(config);
 
-    // Initialize the disaster event
+    // Khởi tạo sự kiện thảm họa
     let location = geo::Point::new(-122.4194, 37.7749); // San Francisco
     response.initialize_event(location, "Building collapse - Market Street")?;
 
-    // Define scan zones
+    // Xác định các vùng quét
     let zone_a = ScanZone::new(
         "North Wing - Ground Floor",
         ZoneBounds::rectangle(0.0, 0.0, 30.0, 20.0),
@@ -161,15 +161,15 @@ async fn main() -> anyhow::Result<()> {
     );
     response.add_zone(zone_b)?;
 
-    // Start scanning
+    // Bắt đầu quét
     println!("Starting survivor detection scan...");
     response.start_scanning().await?;
 
-    // Get detected survivors
+    // Lấy danh sách người sống sót được phát hiện
     let survivors = response.survivors();
     println!("Detected {} potential survivors", survivors.len());
 
-    // Get immediate priority survivors
+    // Lấy người sống sót ưu tiên khẩn cấp
     let immediate = response.survivors_by_triage(TriageStatus::Immediate);
     println!("{} survivors require immediate rescue", immediate.len());
 
@@ -177,7 +177,7 @@ async fn main() -> anyhow::Result<()> {
 }
 ```
 
-### Minimal Detection Example
+### Ví Dụ Phát Hiện Tối Giản
 
 ```rust
 use wifi_densepose_mat::detection::{
@@ -202,9 +202,9 @@ fn detect_breathing(csi_amplitudes: &[f64], sample_rate: f64) {
 
 ---
 
-## Architecture
+## Kiến Trúc
 
-### System Overview
+### Tổng Quan Hệ Thống
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -243,7 +243,7 @@ fn detect_breathing(csi_amplitudes: &[f64], sample_rate: f64) {
     └───────────────────┘ └───────────┘ └───────────────────┘
 ```
 
-### Domain Model
+### Mô Hình Miền
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -260,7 +260,7 @@ fn detect_breathing(csi_amplitudes: &[f64], sample_rate: f64) {
 │ - metadata: EventMetadata                                   │
 └─────────────────────────────────────────────────────────────┘
          │                              │
-         │ contains                     │ contains
+         │ chứa                         │ chứa
          ▼                              ▼
 ┌─────────────────────┐      ┌─────────────────────────────┐
 │     ScanZone        │      │         Survivor            │
@@ -277,32 +277,32 @@ fn detect_breathing(csi_amplitudes: &[f64], sample_rate: f64) {
 
 ---
 
-## Configuration
+## Cấu Hình
 
-### DisasterConfig Options
+### Tùy Chọn DisasterConfig
 
 ```rust
 let config = DisasterConfig {
-    // Type of disaster (affects detection algorithms)
+    // Loại thảm họa (ảnh hưởng đến thuật toán phát hiện)
     disaster_type: DisasterType::Earthquake,
 
-    // Detection sensitivity (0.0-1.0)
-    // Higher = more false positives, fewer missed detections
+    // Độ nhạy phát hiện (0.0-1.0)
+    // Cao hơn = nhiều dương tính giả hơn, ít bỏ sót phát hiện hơn
     sensitivity: 0.8,
 
-    // Minimum confidence to report a detection
+    // Độ tin cậy tối thiểu để báo cáo một lần phát hiện
     confidence_threshold: 0.5,
 
-    // Maximum depth to attempt detection (meters)
+    // Độ sâu tối đa để thử phát hiện (mét)
     max_depth: 5.0,
 
-    // Scan interval in milliseconds
+    // Khoảng thời gian quét tính bằng mili giây
     scan_interval_ms: 500,
 
-    // Keep scanning continuously
+    // Tiếp tục quét liên tục
     continuous_monitoring: true,
 
-    // Alert configuration
+    // Cấu hình cảnh báo
     alert_config: AlertConfig {
         enable_audio: true,
         enable_push: true,
@@ -312,35 +312,35 @@ let config = DisasterConfig {
 };
 ```
 
-### Disaster Types
+### Các Loại Thảm Họa
 
-| Type | Optimizations | Best For |
+| Loại | Tối Ưu Hóa | Phù Hợp Nhất |
 |------|--------------|----------|
-| `Earthquake` | Enhanced micro-movement detection | Building collapses |
-| `BuildingCollapse` | Deep penetration, noise filtering | Urban SAR |
-| `Avalanche` | Cold body compensation, snow penetration | Mountain rescue |
-| `Flood` | Water interference compensation | Flood rescue |
-| `MineCollapse` | Rock penetration, gas detection | Mining accidents |
-| `Explosion` | Blast trauma patterns | Industrial accidents |
-| `Unknown` | Balanced defaults | General use |
+| `Earthquake` | Tăng cường phát hiện micro-chuyển động | Sập nhà |
+| `BuildingCollapse` | Xuyên sâu, lọc nhiễu | SAR đô thị |
+| `Avalanche` | Bù thân nhiệt lạnh, xuyên tuyết | Cứu hộ núi |
+| `Flood` | Bù nhiễu nước | Cứu hộ lũ lụt |
+| `MineCollapse` | Xuyên đá, phát hiện khí | Tai nạn mỏ |
+| `Explosion` | Mô hình chấn thương nổ | Tai nạn công nghiệp |
+| `Unknown` | Mặc định cân bằng | Sử dụng chung |
 
 ### ScanParameters
 
 ```rust
 let params = ScanParameters {
-    // Detection sensitivity for this zone
+    // Độ nhạy phát hiện cho vùng này
     sensitivity: 0.85,
 
-    // Maximum scan depth (meters)
+    // Độ sâu quét tối đa (mét)
     max_depth: 5.0,
 
-    // Resolution level
+    // Mức độ phân giải
     resolution: ScanResolution::High,
 
-    // Enable enhanced breathing detection
+    // Bật tính năng phát hiện hô hấp nâng cao
     enhanced_breathing: true,
 
-    // Enable heartbeat detection (slower but more accurate)
+    // Bật phát hiện nhịp tim (chậm hơn nhưng chính xác hơn)
     heartbeat_detection: true,
 };
 
@@ -349,27 +349,27 @@ let zone = ScanZone::with_parameters("Zone A", bounds, params);
 
 ---
 
-## Detection Capabilities
+## Khả Năng Phát Hiện
 
-### Breathing Detection
+### Phát Hiện Hô Hấp
 
-WiFi-Mat detects breathing through periodic chest wall movements that modulate WiFi signals.
+WiFi-Mat phát hiện hô hấp thông qua các chuyển động định kỳ của thành ngực điều chế tín hiệu WiFi.
 
 ```rust
 use wifi_densepose_mat::detection::{BreathingDetector, BreathingDetectorConfig};
 
 let config = BreathingDetectorConfig {
-    // Breathing frequency range (Hz)
+    // Dải tần số hô hấp (Hz)
     min_frequency: 0.1,  // 6 BPM
     max_frequency: 0.5,  // 30 BPM
 
-    // Analysis window
+    // Cửa sổ phân tích
     window_seconds: 10.0,
 
-    // Detection threshold
+    // Ngưỡng phát hiện
     confidence_threshold: 0.3,
 
-    // Enable pattern classification
+    // Bật phân loại mô hình
     classify_patterns: true,
 };
 
@@ -377,29 +377,29 @@ let detector = BreathingDetector::new(config);
 let result = detector.detect(&amplitudes, sample_rate);
 ```
 
-**Detectable Patterns:**
-- Normal breathing
-- Shallow/rapid breathing
-- Deep/slow breathing
-- Irregular breathing
-- Agonal breathing (critical)
+**Các Mô Hình Có Thể Phát Hiện:**
+- Thở bình thường
+- Thở nông/nhanh
+- Thở sâu/chậm
+- Thở không đều
+- Thở hấp hối (nghiêm trọng)
 
-### Heartbeat Detection
+### Phát Hiện Nhịp Tim
 
-Uses micro-Doppler analysis to detect subtle body movements from heartbeat.
+Sử dụng phân tích micro-Doppler để phát hiện các chuyển động cơ thể tinh tế từ nhịp tim.
 
 ```rust
 use wifi_densepose_mat::detection::{HeartbeatDetector, HeartbeatDetectorConfig};
 
 let config = HeartbeatDetectorConfig {
-    // Heart rate range (Hz)
+    // Dải nhịp tim (Hz)
     min_frequency: 0.8,  // 48 BPM
     max_frequency: 3.0,  // 180 BPM
 
-    // Require breathing detection first (reduces false positives)
+    // Yêu cầu phát hiện hô hấp trước (giảm dương tính giả)
     require_breathing: true,
 
-    // Higher threshold due to subtle signal
+    // Ngưỡng cao hơn do tín hiệu tinh tế
     confidence_threshold: 0.4,
 };
 
@@ -407,7 +407,7 @@ let detector = HeartbeatDetector::new(config);
 let result = detector.detect(&phases, sample_rate, Some(breathing_rate));
 ```
 
-### Movement Classification
+### Phân Loại Chuyển Động
 
 ```rust
 use wifi_densepose_mat::detection::{MovementClassifier, MovementClassifierConfig};
@@ -426,39 +426,39 @@ match movement.movement_type {
 
 ---
 
-## Localization System
+## Hệ Thống Định Vị
 
-### Triangulation
+### Tam Giác Đạc
 
-Uses Time-of-Flight and signal strength from multiple sensors.
+Sử dụng Time-of-Flight và cường độ tín hiệu từ nhiều cảm biến.
 
 ```rust
 use wifi_densepose_mat::localization::{Triangulator, TriangulationConfig};
 
 let config = TriangulationConfig {
-    // Minimum sensors for 2D localization
+    // Số cảm biến tối thiểu để định vị 2D
     min_sensors: 3,
 
-    // Use RSSI in addition to CSI
+    // Sử dụng RSSI ngoài CSI
     use_rssi: true,
 
-    // Maximum iterations for optimization
+    // Số vòng lặp tối đa để tối ưu hóa
     max_iterations: 100,
 
-    // Convergence threshold
+    // Ngưỡng hội tụ
     convergence_threshold: 0.01,
 };
 
 let triangulator = Triangulator::new(config);
 
-// Sensor positions
+// Vị trí cảm biến
 let sensors = vec![
     SensorPosition { x: 0.0, y: 0.0, z: 1.5, .. },
     SensorPosition { x: 10.0, y: 0.0, z: 1.5, .. },
     SensorPosition { x: 5.0, y: 10.0, z: 1.5, .. },
 ];
 
-// RSSI measurements from each sensor
+// Đo lường RSSI từ mỗi cảm biến
 let measurements = vec![-45.0, -52.0, -48.0];
 
 let position = triangulator.estimate(&sensors, &measurements)?;
@@ -466,21 +466,21 @@ println!("Estimated position: ({:.2}, {:.2})", position.x, position.y);
 println!("Uncertainty: ±{:.2}m", position.uncertainty);
 ```
 
-### Depth Estimation
+### Ước Tính Độ Sâu
 
-Estimates depth through debris using signal attenuation analysis.
+Ước tính độ sâu qua đống đổ nát sử dụng phân tích suy giảm tín hiệu.
 
 ```rust
 use wifi_densepose_mat::localization::{DepthEstimator, DepthEstimatorConfig};
 
 let config = DepthEstimatorConfig {
-    // Material attenuation coefficients
+    // Hệ số suy giảm vật liệu
     material_model: MaterialModel::MixedDebris,
 
-    // Reference signal strength (clear line of sight)
+    // Cường độ tín hiệu tham chiếu (đường ngắm rõ)
     reference_rssi: -30.0,
 
-    // Maximum detectable depth
+    // Độ sâu tối đa có thể phát hiện
     max_depth: 8.0,
 };
 
@@ -492,16 +492,16 @@ println!("Confidence: {:.2}", depth.confidence);
 println!("Material: {:?}", depth.estimated_material);
 ```
 
-### Position Fusion
+### Hợp Nhất Vị Trí
 
-Combines multiple estimation methods using Kalman filtering.
+Kết hợp nhiều phương pháp ước tính sử dụng lọc Kalman.
 
 ```rust
 use wifi_densepose_mat::localization::{PositionFuser, LocalizationService};
 
 let service = LocalizationService::new();
 
-// Estimate full 3D position
+// Ước tính vị trí 3D đầy đủ
 let position = service.estimate_position(&vital_signs, &zone)?;
 
 println!("3D Position:");
@@ -513,27 +513,27 @@ println!("  Total confidence: {:.2}", position.confidence);
 
 ---
 
-## Triage Classification
+## Phân Loại Thương Vong
 
-### START Protocol
+### Giao Thức START
 
-WiFi-Mat implements the Simple Triage and Rapid Treatment (START) protocol:
+WiFi-Mat triển khai giao thức Simple Triage and Rapid Treatment (START):
 
-| Status | Criteria | Action |
+| Trạng Thái | Tiêu Chí | Hành Động |
 |--------|----------|--------|
-| **Immediate (Red)** | Breathing 10-29/min, no radial pulse, follows commands | Rescue first |
-| **Delayed (Yellow)** | Breathing normal, has pulse, injuries non-life-threatening | Rescue second |
-| **Minor (Green)** | Walking wounded, minor injuries | Can wait |
-| **Deceased (Black)** | No breathing after airway cleared | Do not rescue |
+| **Khẩn Cấp (Đỏ)** | Thở 10-29/phút, không có mạch quay, làm theo lệnh | Cứu trước |
+| **Trì Hoãn (Vàng)** | Thở bình thường, có mạch, thương tích không đe dọa tính mạng | Cứu sau |
+| **Nhẹ (Xanh)** | Người bị thương có thể đi lại, thương tích nhẹ | Có thể chờ |
+| **Đã Tử Vong (Đen)** | Không thở sau khi thông đường thở | Không cứu |
 
-### Automatic Triage
+### Phân Loại Tự Động
 
 ```rust
 use wifi_densepose_mat::domain::triage::{TriageCalculator, TriageStatus};
 
 let calculator = TriageCalculator::new();
 
-// Calculate triage based on vital signs
+// Tính toán phân loại dựa trên dấu hiệu sinh tồn
 let vital_signs = VitalSignsReading {
     breathing: Some(BreathingPattern {
         rate_bpm: 24.0,
@@ -562,10 +562,10 @@ match triage {
 }
 ```
 
-### Triage Factors
+### Các Yếu Tố Phân Loại
 
 ```rust
-// Access detailed triage reasoning
+// Truy cập lý giải phân loại chi tiết
 let factors = calculator.calculate_with_factors(&vital_signs);
 
 println!("Triage: {:?}", factors.status);
@@ -578,22 +578,22 @@ println!("Confidence: {:.2}", factors.confidence);
 
 ---
 
-## Alert System
+## Hệ Thống Cảnh Báo
 
-### Alert Generation
+### Tạo Cảnh Báo
 
 ```rust
 use wifi_densepose_mat::alerting::{AlertGenerator, AlertConfig};
 
 let config = AlertConfig {
-    // Minimum priority to generate alerts
+    // Mức ưu tiên tối thiểu để tạo cảnh báo
     priority_threshold: Priority::Medium,
 
-    // Escalation settings
+    // Cài đặt leo thang
     escalation_enabled: true,
     escalation_timeout: Duration::from_secs(300),
 
-    // Notification channels
+    // Kênh thông báo
     channels: vec![
         AlertChannel::Audio,
         AlertChannel::Visual,
@@ -604,7 +604,7 @@ let config = AlertConfig {
 
 let generator = AlertGenerator::new(config);
 
-// Generate alert for a survivor
+// Tạo cảnh báo cho một người sống sót
 let alert = generator.generate(&survivor)?;
 
 println!("Alert generated:");
@@ -613,40 +613,40 @@ println!("  Priority: {:?}", alert.priority());
 println!("  Message: {}", alert.message());
 ```
 
-### Alert Priorities
+### Mức Độ Ưu Tiên Cảnh Báo
 
-| Priority | Criteria | Response Time |
+| Mức Ưu Tiên | Tiêu Chí | Thời Gian Phản Hồi |
 |----------|----------|---------------|
-| **Critical** | Immediate triage, deteriorating | < 5 minutes |
-| **High** | Immediate triage, stable | < 15 minutes |
-| **Medium** | Delayed triage | < 1 hour |
-| **Low** | Minor triage | As available |
+| **Nghiêm Trọng** | Phân loại khẩn cấp, đang xấu đi | < 5 phút |
+| **Cao** | Phân loại khẩn cấp, ổn định | < 15 phút |
+| **Trung Bình** | Phân loại trì hoãn | < 1 giờ |
+| **Thấp** | Phân loại nhẹ | Khi có thể |
 
-### Alert Dispatch
+### Gửi Cảnh Báo
 
 ```rust
 use wifi_densepose_mat::alerting::AlertDispatcher;
 
 let dispatcher = AlertDispatcher::new(config);
 
-// Dispatch to all configured channels
+// Gửi đến tất cả các kênh đã cấu hình
 dispatcher.dispatch(alert).await?;
 
-// Dispatch to specific channel
+// Gửi đến kênh cụ thể
 dispatcher.dispatch_to(alert, AlertChannel::Radio).await?;
 
-// Bulk dispatch for multiple survivors
+// Gửi hàng loạt cho nhiều người sống sót
 dispatcher.dispatch_batch(&alerts).await?;
 ```
 
 ---
 
-## API Reference
+## Tài Liệu API
 
-### Core Types
+### Các Kiểu Dữ Liệu Cốt Lõi
 
 ```rust
-// Main entry point
+// Điểm vào chính
 pub struct DisasterResponse {
     pub fn new(config: DisasterConfig) -> Self;
     pub fn initialize_event(&mut self, location: Point, desc: &str) -> Result<&DisasterEvent>;
@@ -657,7 +657,7 @@ pub struct DisasterResponse {
     pub fn survivors_by_triage(&self, status: TriageStatus) -> Vec<&Survivor>;
 }
 
-// Configuration
+// Cấu hình
 pub struct DisasterConfig {
     pub disaster_type: DisasterType,
     pub sensitivity: f64,
@@ -668,35 +668,35 @@ pub struct DisasterConfig {
     pub alert_config: AlertConfig,
 }
 
-// Domain entities
+// Các thực thể miền
 pub struct Survivor { /* ... */ }
 pub struct ScanZone { /* ... */ }
 pub struct DisasterEvent { /* ... */ }
 pub struct Alert { /* ... */ }
 
-// Value objects
+// Các đối tượng giá trị
 pub struct VitalSignsReading { /* ... */ }
 pub struct BreathingPattern { /* ... */ }
 pub struct HeartbeatSignature { /* ... */ }
 pub struct Coordinates3D { /* ... */ }
 ```
 
-### Detection API
+### API Phát Hiện
 
 ```rust
-// Breathing
+// Hô hấp
 pub struct BreathingDetector {
     pub fn new(config: BreathingDetectorConfig) -> Self;
     pub fn detect(&self, amplitudes: &[f64], sample_rate: f64) -> Option<BreathingPattern>;
 }
 
-// Heartbeat
+// Nhịp tim
 pub struct HeartbeatDetector {
     pub fn new(config: HeartbeatDetectorConfig) -> Self;
     pub fn detect(&self, phases: &[f64], sample_rate: f64, breathing_rate: Option<f64>) -> Option<HeartbeatSignature>;
 }
 
-// Movement
+// Chuyển động
 pub struct MovementClassifier {
     pub fn new(config: MovementClassifierConfig) -> Self;
     pub fn classify(&self, amplitudes: &[f64], sample_rate: f64) -> MovementProfile;
@@ -710,7 +710,7 @@ pub struct DetectionPipeline {
 }
 ```
 
-### Localization API
+### API Định Vị
 
 ```rust
 pub struct Triangulator {
@@ -731,19 +731,19 @@ pub struct LocalizationService {
 
 ---
 
-## Hardware Setup
+## Thiết Lập Phần Cứng
 
-### Sensor Requirements
+### Yêu Cầu Cảm Biến
 
-| Component | Minimum | Recommended |
+| Thành Phần | Tối Thiểu | Khuyến Nghị |
 |-----------|---------|-------------|
-| WiFi Transceivers | 3 | 6-8 |
-| Sample Rate | 100 Hz | 1000 Hz |
-| Frequency Band | 2.4 GHz | 5 GHz |
-| Antenna Type | Omni | Directional |
-| Power | Battery | AC + Battery |
+| Bộ Thu Phát WiFi | 3 | 6-8 |
+| Tốc Độ Lấy Mẫu | 100 Hz | 1000 Hz |
+| Băng Tần | 2.4 GHz | 5 GHz |
+| Loại Ăng Ten | Đa hướng | Định hướng |
+| Nguồn Điện | Pin | AC + Pin |
 
-### Portable Sensor Array
+### Mảng Cảm Biến Di Động
 
 ```
     [Sensor 1]              [Sensor 2]
@@ -758,10 +758,10 @@ pub struct LocalizationService {
               [Display]
 ```
 
-### Sensor Placement
+### Bố Trí Cảm Biến
 
 ```rust
-// Example sensor configuration for a 30x20m zone
+// Ví dụ cấu hình cảm biến cho vùng 30x20m
 let sensors = vec![
     SensorPosition {
         id: "S1".into(),
@@ -792,29 +792,29 @@ let sensors = vec![
 
 ---
 
-## Field Deployment Guide
+## Hướng Dẫn Triển Khai Thực Địa
 
-### Pre-Deployment Checklist
+### Danh Sách Kiểm Tra Trước Triển Khai
 
-- [ ] Verify all sensors are charged (>80%)
-- [ ] Test sensor connectivity
-- [ ] Calibrate for local conditions
-- [ ] Establish communication with command center
-- [ ] Brief rescue teams on system capabilities
+- [ ] Xác minh tất cả cảm biến đã sạc (>80%)
+- [ ] Kiểm tra kết nối cảm biến
+- [ ] Hiệu chỉnh theo điều kiện địa phương
+- [ ] Thiết lập liên lạc với trung tâm chỉ huy
+- [ ] Thông báo cho các đội cứu hộ về khả năng của hệ thống
 
-### Deployment Steps
+### Các Bước Triển Khai
 
-1. **Site Assessment** (5 min)
-   - Identify safe sensor placement locations
-   - Note structural hazards
-   - Estimate debris composition
+1. **Đánh Giá Hiện Trường** (5 phút)
+   - Xác định vị trí đặt cảm biến an toàn
+   - Ghi nhận các nguy hiểm về kết cấu
+   - Ước tính thành phần đống đổ nát
 
-2. **Sensor Deployment** (10 min)
-   - Place sensors around perimeter of search area
-   - Ensure minimum 3 sensors with line-of-sight to each other
-   - Connect to controller
+2. **Triển Khai Cảm Biến** (10 phút)
+   - Đặt cảm biến xung quanh chu vi khu vực tìm kiếm
+   - Đảm bảo tối thiểu 3 cảm biến có đường ngắm tới nhau
+   - Kết nối với bộ điều khiển
 
-3. **System Initialization** (2 min)
+3. **Khởi Tạo Hệ Thống** (2 phút)
    ```rust
    let mut response = DisasterResponse::new(config);
    response.initialize_event(location, description)?;
@@ -824,16 +824,16 @@ let sensors = vec![
    }
    ```
 
-4. **Calibration** (5 min)
-   - Run background noise calibration
-   - Adjust sensitivity based on environment
+4. **Hiệu Chỉnh** (5 phút)
+   - Chạy hiệu chỉnh nhiễu nền
+   - Điều chỉnh độ nhạy dựa trên môi trường
 
-5. **Begin Scanning** (continuous)
+5. **Bắt Đầu Quét** (liên tục)
    ```rust
    response.start_scanning().await?;
    ```
 
-### Interpreting Results
+### Diễn Giải Kết Quả
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -869,94 +869,94 @@ let sensors = vec![
 
 ---
 
-## Troubleshooting
+## Khắc Phục Sự Cố
 
-### Common Issues
+### Các Vấn Đề Thường Gặp
 
-| Issue | Possible Cause | Solution |
+| Vấn Đề | Nguyên Nhân Có Thể | Giải Pháp |
 |-------|---------------|----------|
-| No detections | Sensitivity too low | Increase `sensitivity` to 0.9+ |
-| Too many false positives | Sensitivity too high | Decrease `sensitivity` to 0.6-0.7 |
-| Poor localization | Insufficient sensors | Add more sensors (minimum 3) |
-| Intermittent detections | Signal interference | Check for electromagnetic sources |
-| Depth estimation fails | Dense material | Adjust `material_model` |
+| Không phát hiện | Độ nhạy quá thấp | Tăng `sensitivity` lên 0.9+ |
+| Quá nhiều dương tính giả | Độ nhạy quá cao | Giảm `sensitivity` xuống 0.6-0.7 |
+| Định vị kém | Không đủ cảm biến | Thêm cảm biến (tối thiểu 3) |
+| Phát hiện gián đoạn | Nhiễu tín hiệu | Kiểm tra nguồn điện từ |
+| Ước tính độ sâu thất bại | Vật liệu dày đặc | Điều chỉnh `material_model` |
 
-### Diagnostic Commands
+### Lệnh Chẩn Đoán
 
 ```rust
-// Check system health
+// Kiểm tra sức khỏe hệ thống
 let health = response.hardware_health();
 println!("Sensors: {}/{} operational", health.connected, health.total);
 
-// View detection statistics
+// Xem thống kê phát hiện
 let stats = response.detection_stats();
 println!("Detection rate: {:.1}%", stats.detection_rate * 100.0);
 println!("False positive rate: {:.1}%", stats.false_positive_rate * 100.0);
 
-// Export diagnostic data
+// Xuất dữ liệu chẩn đoán
 response.export_diagnostics("/path/to/diagnostics.json")?;
 ```
 
 ---
 
-## Best Practices
+## Thực Hành Tốt Nhất
 
-### Detection Optimization
+### Tối Ưu Hóa Phát Hiện
 
-1. **Start with high sensitivity**, reduce if too many false positives
-2. **Enable heartbeat detection** only when breathing is confirmed
-3. **Use appropriate disaster type** for optimized algorithms
-4. **Increase scan duration** for weak signals (up to 30s windows)
+1. **Bắt đầu với độ nhạy cao**, giảm nếu có quá nhiều dương tính giả
+2. **Bật phát hiện nhịp tim** chỉ khi đã xác nhận hô hấp
+3. **Sử dụng loại thảm họa phù hợp** để có thuật toán tối ưu
+4. **Tăng thời gian quét** cho các tín hiệu yếu (cửa sổ lên đến 30 giây)
 
-### Localization Optimization
+### Tối Ưu Hóa Định Vị
 
-1. **Use 4+ sensors** for reliable 2D positioning
-2. **Spread sensors** to cover entire search area
-3. **Mount at consistent height** (1.5-2.0m recommended)
-4. **Account for sensor failures** with redundancy
+1. **Sử dụng 4+ cảm biến** để định vị 2D đáng tin cậy
+2. **Phân tán cảm biến** để bao phủ toàn bộ khu vực tìm kiếm
+3. **Gắn ở độ cao nhất quán** (khuyến nghị 1.5-2.0m)
+4. **Tính đến lỗi cảm biến** với dự phòng
 
-### Operational Tips
+### Mẹo Vận Hành
 
-1. **Scan in phases**: Quick scan first, then focused detailed scans
-2. **Mark confirmed positives**: Reduce redundant alerts
-3. **Update zones dynamically**: Remove cleared areas
-4. **Communicate confidence levels**: Not all detections are certain
-
----
-
-## Safety Considerations
-
-### Limitations
-
-- **Not 100% reliable**: Always verify with secondary methods
-- **Environmental factors**: Metal, water, thick concrete reduce effectiveness
-- **Living movement only**: Cannot detect unconscious/deceased without breathing
-- **Depth limits**: Accuracy decreases beyond 5m depth
-
-### Integration with Other Methods
-
-WiFi-Mat should be used alongside:
-- Acoustic detection (listening devices)
-- Canine search teams
-- Thermal imaging
-- Physical probing
-
-### False Negative Risk
-
-A **negative result does not guarantee absence of survivors**. Always:
-- Re-scan after debris removal
-- Use multiple scanning methods
-- Continue manual search procedures
+1. **Quét theo giai đoạn**: Quét nhanh trước, sau đó quét chi tiết tập trung
+2. **Đánh dấu các kết quả dương tính đã xác nhận**: Giảm cảnh báo trùng lặp
+3. **Cập nhật vùng động**: Xóa các khu vực đã xử lý
+4. **Truyền đạt mức độ tin cậy**: Không phải tất cả các phát hiện đều chắc chắn
 
 ---
 
-## Support
+## Lưu Ý An Toàn
 
-- **Documentation**: [ADR-001](/docs/adr/ADR-001-wifi-mat-disaster-detection.md)
-- **Domain Model**: [DDD Specification](/docs/ddd/wifi-mat-domain-model.md)
-- **Issues**: [GitHub Issues](https://github.com/ruvnet/wifi-densepose/issues)
-- **API Docs**: Run `cargo doc --package wifi-densepose-mat --open`
+### Hạn Chế
+
+- **Không đáng tin cậy 100%**: Luôn xác minh bằng các phương pháp thứ cấp
+- **Yếu tố môi trường**: Kim loại, nước, bê tông dày làm giảm hiệu quả
+- **Chỉ phát hiện chuyển động sống**: Không thể phát hiện người bất tỉnh/đã tử vong nếu không thở
+- **Giới hạn độ sâu**: Độ chính xác giảm vượt quá độ sâu 5m
+
+### Tích Hợp Với Các Phương Pháp Khác
+
+WiFi-Mat nên được sử dụng kết hợp với:
+- Phát hiện âm thanh (thiết bị nghe)
+- Đội tìm kiếm chó nghiệp vụ
+- Hình ảnh nhiệt
+- Thăm dò vật lý
+
+### Rủi Ro Âm Tính Giả
+
+**Kết quả âm tính không đảm bảo vắng mặt người sống sót**. Luôn:
+- Quét lại sau khi dọn đổ nát
+- Sử dụng nhiều phương pháp quét
+- Tiếp tục các thủ tục tìm kiếm thủ công
 
 ---
 
-*WiFi-Mat is designed to assist search and rescue operations. It is a tool to augment, not replace, trained rescue personnel and established SAR protocols.*
+## Hỗ Trợ
+
+- **Tài Liệu**: [ADR-001](/docs/adr/ADR-001-wifi-mat-disaster-detection.md)
+- **Mô Hình Miền**: [Đặc Tả DDD](/docs/ddd/wifi-mat-domain-model.md)
+- **Vấn Đề**: [GitHub Issues](https://github.com/ruvnet/wifi-densepose/issues)
+- **Tài Liệu API**: Chạy `cargo doc --package wifi-densepose-mat --open`
+
+---
+
+*WiFi-Mat được thiết kế để hỗ trợ các hoạt động tìm kiếm và cứu nạn. Đây là công cụ bổ trợ, không thay thế, nhân viên cứu hộ được đào tạo và các giao thức SAR đã được thiết lập.*
