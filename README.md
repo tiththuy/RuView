@@ -1,4 +1,4 @@
-# π RuView
+# 🌐 RuView
 
 <p align="center">
   <a href="https://ruvnet.github.io/RuView/">
@@ -6,29 +6,29 @@
   </a>
 </p>
 
-## **See through walls with WiFi + Ai** ##
+## **Nhìn xuyên tường bằng WiFi + AI** ##
 
-**Perceive the world through signals.** No cameras. No wearables. No Internet. Just physics.
+**Cảm nhận thế giới qua tín hiệu.** Không camera. Không thiết bị đeo. Không Internet. Chỉ là vật lý.
 
-### π RuView is an edge AI perception system that learns directly from the environment around it.
+### 🌐 RuView là hệ thống nhận thức AI edge học trực tiếp từ môi trường xung quanh.
 
-Instead of relying on cameras or cloud models, it observes whatever signals exist in a space such as WiFi, radio waves across the spectrum, motion patterns, vibration, sound, or other sensory inputs and builds an understanding of what is happening locally.
+Thay vì dựa vào camera hay mô hình đám mây, nó quan sát bất kỳ tín hiệu nào tồn tại trong không gian như WiFi, sóng radio trên phổ, các mẫu chuyển động, rung động, âm thanh, hoặc các đầu vào cảm biến khác và xây dựng hiểu biết về những gì đang xảy ra cục bộ.
 
-Built on top of [RuVector](https://github.com/ruvnet/ruvector/), the project became widely known for its implementation of WiFi DensePose — a sensing technique first explored in academic research such as Carnegie Mellon University's *DensePose From WiFi* work. That research demonstrated that WiFi signals can be used to reconstruct human pose.
+Được xây dựng trên nền tảng [RuVector](https://github.com/ruvnet/ruvector/), dự án trở nên được biết đến rộng rãi nhờ triển khai WiFi DensePose — một kỹ thuật sensing được khám phá lần đầu trong nghiên cứu học thuật như công trình *DensePose From WiFi* của Carnegie Mellon University. Nghiên cứu đó đã chứng minh rằng tín hiệu WiFi có thể được dùng để tái tạo tư thế người.
 
-RuView extends that concept into a practical edge system. By analyzing Channel State Information (CSI) disturbances caused by human movement, RuView reconstructs body position, breathing rate, heart rate, and presence in real time using physics-based signal processing and machine learning.
+RuView mở rộng khái niệm đó thành một hệ thống edge thực tế. Bằng cách phân tích các nhiễu loạn Channel State Information (CSI) do chuyển động người gây ra, RuView tái tạo vị trí cơ thể, nhịp thở, nhịp tim, và sự hiện diện theo thời gian thực bằng cách sử dụng xử lý tín hiệu dựa trên vật lý và machine learning.
 
-Unlike research systems that rely on synchronized cameras for training, RuView is designed to operate entirely from radio signals and self-learned embeddings at the edge.
+Không giống như các hệ thống nghiên cứu dựa vào camera đồng bộ để huấn luyện, RuView được thiết kế để hoạt động hoàn toàn từ tín hiệu radio và self-learned embeddings tại edge.
 
-The system runs entirely on inexpensive hardware such as an ESP32 sensor mesh (as low as ~$1 per node). Small programmable edge modules analyze signals locally and learn the RF signature of a room over time, allowing the system to separate the environment from the activity happening inside it.
+Hệ thống chạy hoàn toàn trên phần cứng giá rẻ như ESP32 sensor mesh (~$1 mỗi node). Các module edge lập trình nhỏ phân tích tín hiệu cục bộ và học RF signature của phòng theo thời gian, cho phép hệ thống tách biệt môi trường khỏi hoạt động xảy ra bên trong.
 
-Because RuView learns in proximity to the signals it observes, it improves as it operates. Each deployment develops a local model of its surroundings and continuously adapts without requiring cameras, labeled data, or cloud infrastructure.
+Vì RuView học gần với tín hiệu nó quan sát, nó cải thiện khi hoạt động. Mỗi triển khai phát triển một mô hình cục bộ về môi trường xung quanh và liên tục thích nghi mà không cần camera, dữ liệu được gán nhãn, hay cơ sở hạ tầng đám mây.
 
-In practice this means ordinary environments gain a new kind of spatial awareness. Rooms, buildings, and devices begin to sense presence, movement, and vital activity using the signals that already fill the space.
+Trong thực tế điều này có nghĩa là các môi trường thông thường có được một loại nhận thức không gian mới. Phòng, tòa nhà, và thiết bị bắt đầu cảm nhận sự hiện diện, chuyển động, và hoạt động vital bằng cách sử dụng các tín hiệu đã lấp đầy không gian.
 
-### Built for low-power edge applications
+### Được xây dựng cho các ứng dụng edge tiêu thụ điện thấp
 
-[Edge modules](#edge-intelligence-adr-041) are small programs that run directly on the ESP32 sensor — no internet needed, no cloud fees, instant response.
+Các [edge modules](#edge-intelligence-adr-041) là các chương trình nhỏ chạy trực tiếp trên ESP32 sensor — không cần internet, không phí đám mây, phản hồi tức thì.
 
 [![Rust 1.85+](https://img.shields.io/badge/rust-1.85+-orange.svg)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -39,45 +39,45 @@ In practice this means ordinary environments gain a new kind of spatial awarenes
 [![crates.io](https://img.shields.io/crates/v/wifi-densepose-ruvector.svg)](https://crates.io/crates/wifi-densepose-ruvector)
 
  
-> | What | How | Speed |
+> | Tính năng | Phương pháp | Tốc độ |
 > |------|-----|-------|
-> | **Pose estimation** | CSI subcarrier amplitude/phase → DensePose UV maps | 54K fps (Rust) |
-> | **Breathing detection** | Bandpass 0.1-0.5 Hz → FFT peak | 6-30 BPM |
-> | **Heart rate** | Bandpass 0.8-2.0 Hz → FFT peak | 40-120 BPM |
-> | **Presence sensing** | RSSI variance + motion band power | < 1ms latency |
-> | **Through-wall** | Fresnel zone geometry + multipath modeling | Up to 5m depth |
+> | **Pose estimation** | Biên độ/pha subcarrier CSI → DensePose UV maps | 54K fps (Rust) |
+> | **Phát hiện nhịp thở** | Bandpass 0.1-0.5 Hz → đỉnh FFT | 6-30 BPM |
+> | **Nhịp tim** | Bandpass 0.8-2.0 Hz → đỉnh FFT | 40-120 BPM |
+> | **Sensing hiện diện** | Phương sai RSSI + công suất dải chuyển động | Độ trễ < 1ms |
+> | **Xuyên tường** | Hình học vùng Fresnel + mô hình multipath | Sâu đến 5m |
 
 ```bash
-# 30 seconds to live sensing — no toolchain required
+# 30 giây đến live sensing — không cần toolchain
 docker pull ruvnet/wifi-densepose:latest
 docker run -p 3000:3000 ruvnet/wifi-densepose:latest
-# Open http://localhost:3000
+# Mở http://localhost:3000
 ```
 
 > [!NOTE]
-> **CSI-capable hardware required.** Pose estimation, vital signs, and through-wall sensing rely on Channel State Information (CSI) — per-subcarrier amplitude and phase data that standard consumer WiFi does not expose. You need CSI-capable hardware (ESP32-S3 or a research NIC) for full functionality. Consumer WiFi laptops can only provide RSSI-based presence detection, which is significantly less capable.
+> **Cần phần cứng có khả năng CSI.** Pose estimation, vital signs, và sensing xuyên tường dựa vào Channel State Information (CSI) — dữ liệu biên độ và pha từng subcarrier mà WiFi tiêu dùng chuẩn không cung cấp. Bạn cần phần cứng có khả năng CSI (ESP32-S3 hoặc NIC nghiên cứu) để có đầy đủ chức năng. Laptop WiFi tiêu dùng chỉ có thể cung cấp phát hiện hiện diện dựa trên RSSI, kém khả năng hơn đáng kể.
 
-> **Hardware options** for live CSI capture:
+> **Các tùy chọn phần cứng** để thu CSI trực tiếp:
 >
-> | Option | Hardware | Cost | Full CSI | Capabilities |
+> | Lựa chọn | Phần cứng | Chi phí | CSI đầy đủ | Khả năng |
 > |--------|----------|------|----------|-------------|
-> | **ESP32 Mesh** (recommended) | 3-6x ESP32-S3 + WiFi router | ~$54 | Yes | Pose, breathing, heartbeat, motion, presence |
-> | **Research NIC** | Intel 5300 / Atheros AR9580 | ~$50-100 | Yes | Full CSI with 3x3 MIMO |
-> | **Any WiFi** | Windows, macOS, or Linux laptop | $0 | No | RSSI-only: coarse presence and motion |
+> | **ESP32 Mesh** (khuyến nghị) | 3-6x ESP32-S3 + WiFi router | ~$54 | Có | Pose, nhịp thở, nhịp tim, chuyển động, hiện diện |
+> | **Research NIC** | Intel 5300 / Atheros AR9580 | ~$50-100 | Có | CSI đầy đủ với 3x3 MIMO |
+> | **WiFi bất kỳ** | Laptop Windows, macOS, hay Linux | $0 | Không | Chỉ RSSI: hiện diện và chuyển động thô |
 >
-> No hardware? Verify the signal processing pipeline with the deterministic reference signal: `python v1/data/proof/verify.py`
+> Không có phần cứng? Xác minh pipeline xử lý tín hiệu với tín hiệu tham chiếu tất định: `python v1/data/proof/verify.py`
 >
 ---
 
-## 📖 Documentation
+## 📖 Tài Liệu
 
-| Document | Description |
+| Tài liệu | Mô tả |
 |----------|-------------|
-| [User Guide](docs/user-guide.md) | Step-by-step guide: installation, first run, API usage, hardware setup, training |
-| [Build Guide](docs/build-guide.md) | Building from source (Rust and Python) |
-| [Architecture Decisions](docs/adr/README.md) | 48 ADRs — why each technical choice was made, organized by domain (hardware, signal processing, ML, platform, infrastructure) |
-| [Domain Models](docs/ddd/README.md) | 7 DDD models (RuvSense, Signal Processing, Training Pipeline, Hardware Platform, Sensing Server, WiFi-Mat, CHCI) — bounded contexts, aggregates, domain events, and ubiquitous language |
-| [Desktop App](rust-port/wifi-densepose-rs/crates/wifi-densepose-desktop/README.md) | **WIP** — Tauri v2 desktop app for node management, OTA updates, WASM deployment, and mesh visualization |
+| [Hướng Dẫn Người Dùng](docs/user-guide.md) | Hướng dẫn từng bước: cài đặt, chạy lần đầu, sử dụng API, thiết lập phần cứng, huấn luyện |
+| [Hướng Dẫn Build](docs/build-guide.md) | Build từ source (Rust và Python) |
+| [Các Quyết Định Kiến Trúc](docs/adr/README.md) | 48 ADRs — lý do cho mỗi lựa chọn kỹ thuật, được tổ chức theo domain (hardware, xử lý tín hiệu, ML, nền tảng, cơ sở hạ tầng) |
+| [Mô Hình Domain](docs/ddd/README.md) | 7 mô hình DDD (RuvSense, Xử lý Tín hiệu, Pipeline Huấn luyện, Nền tảng Phần cứng, Sensing Server, WiFi-Mat, CHCI) — bounded contexts, aggregates, domain events, và ngôn ngữ ubiquitous |
+| [Desktop App](rust-port/wifi-densepose-rs/crates/wifi-densepose-desktop/README.md) | **WIP** — Ứng dụng desktop Tauri v2 để quản lý node, cập nhật OTA, triển khai WASM, và trực quan hóa mesh |
 
 ---
 
@@ -86,466 +86,466 @@ docker run -p 3000:3000 ruvnet/wifi-densepose:latest
     <img src="assets/v2-screen.png" alt="WiFi DensePose — Live pose detection with setup guide" width="800">
   </a>
   <br>
-  <em>Real-time pose skeleton from WiFi CSI signals — no cameras, no wearables</em>
+  <em>Skeleton tư thế thời gian thực từ tín hiệu WiFi CSI — không camera, không thiết bị đeo</em>
   <br>
-  <a href="https://ruvnet.github.io/RuView/"><strong>▶ Live Observatory Demo</strong></a>
+  <a href="https://ruvnet.github.io/RuView/"><strong>▶ Demo Observatory Trực Tiếp</strong></a>
 
-> The [server](#-quick-start) is optional for visualization and aggregation — the ESP32 [runs independently](#esp32-s3-hardware-pipeline) for presence detection, vital signs, and fall alerts.
+> [Server](#-quick-start) là tùy chọn để trực quan hóa và tổng hợp — ESP32 [chạy độc lập](#esp32-s3-hardware-pipeline) để phát hiện hiện diện, vital signs, và cảnh báo té ngã.
 
 
-## 🚀 Key Features
+## 🚀 Tính Năng Chính
 
 ### Sensing
 
-See people, breathing, and heartbeats through walls — using only WiFi signals already in the room.
+Nhìn thấy người, nhịp thở, và nhịp tim xuyên tường — chỉ sử dụng tín hiệu WiFi đã có trong phòng.
 
-| | Feature | What It Means |
+| | Tính năng | Ý nghĩa |
 |---|---------|---------------|
-| 🔒 | **Privacy-First** | Tracks human pose using only WiFi signals — no cameras, no video, no images stored |
-| 💓 | **Vital Signs** | Detects breathing rate (6-30 breaths/min) and heart rate (40-120 bpm) without any wearable |
-| 👥 | **Multi-Person** | Tracks multiple people simultaneously, each with independent pose and vitals — no hard software limit (physics: ~3-5 per AP with 56 subcarriers, more with multi-AP) |
-| 🧱 | **Through-Wall** | WiFi passes through walls, furniture, and debris — works where cameras cannot |
-| 🚑 | **Disaster Response** | Detects trapped survivors through rubble and classifies injury severity (START triage) |
-| 📡 | **Multistatic Mesh** | 4-6 low-cost sensor nodes work together, combining 12+ overlapping signal paths for full 360-degree room coverage with sub-inch accuracy and no person mix-ups ([ADR-029](docs/adr/ADR-029-ruvsense-multistatic-sensing-mode.md)) |
-| 🌐 | **Persistent Field Model** | The system learns the RF signature of each room — then subtracts the room to isolate human motion, detect drift over days, predict intent before movement starts, and flag spoofing attempts ([ADR-030](docs/adr/ADR-030-ruvsense-persistent-field-model.md)) |
+| 🔒 | **Ưu tiên Quyền riêng tư** | Theo dõi tư thế người chỉ sử dụng tín hiệu WiFi — không camera, không video, không lưu hình ảnh |
+| 💓 | **Vital Signs** | Phát hiện nhịp thở (6-30 nhịp/phút) và nhịp tim (40-120 bpm) mà không cần thiết bị đeo |
+| 👥 | **Đa người** | Theo dõi nhiều người cùng lúc, mỗi người có tư thế và vitals độc lập — không có giới hạn phần mềm cứng (vật lý: ~3-5 người mỗi AP với 56 subcarriers, nhiều hơn với multi-AP) |
+| 🧱 | **Xuyên tường** | WiFi đi qua tường, đồ nội thất, và mảnh vỡ — hoạt động ở nơi camera không thể |
+| 🚑 | **Ứng phó Thảm họa** | Phát hiện người sống sót bị mắc kẹt qua đống đổ nát và phân loại mức độ thương tích (phân loại START) |
+| 📡 | **Multistatic Mesh** | 4-6 sensor node giá rẻ hoạt động cùng nhau, kết hợp 12+ đường tín hiệu chồng chéo để phủ sóng phòng 360 độ với độ chính xác dưới inch và không nhầm lẫn người ([ADR-029](docs/adr/ADR-029-ruvsense-multistatic-sensing-mode.md)) |
+| 🌐 | **Mô Hình Field Liên Tục** | Hệ thống học RF signature của mỗi phòng — sau đó trừ phòng để cô lập chuyển động người, phát hiện drift qua nhiều ngày, dự đoán ý định trước khi chuyển động bắt đầu, và gắn cờ các nỗ lực giả mạo ([ADR-030](docs/adr/ADR-030-ruvsense-persistent-field-model.md)) |
 
-### Intelligence
+### Trí tuệ
 
-The system learns on its own and gets smarter over time — no hand-tuning, no labeled data required.
+Hệ thống tự học và ngày càng thông minh hơn theo thời gian — không cần tinh chỉnh thủ công, không cần dữ liệu được gán nhãn.
 
-| | Feature | What It Means |
+| | Tính năng | Ý nghĩa |
 |---|---------|---------------|
-| 🧠 | **Self-Learning** | Teaches itself from raw WiFi data — no labeled training sets, no cameras needed to bootstrap ([ADR-024](docs/adr/ADR-024-contrastive-csi-embedding-model.md)) |
-| 🎯 | **AI Signal Processing** | Attention networks, graph algorithms, and smart compression replace hand-tuned thresholds — adapts to each room automatically ([RuVector](https://github.com/ruvnet/ruvector)) |
-| 🌍 | **Works Everywhere** | Train once, deploy in any room — adversarial domain generalization strips environment bias so models transfer across rooms, buildings, and hardware ([ADR-027](docs/adr/ADR-027-cross-environment-domain-generalization.md)) |
-| 👁️ | **Cross-Viewpoint Fusion** | AI combines what each sensor sees from its own angle — fills in blind spots and depth ambiguity that no single viewpoint can resolve on its own ([ADR-031](docs/adr/ADR-031-ruview-sensing-first-rf-mode.md)) |
-| 🔮 | **Signal-Line Protocol** | A 6-stage processing pipeline transforms raw WiFi signals into structured body representations — from signal cleanup through graph-based spatial reasoning to final pose output ([ADR-033](docs/adr/ADR-033-crv-signal-line-sensing-integration.md)) |
-| 🔒 | **QUIC Mesh Security** | All sensor-to-sensor communication is encrypted end-to-end with tamper detection, replay protection, and seamless reconnection if a node moves or drops offline ([ADR-032](docs/adr/ADR-032-multistatic-mesh-security-hardening.md)) |
-| 🎯 | **Adaptive Classifier** | Records labeled CSI sessions, trains a 15-feature logistic regression model in pure Rust, and learns your room's unique signal characteristics — replaces hand-tuned thresholds with data-driven classification ([ADR-048](docs/adr/ADR-048-adaptive-csi-classifier.md)) |
+| 🧠 | **Tự Học** | Tự dạy từ dữ liệu WiFi thô — không cần tập huấn luyện được gán nhãn, không cần camera để khởi động ([ADR-024](docs/adr/ADR-024-contrastive-csi-embedding-model.md)) |
+| 🎯 | **Xử Lý Tín Hiệu AI** | Mạng attention, thuật toán đồ thị, và nén thông minh thay thế ngưỡng được tinh chỉnh thủ công — tự động thích nghi với mỗi phòng ([RuVector](https://github.com/ruvnet/ruvector)) |
+| 🌍 | **Hoạt Động Ở Mọi Nơi** | Huấn luyện một lần, triển khai ở bất kỳ phòng nào — tổng quát hóa domain đối kháng loại bỏ bias môi trường để các mô hình chuyển đổi qua các phòng, tòa nhà, và phần cứng ([ADR-027](docs/adr/ADR-027-cross-environment-domain-generalization.md)) |
+| 👁️ | **Cross-Viewpoint Fusion** | AI kết hợp những gì mỗi sensor nhìn thấy từ góc độ của nó — lấp đầy điểm mù và sự mơ hồ chiều sâu mà không có góc nhìn đơn nào có thể giải quyết ([ADR-031](docs/adr/ADR-031-ruview-sensing-first-rf-mode.md)) |
+| 🔮 | **Giao Thức Signal-Line** | Pipeline xử lý 6 giai đoạn biến đổi tín hiệu WiFi thô thành biểu diễn cơ thể có cấu trúc — từ làm sạch tín hiệu qua lý luận không gian dựa trên đồ thị đến đầu ra pose cuối cùng ([ADR-033](docs/adr/ADR-033-crv-signal-line-sensing-integration.md)) |
+| 🔒 | **Bảo Mật QUIC Mesh** | Tất cả giao tiếp sensor-to-sensor được mã hóa end-to-end với phát hiện giả mạo, bảo vệ replay, và kết nối lại liền mạch nếu node di chuyển hoặc ngoại tuyến ([ADR-032](docs/adr/ADR-032-multistatic-mesh-security-hardening.md)) |
+| 🎯 | **Bộ Phân Loại Thích Nghi** | Ghi lại các phiên CSI được gán nhãn, huấn luyện mô hình logistic regression 15 đặc trưng trong Rust thuần, và học các đặc điểm tín hiệu độc đáo của phòng — thay thế ngưỡng được tinh chỉnh thủ công bằng phân loại dữ liệu ([ADR-048](docs/adr/ADR-048-adaptive-csi-classifier.md)) |
 
-### Performance & Deployment
+### Hiệu Suất & Triển Khai
 
-Fast enough for real-time use, small enough for edge devices, simple enough for one-command setup.
+Đủ nhanh để sử dụng thời gian thực, đủ nhỏ cho thiết bị edge, đủ đơn giản để thiết lập một lệnh.
 
-| | Feature | What It Means |
+| | Tính năng | Ý nghĩa |
 |---|---------|---------------|
-| ⚡ | **Real-Time** | Analyzes WiFi signals in under 100 microseconds per frame — fast enough for live monitoring |
-| 🦀 | **810x Faster** | Complete Rust rewrite: 54,000 frames/sec pipeline, multi-arch Docker image, 1,031+ tests |
-| 🐳 | **One-Command Setup** | `docker pull ruvnet/wifi-densepose:latest` — live sensing in 30 seconds, no toolchain needed (amd64 + arm64 / Apple Silicon) |
-| 📡 | **Fully Local** | Runs completely on a $9 ESP32 — no internet connection, no cloud account, no recurring fees. Detects presence, vital signs, and falls on-device with instant response |
-| 📦 | **Portable Models** | Trained models package into a single `.rvf` file — runs on edge, cloud, or browser (WASM) |
-| 🔭 | **Observatory Visualization** | Cinematic Three.js dashboard with 5 holographic panels — subcarrier manifold, vital signs oracle, presence heatmap, phase constellation, convergence engine — all driven by live or demo CSI data ([ADR-047](docs/adr/ADR-047-psychohistory-observatory-visualization.md)) |
-| 📟 | **AMOLED Display** | ESP32-S3 boards with built-in AMOLED screens show real-time presence, vital signs, and room status directly on the sensor — no phone or PC needed ([ADR-045](docs/adr/ADR-045-amoled-display-support.md)) |
+| ⚡ | **Thời Gian Thực** | Phân tích tín hiệu WiFi trong dưới 100 microseconds mỗi frame — đủ nhanh để giám sát trực tiếp |
+| 🦀 | **Nhanh Hơn 810x** | Rust rewrite hoàn chỉnh: pipeline 54.000 frames/giây, Docker image đa kiến trúc, 1.031+ tests |
+| 🐳 | **Thiết Lập Một Lệnh** | `docker pull ruvnet/wifi-densepose:latest` — live sensing trong 30 giây, không cần toolchain (amd64 + arm64 / Apple Silicon) |
+| 📡 | **Hoàn Toàn Cục Bộ** | Chạy hoàn toàn trên ESP32 $9 — không kết nối internet, không tài khoản đám mây, không phí định kỳ. Phát hiện hiện diện, vital signs, và té ngã trên thiết bị với phản hồi tức thì |
+| 📦 | **Mô Hình Di Động** | Các mô hình được huấn luyện đóng gói vào file `.rvf` duy nhất — chạy trên edge, cloud, hay trình duyệt (WASM) |
+| 🔭 | **Trực Quan Hóa Observatory** | Dashboard Three.js điện ảnh với 5 bảng holographic — subcarrier manifold, vital signs oracle, heatmap hiện diện, phase constellation, convergence engine — tất cả được điều khiển bởi dữ liệu CSI trực tiếp hoặc demo ([ADR-047](docs/adr/ADR-047-psychohistory-observatory-visualization.md)) |
+| 📟 | **Màn Hình AMOLED** | Các bo mạch ESP32-S3 với màn hình AMOLED tích hợp hiển thị hiện diện, vital signs, và trạng thái phòng thời gian thực trực tiếp trên sensor — không cần điện thoại hay PC ([ADR-045](docs/adr/ADR-045-amoled-display-support.md)) |
 
 ---
 
-## 🔬 How It Works
+## 🔬 Cách Hoạt Động
 
-WiFi routers flood every room with radio waves. When a person moves — or even breathes — those waves scatter differently. WiFi DensePose reads that scattering pattern and reconstructs what happened:
+Các router WiFi phủ sóng mỗi phòng với sóng radio. Khi một người di chuyển — hay thậm chí thở — những sóng đó tán xạ khác đi. WiFi DensePose đọc mẫu tán xạ đó và tái tạo những gì đã xảy ra:
 
 ```
-WiFi Router → radio waves pass through room → hit human body → scatter
+WiFi Router → sóng radio đi qua phòng → chạm vào cơ thể người → tán xạ
     ↓
-ESP32 mesh (4-6 nodes) captures CSI on channels 1/6/11 via TDM protocol
+ESP32 mesh (4-6 nodes) thu CSI trên kênh 1/6/11 qua giao thức TDM
     ↓
-Multi-Band Fusion: 3 channels × 56 subcarriers = 168 virtual subcarriers per link
+Hợp Nhất Đa Băng Tần: 3 kênh × 56 subcarriers = 168 subcarrier ảo mỗi liên kết
     ↓
-Multistatic Fusion: N×(N-1) links → attention-weighted cross-viewpoint embedding
+Hợp Nhất Multistatic: N×(N-1) liên kết → embedding cross-viewpoint có trọng số attention
     ↓
-Coherence Gate: accept/reject measurements → stable for days without tuning
+Coherence Gate: chấp nhận/từ chối đo lường → ổn định trong nhiều ngày mà không cần điều chỉnh
     ↓
-Signal Processing: Hampel, SpotFi, Fresnel, BVP, spectrogram → clean features
+Xử Lý Tín Hiệu: Hampel, SpotFi, Fresnel, BVP, spectrogram → đặc trưng sạch
     ↓
-AI Backbone (RuVector): attention, graph algorithms, compression, field model
+AI Backbone (RuVector): attention, thuật toán đồ thị, nén, mô hình field
     ↓
-Signal-Line Protocol (CRV): 6-stage gestalt → sensory → topology → coherence → search → model
+Giao Thức Signal-Line (CRV): 6 giai đoạn gestalt → sensory → topology → coherence → search → model
     ↓
-Neural Network: processed signals → 17 body keypoints + vital signs + room model
+Neural Network: tín hiệu đã xử lý → 17 body keypoints + vital signs + mô hình phòng
     ↓
-Output: real-time pose, breathing, heart rate, room fingerprint, drift alerts
+Đầu ra: pose thời gian thực, nhịp thở, nhịp tim, fingerprint phòng, cảnh báo drift
 ```
 
-No training cameras required — the [Self-Learning system (ADR-024)](docs/adr/ADR-024-contrastive-csi-embedding-model.md) bootstraps from raw WiFi data alone. [MERIDIAN (ADR-027)](docs/adr/ADR-027-cross-environment-domain-generalization.md) ensures the model works in any room, not just the one it trained in.
+Không cần camera huấn luyện — [hệ thống Tự Học (ADR-024)](docs/adr/ADR-024-contrastive-csi-embedding-model.md) khởi động từ dữ liệu WiFi thô một mình. [MERIDIAN (ADR-027)](docs/adr/ADR-027-cross-environment-domain-generalization.md) đảm bảo mô hình hoạt động trong bất kỳ phòng nào, không chỉ phòng nó được huấn luyện.
 
 ---
 
-## 🏢 Use Cases & Applications
+## 🏢 Trường Hợp Sử Dụng & Ứng Dụng
 
-WiFi sensing works anywhere WiFi exists. No new hardware in most cases — just software on existing access points or a $8 ESP32 add-on. Because there are no cameras, deployments avoid privacy regulations (GDPR video, HIPAA imaging) by design.
+WiFi sensing hoạt động ở bất cứ đâu có WiFi. Không cần phần cứng mới trong hầu hết các trường hợp — chỉ cần phần mềm trên các access point hiện có hoặc thiết bị bổ sung ESP32 $8. Vì không có camera, các triển khai tránh các quy định quyền riêng tư (video GDPR, hình ảnh HIPAA) theo thiết kế.
 
-**Scaling:** Each AP distinguishes ~3-5 people (56 subcarriers). Multi-AP multiplies linearly — a 4-AP retail mesh covers ~15-20 occupants. No hard software limit; the practical ceiling is signal physics.
+**Quy mô:** Mỗi AP phân biệt ~3-5 người (56 subcarriers). Đa AP nhân tuyến tính — lưới bán lẻ 4-AP bao phủ ~15-20 người. Không có giới hạn phần mềm cứng; trần thực tế là vật lý tín hiệu.
 
-| | Why WiFi sensing wins | Traditional alternative |
+| | Tại sao WiFi sensing chiến thắng | Phương án truyền thống |
 |---|----------------------|----------------------|
-| 🔒 | **No video, no GDPR/HIPAA imaging rules** | Cameras require consent, signage, data retention policies |
-| 🧱 | **Works through walls, shelving, debris** | Cameras need line-of-sight per room |
-| 🌙 | **Works in total darkness** | Cameras need IR or visible light |
-| 💰 | **$0-$8 per zone** (existing WiFi or ESP32) | Camera systems: $200-$2,000 per zone |
-| 🔌 | **WiFi already deployed everywhere** | PIR/radar sensors require new wiring per room |
+| 🔒 | **Không video, không quy tắc hình ảnh GDPR/HIPAA** | Camera cần sự đồng ý, biển báo, chính sách lưu trữ dữ liệu |
+| 🧱 | **Hoạt động xuyên tường, kệ hàng, mảnh vỡ** | Camera cần tầm nhìn trực tiếp mỗi phòng |
+| 🌙 | **Hoạt động trong bóng tối hoàn toàn** | Camera cần IR hoặc ánh sáng khả kiến |
+| 💰 | **$0-$8 mỗi vùng** (WiFi hiện có hoặc ESP32) | Hệ thống camera: $200-$2.000 mỗi vùng |
+| 🔌 | **WiFi đã được triển khai khắp nơi** | Sensor PIR/radar cần đi dây mới mỗi phòng |
 
 <details>
-<summary><strong>🏥 Everyday</strong> — Healthcare, retail, office, hospitality (commodity WiFi)</summary>
+<summary><strong>🏥 Hàng ngày</strong> — Chăm sóc sức khỏe, bán lẻ, văn phòng, khách sạn (WiFi thông thường)</summary>
 
-| Use Case | What It Does | Hardware | Key Metric | Edge Module |
+| Trường hợp sử dụng | Tính năng | Phần cứng | Chỉ số chính | Edge Module |
 |----------|-------------|----------|------------|-------------|
-| **Elderly care / assisted living** | Fall detection, nighttime activity monitoring, breathing rate during sleep — no wearable compliance needed | 1 ESP32-S3 per room ($8) | Fall alert <2s | [Sleep Apnea](docs/edge-modules/medical.md), [Gait Analysis](docs/edge-modules/medical.md) |
-| **Hospital patient monitoring** | Continuous breathing + heart rate for non-critical beds without wired sensors; nurse alert on anomaly | 1-2 APs per ward | Breathing: 6-30 BPM | [Respiratory Distress](docs/edge-modules/medical.md), [Cardiac Arrhythmia](docs/edge-modules/medical.md) |
-| **Emergency room triage** | Automated occupancy count + wait-time estimation; detect patient distress (abnormal breathing) in waiting areas | Existing hospital WiFi | Occupancy accuracy >95% | [Queue Length](docs/edge-modules/retail.md), [Panic Motion](docs/edge-modules/security.md) |
-| **Retail occupancy & flow** | Real-time foot traffic, dwell time by zone, queue length — no cameras, no opt-in, GDPR-friendly | Existing store WiFi + 1 ESP32 | Dwell resolution ~1m | [Customer Flow](docs/edge-modules/retail.md), [Dwell Heatmap](docs/edge-modules/retail.md) |
-| **Office space utilization** | Which desks/rooms are actually occupied, meeting room no-shows, HVAC optimization based on real presence | Existing enterprise WiFi | Presence latency <1s | [Meeting Room](docs/edge-modules/building.md), [HVAC Presence](docs/edge-modules/building.md) |
-| **Hotel & hospitality** | Room occupancy without door sensors, minibar/bathroom usage patterns, energy savings on empty rooms | Existing hotel WiFi | 15-30% HVAC savings | [Energy Audit](docs/edge-modules/building.md), [Lighting Zones](docs/edge-modules/building.md) |
-| **Restaurants & food service** | Table turnover tracking, kitchen staff presence, restroom occupancy displays — no cameras in dining areas | Existing WiFi | Queue wait ±30s | [Table Turnover](docs/edge-modules/retail.md), [Queue Length](docs/edge-modules/retail.md) |
-| **Parking garages** | Pedestrian presence in stairwells and elevators where cameras have blind spots; security alert if someone lingers | Existing WiFi | Through-concrete walls | [Loitering](docs/edge-modules/security.md), [Elevator Count](docs/edge-modules/building.md) |
+| **Chăm sóc người cao tuổi / hỗ trợ sinh hoạt** | Phát hiện té ngã, giám sát hoạt động ban đêm, nhịp thở khi ngủ — không cần tuân thủ thiết bị đeo | 1 ESP32-S3 mỗi phòng ($8) | Cảnh báo té ngã <2s | [Sleep Apnea](docs/edge-modules/medical.md), [Gait Analysis](docs/edge-modules/medical.md) |
+| **Giám sát bệnh nhân bệnh viện** | Nhịp thở + nhịp tim liên tục cho giường không quan trọng mà không cần sensor có dây; cảnh báo y tá khi có bất thường | 1-2 AP mỗi phòng bệnh | Nhịp thở: 6-30 BPM | [Respiratory Distress](docs/edge-modules/medical.md), [Cardiac Arrhythmia](docs/edge-modules/medical.md) |
+| **Phân loại phòng cấp cứu** | Đếm số người tự động + ước tính thời gian chờ; phát hiện đau khổ của bệnh nhân (nhịp thở bất thường) trong khu vực chờ | WiFi bệnh viện hiện có | Độ chính xác số người >95% | [Queue Length](docs/edge-modules/retail.md), [Panic Motion](docs/edge-modules/security.md) |
+| **Số lượng người & luồng bán lẻ** | Lưu lượng khách hàng thời gian thực, thời gian dừng theo vùng, độ dài hàng chờ — không camera, không opt-in, thân thiện GDPR | WiFi cửa hàng hiện có + 1 ESP32 | Độ phân giải dừng ~1m | [Customer Flow](docs/edge-modules/retail.md), [Dwell Heatmap](docs/edge-modules/retail.md) |
+| **Sử dụng không gian văn phòng** | Bàn/phòng nào thực sự được chiếm dụng, phòng họp vắng chủ, tối ưu hóa HVAC dựa trên hiện diện thực | WiFi doanh nghiệp hiện có | Độ trễ hiện diện <1s | [Meeting Room](docs/edge-modules/building.md), [HVAC Presence](docs/edge-modules/building.md) |
+| **Khách sạn & dịch vụ lưu trú** | Số phòng bị chiếm mà không cần sensor cửa, mẫu sử dụng minibar/phòng tắm, tiết kiệm năng lượng cho phòng trống | WiFi khách sạn hiện có | Tiết kiệm HVAC 15-30% | [Energy Audit](docs/edge-modules/building.md), [Lighting Zones](docs/edge-modules/building.md) |
+| **Nhà hàng & dịch vụ thực phẩm** | Theo dõi vòng quay bàn, hiện diện nhân viên bếp, màn hình số phòng vệ sinh bị chiếm — không camera trong khu vực ăn uống | WiFi hiện có | Thời gian chờ hàng ±30s | [Table Turnover](docs/edge-modules/retail.md), [Queue Length](docs/edge-modules/retail.md) |
+| **Bãi đậu xe** | Hiện diện người đi bộ trong cầu thang và thang máy nơi camera có điểm mù; cảnh báo bảo mật nếu ai đó nán lại | WiFi hiện có | Xuyên tường bê tông | [Loitering](docs/edge-modules/security.md), [Elevator Count](docs/edge-modules/building.md) |
 
 </details>
 
 <details>
-<summary><strong>🏟️ Specialized</strong> — Events, fitness, education, civic (CSI-capable hardware)</summary>
+<summary><strong>🏟️ Chuyên biệt</strong> — Sự kiện, thể dục, giáo dục, dân sự (phần cứng có khả năng CSI)</summary>
 
-| Use Case | What It Does | Hardware | Key Metric | Edge Module |
+| Trường hợp sử dụng | Tính năng | Phần cứng | Chỉ số chính | Edge Module |
 |----------|-------------|----------|------------|-------------|
-| **Smart home automation** | Room-level presence triggers (lights, HVAC, music) that work through walls — no dead zones, no motion-sensor timeouts | 2-3 ESP32-S3 nodes ($24) | Through-wall range ~5m | [HVAC Presence](docs/edge-modules/building.md), [Lighting Zones](docs/edge-modules/building.md) |
-| **Fitness & sports** | Rep counting, posture correction, breathing cadence during exercise — no wearable, no camera in locker rooms | 3+ ESP32-S3 mesh | Pose: 17 keypoints | [Breathing Sync](docs/edge-modules/exotic.md), [Gait Analysis](docs/edge-modules/medical.md) |
-| **Childcare & schools** | Naptime breathing monitoring, playground headcount, restricted-area alerts — privacy-safe for minors | 2-4 ESP32-S3 per zone | Breathing: ±1 BPM | [Sleep Apnea](docs/edge-modules/medical.md), [Perimeter Breach](docs/edge-modules/security.md) |
-| **Event venues & concerts** | Crowd density mapping, crush-risk detection via breathing compression, emergency evacuation flow tracking | Multi-AP mesh (4-8 APs) | Density per m² | [Customer Flow](docs/edge-modules/retail.md), [Panic Motion](docs/edge-modules/security.md) |
-| **Stadiums & arenas** | Section-level occupancy for dynamic pricing, concession staffing, emergency egress flow modeling | Enterprise AP grid | 15-20 per AP mesh | [Dwell Heatmap](docs/edge-modules/retail.md), [Queue Length](docs/edge-modules/retail.md) |
-| **Houses of worship** | Attendance counting without facial recognition — privacy-sensitive congregations, multi-room campus tracking | Existing WiFi | Zone-level accuracy | [Elevator Count](docs/edge-modules/building.md), [Energy Audit](docs/edge-modules/building.md) |
-| **Warehouse & logistics** | Worker safety zones, forklift proximity alerts, occupancy in hazardous areas — works through shelving and pallets | Industrial AP mesh | Alert latency <500ms | [Forklift Proximity](docs/edge-modules/industrial.md), [Confined Space](docs/edge-modules/industrial.md) |
-| **Civic infrastructure** | Public restroom occupancy (no cameras possible), subway platform crowding, shelter headcount during emergencies | Municipal WiFi + ESP32 | Real-time headcount | [Customer Flow](docs/edge-modules/retail.md), [Loitering](docs/edge-modules/security.md) |
-| **Museums & galleries** | Visitor flow heatmaps, exhibit dwell time, crowd bottleneck alerts — no cameras near artwork (flash/theft risk) | Existing WiFi | Zone dwell ±5s | [Dwell Heatmap](docs/edge-modules/retail.md), [Shelf Engagement](docs/edge-modules/retail.md) |
+| **Tự động hóa nhà thông minh** | Kích hoạt hiện diện cấp phòng (đèn, HVAC, âm nhạc) hoạt động xuyên tường — không có vùng chết, không timeout sensor chuyển động | 2-3 node ESP32-S3 ($24) | Phạm vi xuyên tường ~5m | [HVAC Presence](docs/edge-modules/building.md), [Lighting Zones](docs/edge-modules/building.md) |
+| **Thể dục & thể thao** | Đếm rep, sửa tư thế, nhịp thở khi tập — không thiết bị đeo, không camera trong phòng thay đồ | 3+ ESP32-S3 mesh | Pose: 17 keypoints | [Breathing Sync](docs/edge-modules/exotic.md), [Gait Analysis](docs/edge-modules/medical.md) |
+| **Trẻ em & trường học** | Giám sát nhịp thở giờ ngủ trưa, đếm đầu người sân chơi, cảnh báo khu vực hạn chế — an toàn quyền riêng tư cho trẻ em | 2-4 ESP32-S3 mỗi vùng | Nhịp thở: ±1 BPM | [Sleep Apnea](docs/edge-modules/medical.md), [Perimeter Breach](docs/edge-modules/security.md) |
+| **Địa điểm sự kiện & hòa nhạc** | Lập bản đồ mật độ đám đông, phát hiện nguy cơ chèn ép qua nén nhịp thở, theo dõi luồng sơ tán khẩn cấp | Multi-AP mesh (4-8 APs) | Mật độ mỗi m² | [Customer Flow](docs/edge-modules/retail.md), [Panic Motion](docs/edge-modules/security.md) |
+| **Sân vận động & nhà thi đấu** | Số người theo khu vực để định giá động, bố trí nhân viên quầy bán hàng, mô hình luồng thoát khẩn cấp | Lưới AP doanh nghiệp | 15-20 mỗi AP mesh | [Dwell Heatmap](docs/edge-modules/retail.md), [Queue Length](docs/edge-modules/retail.md) |
+| **Nhà thờ & nơi thờ phụng** | Đếm người tham dự không cần nhận diện khuôn mặt — hội chúng nhạy cảm quyền riêng tư, theo dõi khuôn viên đa phòng | WiFi hiện có | Độ chính xác cấp vùng | [Elevator Count](docs/edge-modules/building.md), [Energy Audit](docs/edge-modules/building.md) |
+| **Kho bãi & hậu cần** | Vùng an toàn công nhân, cảnh báo xe nâng gần, số người trong khu vực nguy hiểm — hoạt động qua kệ và pallet | AP công nghiệp mỗi vùng | Độ trễ cảnh báo <500ms | [Forklift Proximity](docs/edge-modules/industrial.md), [Confined Space](docs/edge-modules/industrial.md) |
+| **Cơ sở hạ tầng dân sự** | Số người nhà vệ sinh công cộng (không thể dùng camera), đám đông sân ga tàu điện ngầm, đếm người trú ẩn khi khẩn cấp | WiFi đô thị + ESP32 | Đếm đầu người thời gian thực | [Customer Flow](docs/edge-modules/retail.md), [Loitering](docs/edge-modules/security.md) |
+| **Bảo tàng & phòng trưng bày** | Heatmap luồng khách tham quan, thời gian dừng tại triển lãm, cảnh báo điểm nghẽn đám đông — không camera gần tác phẩm (nguy cơ đèn flash/trộm) | WiFi hiện có | Dừng vùng ±5s | [Dwell Heatmap](docs/edge-modules/retail.md), [Shelf Engagement](docs/edge-modules/retail.md) |
 
 </details>
 
 <details>
-<summary><strong>🤖 Robotics & Industrial</strong> — Autonomous systems, manufacturing, android spatial awareness</summary>
+<summary><strong>🤖 Robotics & Công nghiệp</strong> — Hệ thống tự trị, sản xuất, nhận thức không gian android</summary>
 
-WiFi sensing gives robots and autonomous systems a spatial awareness layer that works where LIDAR and cameras fail — through dust, smoke, fog, and around corners. The CSI signal field acts as a "sixth sense" for detecting humans in the environment without requiring line-of-sight.
+WiFi sensing cung cấp cho robot và hệ thống tự trị một tầng nhận thức không gian hoạt động ở nơi LIDAR và camera thất bại — qua bụi, khói, sương mù, và quanh góc khuất. Trường tín hiệu CSI hoạt động như "giác quan thứ sáu" để phát hiện người trong môi trường mà không cần tầm nhìn trực tiếp.
 
-| Use Case | What It Does | Hardware | Key Metric | Edge Module |
+| Trường hợp sử dụng | Tính năng | Phần cứng | Chỉ số chính | Edge Module |
 |----------|-------------|----------|------------|-------------|
-| **Cobot safety zones** | Detect human presence near collaborative robots — auto-slow or stop before contact, even behind obstructions | 2-3 ESP32-S3 per cell | Presence latency <100ms | [Forklift Proximity](docs/edge-modules/industrial.md), [Perimeter Breach](docs/edge-modules/security.md) |
-| **Warehouse AMR navigation** | Autonomous mobile robots sense humans around blind corners, through shelving racks — no LIDAR occlusion | ESP32 mesh along aisles | Through-shelf detection | [Forklift Proximity](docs/edge-modules/industrial.md), [Loitering](docs/edge-modules/security.md) |
-| **Android / humanoid spatial awareness** | Ambient human pose sensing for social robots — detect gestures, approach direction, and personal space without cameras always on | Onboard ESP32-S3 module | 17-keypoint pose | [Gesture Language](docs/edge-modules/exotic.md), [Emotion Detection](docs/edge-modules/exotic.md) |
-| **Manufacturing line monitoring** | Worker presence at each station, ergonomic posture alerts, headcount for shift compliance — works through equipment | Industrial AP per zone | Pose + breathing | [Confined Space](docs/edge-modules/industrial.md), [Gait Analysis](docs/edge-modules/medical.md) |
-| **Construction site safety** | Exclusion zone enforcement around heavy machinery, fall detection from scaffolding, personnel headcount | Ruggedized ESP32 mesh | Alert <2s, through-dust | [Panic Motion](docs/edge-modules/security.md), [Structural Vibration](docs/edge-modules/industrial.md) |
-| **Agricultural robotics** | Detect farm workers near autonomous harvesters in dusty/foggy field conditions where cameras are unreliable | Weatherproof ESP32 nodes | Range ~10m open field | [Forklift Proximity](docs/edge-modules/industrial.md), [Rain Detection](docs/edge-modules/exotic.md) |
-| **Drone landing zones** | Verify landing area is clear of humans — WiFi sensing works in rain, dust, and low light where downward cameras fail | Ground ESP32 nodes | Presence: >95% accuracy | [Perimeter Breach](docs/edge-modules/security.md), [Tailgating](docs/edge-modules/security.md) |
-| **Clean room monitoring** | Personnel tracking without cameras (particle contamination risk from camera fans) — gown compliance via pose | Existing cleanroom WiFi | No particulate emission | [Clean Room](docs/edge-modules/industrial.md), [Livestock Monitor](docs/edge-modules/industrial.md) |
+| **Vùng an toàn cobot** | Phát hiện sự hiện diện người gần robot cộng tác — tự động giảm tốc hoặc dừng trước khi tiếp xúc, ngay cả sau chướng ngại vật | 2-3 ESP32-S3 mỗi ô | Độ trễ hiện diện <100ms | [Forklift Proximity](docs/edge-modules/industrial.md), [Perimeter Breach](docs/edge-modules/security.md) |
+| **Điều hướng AMR kho bãi** | Robot di động tự trị cảm nhận người quanh góc khuất, qua kệ hàng — không có occlusion LIDAR | ESP32 mesh dọc lối đi | Phát hiện xuyên kệ | [Forklift Proximity](docs/edge-modules/industrial.md), [Loitering](docs/edge-modules/security.md) |
+| **Nhận thức không gian android / humanoid** | Sensing tư thế người xung quanh cho robot xã hội — phát hiện cử chỉ, hướng tiếp cận, và không gian cá nhân mà không cần camera luôn bật | Module ESP32-S3 trên bo | Pose 17 keypoint | [Gesture Language](docs/edge-modules/exotic.md), [Emotion Detection](docs/edge-modules/exotic.md) |
+| **Giám sát dây chuyền sản xuất** | Hiện diện công nhân tại mỗi trạm, cảnh báo tư thế ergonomic, đếm đầu người để tuân thủ ca — hoạt động qua thiết bị | AP công nghiệp mỗi vùng | Pose + nhịp thở | [Confined Space](docs/edge-modules/industrial.md), [Gait Analysis](docs/edge-modules/medical.md) |
+| **An toàn công trường xây dựng** | Thực thi vùng loại trừ quanh máy móc hạng nặng, phát hiện té ngã từ giàn giáo, đếm đầu người | ESP32 mesh chống thời tiết | Cảnh báo <2s, xuyên bụi | [Panic Motion](docs/edge-modules/security.md), [Structural Vibration](docs/edge-modules/industrial.md) |
+| **Robotics nông nghiệp** | Phát hiện nông dân gần máy thu hoạch tự trị trong điều kiện bụi/sương mù nơi camera không đáng tin | Node ESP32 chống thời tiết | Phạm vi ~10m ngoài trời | [Forklift Proximity](docs/edge-modules/industrial.md), [Rain Detection](docs/edge-modules/exotic.md) |
+| **Vùng hạ cánh drone** | Xác minh khu vực hạ cánh không có người — WiFi sensing hoạt động trong mưa, bụi, và ánh sáng thấp nơi camera hướng xuống thất bại | Node ESP32 mặt đất | Hiện diện: >95% độ chính xác | [Perimeter Breach](docs/edge-modules/security.md), [Tailgating](docs/edge-modules/security.md) |
+| **Giám sát phòng sạch** | Theo dõi nhân viên không cần camera (nguy cơ ô nhiễm hạt từ quạt camera) — tuân thủ trang phục qua pose | WiFi phòng sạch hiện có | Không phát thải hạt | [Clean Room](docs/edge-modules/industrial.md), [Livestock Monitor](docs/edge-modules/industrial.md) |
 
 </details>
 
 <details>
-<summary><strong>🔥 Extreme</strong> — Through-wall, disaster, defense, underground</summary>
+<summary><strong>🔥 Cực đoan</strong> — Xuyên tường, thảm họa, quốc phòng, ngầm</summary>
 
-These scenarios exploit WiFi's ability to penetrate solid materials — concrete, rubble, earth — where no optical or infrared sensor can reach. The WiFi-Mat disaster module (ADR-001) is specifically designed for this tier.
+Các tình huống này khai thác khả năng WiFi xuyên qua vật liệu rắn — bê tông, đống đổ nát, đất — nơi không có sensor quang học hay hồng ngoại nào có thể tiếp cận. Module thảm họa WiFi-Mat (ADR-001) được thiết kế đặc biệt cho tầng này.
 
-| Use Case | What It Does | Hardware | Key Metric | Edge Module |
+| Trường hợp sử dụng | Tính năng | Phần cứng | Chỉ số chính | Edge Module |
 |----------|-------------|----------|------------|-------------|
-| **Search & rescue (WiFi-Mat)** | Detect survivors through rubble/debris via breathing signature, START triage color classification, 3D localization | Portable ESP32 mesh + laptop | Through 30cm concrete | [Respiratory Distress](docs/edge-modules/medical.md), [Seizure Detection](docs/edge-modules/medical.md) |
-| **Firefighting** | Locate occupants through smoke and walls before entry; breathing detection confirms life signs remotely | Portable mesh on truck | Works in zero visibility | [Sleep Apnea](docs/edge-modules/medical.md), [Panic Motion](docs/edge-modules/security.md) |
-| **Prison & secure facilities** | Cell occupancy verification, distress detection (abnormal vitals), perimeter sensing — no camera blind spots | Dedicated AP infrastructure | 24/7 vital signs | [Cardiac Arrhythmia](docs/edge-modules/medical.md), [Loitering](docs/edge-modules/security.md) |
-| **Military / tactical** | Through-wall personnel detection, room clearing confirmation, hostage vital signs at standoff distance | Directional WiFi + custom FW | Range: 5m through wall | [Perimeter Breach](docs/edge-modules/security.md), [Weapon Detection](docs/edge-modules/security.md) |
-| **Border & perimeter security** | Detect human presence in tunnels, behind fences, in vehicles — passive sensing, no active illumination to reveal position | Concealed ESP32 mesh | Passive / covert | [Perimeter Breach](docs/edge-modules/security.md), [Tailgating](docs/edge-modules/security.md) |
-| **Mining & underground** | Worker presence in tunnels where GPS/cameras fail, breathing detection after collapse, headcount at safety points | Ruggedized ESP32 mesh | Through rock/earth | [Confined Space](docs/edge-modules/industrial.md), [Respiratory Distress](docs/edge-modules/medical.md) |
-| **Maritime & naval** | Below-deck personnel tracking through steel bulkheads (limited range, requires tuning), man-overboard detection | Ship WiFi + ESP32 | Through 1-2 bulkheads | [Structural Vibration](docs/edge-modules/industrial.md), [Panic Motion](docs/edge-modules/security.md) |
-| **Wildlife research** | Non-invasive animal activity monitoring in enclosures or dens — no light pollution, no visual disturbance | Weatherproof ESP32 nodes | Zero light emission | [Livestock Monitor](docs/edge-modules/industrial.md), [Dream Stage](docs/edge-modules/exotic.md) |
+| **Tìm kiếm & cứu nạn (WiFi-Mat)** | Phát hiện người sống sót qua đống đổ nát/mảnh vỡ qua chữ ký nhịp thở, phân loại màu START triage, định vị 3D | ESP32 mesh di động + laptop | Xuyên bê tông 30cm | [Respiratory Distress](docs/edge-modules/medical.md), [Seizure Detection](docs/edge-modules/medical.md) |
+| **Chữa cháy** | Định vị người qua khói và tường trước khi vào; phát hiện nhịp thở xác nhận dấu hiệu sự sống từ xa | Mesh di động trên xe | Hoạt động trong tầm nhìn không | [Sleep Apnea](docs/edge-modules/medical.md), [Panic Motion](docs/edge-modules/security.md) |
+| **Nhà tù & cơ sở an ninh** | Xác minh số người trong buồng giam, phát hiện đau khổ (vitals bất thường), sensing perimeter — không có điểm mù camera | Cơ sở hạ tầng AP chuyên dụng | Vital signs 24/7 | [Cardiac Arrhythmia](docs/edge-modules/medical.md), [Loitering](docs/edge-modules/security.md) |
+| **Quân sự / chiến thuật** | Phát hiện nhân viên xuyên tường, xác nhận giải phóng phòng, vital signs con tin ở khoảng cách an toàn | WiFi định hướng + FW tùy chỉnh | Phạm vi: 5m xuyên tường | [Perimeter Breach](docs/edge-modules/security.md), [Weapon Detection](docs/edge-modules/security.md) |
+| **Bảo vệ biên giới & vành đai** | Phát hiện sự hiện diện người trong đường hầm, sau hàng rào, trong xe — sensing thụ động, không chiếu sáng chủ động để tiết lộ vị trí | ESP32 mesh ẩn | Thụ động / bí mật | [Perimeter Breach](docs/edge-modules/security.md), [Tailgating](docs/edge-modules/security.md) |
+| **Khai thác & ngầm** | Hiện diện công nhân trong đường hầm nơi GPS/camera thất bại, phát hiện nhịp thở sau sụp đổ, đếm đầu người tại điểm an toàn | ESP32 mesh chống va đập | Xuyên đá/đất | [Confined Space](docs/edge-modules/industrial.md), [Respiratory Distress](docs/edge-modules/medical.md) |
+| **Hàng hải & hải quân** | Theo dõi nhân viên dưới boong qua vách ngăn thép (phạm vi hạn chế, cần điều chỉnh), phát hiện người rơi khỏi tàu | WiFi tàu + ESP32 | Xuyên 1-2 vách ngăn | [Structural Vibration](docs/edge-modules/industrial.md), [Panic Motion](docs/edge-modules/security.md) |
+| **Nghiên cứu động vật hoang dã** | Giám sát hoạt động động vật không xâm lấn trong chuồng hoặc hang — không ô nhiễm ánh sáng, không gây xáo trộn thị giác | Node ESP32 chống thời tiết | Không phát sáng | [Livestock Monitor](docs/edge-modules/industrial.md), [Dream Stage](docs/edge-modules/exotic.md) |
 
 </details>
 
 ### Edge Intelligence ([ADR-041](docs/adr/ADR-041-wasm-module-collection.md))
 
-Small programs that run directly on the ESP32 sensor — no internet needed, no cloud fees, instant response. Each module is a tiny WASM file (5-30 KB) that you upload to the device over-the-air. It reads WiFi signal data and makes decisions locally in under 10 ms. [ADR-041](docs/adr/ADR-041-wasm-module-collection.md) defines 60 modules across 13 categories — all 60 are implemented with 609 tests passing.
+Các chương trình nhỏ chạy trực tiếp trên ESP32 sensor — không cần internet, không phí đám mây, phản hồi tức thì. Mỗi module là file WASM nhỏ (5-30 KB) bạn tải lên thiết bị qua over-the-air. Nó đọc dữ liệu tín hiệu WiFi và đưa ra quyết định cục bộ trong dưới 10 ms. [ADR-041](docs/adr/ADR-041-wasm-module-collection.md) định nghĩa 60 modules trên 13 danh mục — tất cả 60 đều được triển khai với 609 tests đạt.
 
-| | Category | Examples |
+| | Danh mục | Ví dụ |
 |---|----------|---------|
-| 🏥 | [**Medical & Health**](docs/edge-modules/medical.md) | Sleep apnea detection, cardiac arrhythmia, gait analysis, seizure detection |
-| 🔐 | [**Security & Safety**](docs/edge-modules/security.md) | Intrusion detection, perimeter breach, loitering, panic motion |
-| 🏢 | [**Smart Building**](docs/edge-modules/building.md) | Zone occupancy, HVAC control, elevator counting, meeting room tracking |
-| 🛒 | [**Retail & Hospitality**](docs/edge-modules/retail.md) | Queue length, dwell heatmaps, customer flow, table turnover |
-| 🏭 | [**Industrial**](docs/edge-modules/industrial.md) | Forklift proximity, confined space monitoring, structural vibration |
-| 🔮 | [**Exotic & Research**](docs/edge-modules/exotic.md) | Sleep staging, emotion detection, sign language, breathing sync |
-| 📡 | [**Signal Intelligence**](docs/edge-modules/signal-intelligence.md) | Cleans and sharpens raw WiFi signals — focuses on important regions, filters noise, fills in missing data, and tracks which person is which |
-| 🧠 | [**Adaptive Learning**](docs/edge-modules/adaptive-learning.md) | The sensor learns new gestures and patterns on its own over time — no cloud needed, remembers what it learned even after updates |
-| 🗺️ | [**Spatial Reasoning**](docs/edge-modules/spatial-temporal.md) | Figures out where people are in a room, which zones matter most, and tracks movement across areas using graph-based spatial logic |
-| ⏱️ | [**Temporal Analysis**](docs/edge-modules/spatial-temporal.md) | Learns daily routines, detects when patterns break (someone didn't get up), and verifies safety rules are being followed over time |
-| 🛡️ | [**AI Security**](docs/edge-modules/ai-security.md) | Detects signal replay attacks, WiFi jamming, injection attempts, and flags abnormal behavior that could indicate tampering |
-| ⚛️ | [**Quantum-Inspired**](docs/edge-modules/autonomous.md) | Uses quantum-inspired math to map room-wide signal coherence and search for optimal sensor configurations |
-| 🤖 | [**Autonomous & Exotic**](docs/edge-modules/autonomous.md) | Self-managing sensor mesh — auto-heals dropped nodes, plans its own actions, and explores experimental signal representations |
+| 🏥 | [**Y Tế & Sức Khỏe**](docs/edge-modules/medical.md) | Phát hiện ngưng thở khi ngủ, loạn nhịp tim, phân tích dáng đi, phát hiện động kinh |
+| 🔐 | [**Bảo Mật & An Toàn**](docs/edge-modules/security.md) | Phát hiện xâm nhập, vi phạm vành đai, nán lại, chuyển động hoảng loạn |
+| 🏢 | [**Tòa Nhà Thông Minh**](docs/edge-modules/building.md) | Số người theo vùng, điều khiển HVAC, đếm thang máy, theo dõi phòng họp |
+| 🛒 | [**Bán Lẻ & Khách Sạn**](docs/edge-modules/retail.md) | Độ dài hàng chờ, heatmap dừng, luồng khách hàng, vòng quay bàn |
+| 🏭 | [**Công Nghiệp**](docs/edge-modules/industrial.md) | Gần xe nâng, giám sát không gian hạn chế, rung cơ cấu |
+| 🔮 | [**Thực Nghiệm & Nghiên Cứu**](docs/edge-modules/exotic.md) | Phân giai đoạn giấc ngủ, phát hiện cảm xúc, ngôn ngữ ký hiệu, đồng bộ nhịp thở |
+| 📡 | [**Tình Báo Tín Hiệu**](docs/edge-modules/signal-intelligence.md) | Làm sạch và tăng cường tín hiệu WiFi thô — tập trung vào các vùng quan trọng, lọc nhiễu, điền dữ liệu bị thiếu, và theo dõi người nào là người nào |
+| 🧠 | [**Học Thích Nghi**](docs/edge-modules/adaptive-learning.md) | Sensor học cử chỉ và mẫu mới theo thời gian tự động — không cần đám mây, nhớ những gì đã học ngay cả sau cập nhật |
+| 🗺️ | [**Lý Luận Không Gian**](docs/edge-modules/spatial-temporal.md) | Xác định vị trí người trong phòng, vùng nào quan trọng nhất, và theo dõi chuyển động qua các khu vực bằng logic không gian dựa trên đồ thị |
+| ⏱️ | [**Phân Tích Thời Gian**](docs/edge-modules/spatial-temporal.md) | Học các thói quen hàng ngày, phát hiện khi mẫu bị phá vỡ (ai đó không dậy), và xác minh các quy tắc an toàn được tuân thủ theo thời gian |
+| 🛡️ | [**Bảo Mật AI**](docs/edge-modules/ai-security.md) | Phát hiện tấn công replay tín hiệu, WiFi jamming, các nỗ lực injection, và gắn cờ hành vi bất thường có thể chỉ ra giả mạo |
+| ⚛️ | [**Lấy Cảm Hứng Từ Lượng Tử**](docs/edge-modules/autonomous.md) | Sử dụng toán học lấy cảm hứng từ lượng tử để lập bản đồ coherence tín hiệu toàn phòng và tìm kiếm cấu hình sensor tối ưu |
+| 🤖 | [**Tự Trị & Thực Nghiệm**](docs/edge-modules/autonomous.md) | Sensor mesh tự quản lý — tự phục hồi các node bị rớt, lập kế hoạch hành động của chính nó, và khám phá các biểu diễn tín hiệu thực nghiệm |
 
-All implemented modules are `no_std` Rust, share a [common utility library](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/vendor_common.rs), and talk to the host through a 12-function API. Full documentation: [**Edge Modules Guide**](docs/edge-modules/README.md). See the [complete implemented module list](#edge-module-list) below.
+Tất cả các module được triển khai là `no_std` Rust, chia sẻ một [thư viện tiện ích chung](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/vendor_common.rs), và giao tiếp với host qua API 12 hàm. Tài liệu đầy đủ: [**Hướng Dẫn Edge Modules**](docs/edge-modules/README.md). Xem [danh sách module được triển khai đầy đủ](#edge-module-list) bên dưới.
 
 <details id="edge-module-list">
-<summary><strong>🧩 Edge Intelligence — <a href="docs/edge-modules/README.md">All 65 Modules Implemented</a></strong> (ADR-041 complete)</summary>
+<summary><strong>🧩 Edge Intelligence — <a href="docs/edge-modules/README.md">Tất Cả 65 Module Đã Triển Khai</a></strong> (ADR-041 hoàn tất)</summary>
 
-All 60 modules are implemented, tested (609 tests passing), and ready to deploy. They compile to `wasm32-unknown-unknown`, run on ESP32-S3 via WASM3, and share a [common utility library](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/vendor_common.rs). Source: [`crates/wifi-densepose-wasm-edge/src/`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/)
+Tất cả 60 modules đã được triển khai, kiểm thử (609 tests đạt), và sẵn sàng triển khai. Chúng biên dịch sang `wasm32-unknown-unknown`, chạy trên ESP32-S3 qua WASM3, và chia sẻ một [thư viện tiện ích chung](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/vendor_common.rs). Nguồn: [`crates/wifi-densepose-wasm-edge/src/`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/)
 
-**Core modules** (ADR-040 flagship + early implementations):
+**Các module cốt lõi** (ADR-040 flagship + các triển khai ban đầu):
 
-| Module | File | What It Does |
+| Module | File | Tính năng |
 |--------|------|-------------|
-| Gesture Classifier | [`gesture.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/gesture.rs) | DTW template matching for hand gestures |
-| Coherence Filter | [`coherence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/coherence.rs) | Phase coherence gating for signal quality |
-| Adversarial Detector | [`adversarial.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/adversarial.rs) | Detects physically impossible signal patterns |
-| Intrusion Detector | [`intrusion.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/intrusion.rs) | Human vs non-human motion classification |
-| Occupancy Counter | [`occupancy.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/occupancy.rs) | Zone-level person counting |
-| Vital Trend | [`vital_trend.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/vital_trend.rs) | Long-term breathing and heart rate trending |
-| RVF Parser | [`rvf.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/rvf.rs) | RVF container format parsing |
+| Gesture Classifier | [`gesture.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/gesture.rs) | DTW template matching cho cử chỉ tay |
+| Coherence Filter | [`coherence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/coherence.rs) | Phase coherence gating để kiểm tra chất lượng tín hiệu |
+| Adversarial Detector | [`adversarial.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/adversarial.rs) | Phát hiện các mẫu tín hiệu bất khả thi về vật lý |
+| Intrusion Detector | [`intrusion.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/intrusion.rs) | Phân loại chuyển động người vs không phải người |
+| Occupancy Counter | [`occupancy.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/occupancy.rs) | Đếm người cấp vùng |
+| Vital Trend | [`vital_trend.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/vital_trend.rs) | Xu hướng nhịp thở và nhịp tim dài hạn |
+| RVF Parser | [`rvf.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/rvf.rs) | Phân tích định dạng container RVF |
 
-**Vendor-integrated modules** (24 modules, ADR-041 Category 7):
+**Các module tích hợp vendor** (24 modules, ADR-041 Danh mục 7):
 
-**📡 Signal Intelligence** — Real-time CSI analysis and feature extraction
+**📡 Tình Báo Tín Hiệu** — Phân tích CSI và trích xuất đặc trưng thời gian thực
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Flash Attention | [`sig_flash_attention.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_flash_attention.rs) | Tiled attention over 8 subcarrier groups — finds spatial focus regions and entropy | S (<5ms) |
-| Coherence Gate | [`sig_coherence_gate.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_coherence_gate.rs) | Z-score phasor gating with hysteresis: Accept / PredictOnly / Reject / Recalibrate | L (<2ms) |
-| Temporal Compress | [`sig_temporal_compress.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_temporal_compress.rs) | 3-tier adaptive quantization (8-bit hot / 5-bit warm / 3-bit cold) | L (<2ms) |
-| Sparse Recovery | [`sig_sparse_recovery.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_sparse_recovery.rs) | ISTA L1 reconstruction for dropped subcarriers | H (<10ms) |
-| Person Match | [`sig_mincut_person_match.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_mincut_person_match.rs) | Hungarian-lite bipartite assignment for multi-person tracking | S (<5ms) |
-| Optimal Transport | [`sig_optimal_transport.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_optimal_transport.rs) | Sliced Wasserstein-1 distance with 4 projections | L (<2ms) |
+| Flash Attention | [`sig_flash_attention.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_flash_attention.rs) | Attention tiled trên 8 nhóm subcarrier — tìm vùng tập trung không gian và entropy | S (<5ms) |
+| Coherence Gate | [`sig_coherence_gate.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_coherence_gate.rs) | Z-score phasor gating với hysteresis: Accept / PredictOnly / Reject / Recalibrate | L (<2ms) |
+| Temporal Compress | [`sig_temporal_compress.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_temporal_compress.rs) | Lượng tử hóa thích nghi 3 tầng (8-bit nóng / 5-bit ấm / 3-bit lạnh) | L (<2ms) |
+| Sparse Recovery | [`sig_sparse_recovery.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_sparse_recovery.rs) | Tái tạo ISTA L1 cho subcarrier bị rớt | H (<10ms) |
+| Person Match | [`sig_mincut_person_match.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_mincut_person_match.rs) | Gán bipartite Hungarian-lite cho theo dõi đa người | S (<5ms) |
+| Optimal Transport | [`sig_optimal_transport.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sig_optimal_transport.rs) | Khoảng cách Sliced Wasserstein-1 với 4 phép chiếu | L (<2ms) |
 
-**🧠 Adaptive Learning** — On-device learning without cloud connectivity
+**🧠 Học Thích Nghi** — Học trên thiết bị không cần kết nối đám mây
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| DTW Gesture Learn | [`lrn_dtw_gesture_learn.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_dtw_gesture_learn.rs) | User-teachable gesture recognition — 3-rehearsal protocol, 16 templates | S (<5ms) |
-| Anomaly Attractor | [`lrn_anomaly_attractor.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_anomaly_attractor.rs) | 4D dynamical system attractor classification with Lyapunov exponents | H (<10ms) |
-| Meta Adapt | [`lrn_meta_adapt.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_meta_adapt.rs) | Hill-climbing self-optimization with safety rollback | L (<2ms) |
-| EWC Lifelong | [`lrn_ewc_lifelong.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_ewc_lifelong.rs) | Elastic Weight Consolidation — remembers past tasks while learning new ones | S (<5ms) |
+| DTW Gesture Learn | [`lrn_dtw_gesture_learn.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_dtw_gesture_learn.rs) | Nhận dạng cử chỉ người dùng có thể dạy — giao thức 3 lần luyện tập, 16 template | S (<5ms) |
+| Anomaly Attractor | [`lrn_anomaly_attractor.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_anomaly_attractor.rs) | Phân loại attractor hệ động lực 4D với số mũ Lyapunov | H (<10ms) |
+| Meta Adapt | [`lrn_meta_adapt.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_meta_adapt.rs) | Tự tối ưu hóa leo đồi với rollback an toàn | L (<2ms) |
+| EWC Lifelong | [`lrn_ewc_lifelong.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/lrn_ewc_lifelong.rs) | Elastic Weight Consolidation — nhớ các task trong khi học task mới | S (<5ms) |
 
-**🗺️ Spatial Reasoning** — Location, proximity, and influence mapping
+**🗺️ Lý Luận Không Gian** — Định vị, gần kề, và lập bản đồ ảnh hưởng
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| PageRank Influence | [`spt_pagerank_influence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/spt_pagerank_influence.rs) | 4x4 cross-correlation graph with power iteration PageRank | L (<2ms) |
-| Micro HNSW | [`spt_micro_hnsw.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/spt_micro_hnsw.rs) | 64-vector navigable small-world graph for nearest-neighbor search | S (<5ms) |
-| Spiking Tracker | [`spt_spiking_tracker.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/spt_spiking_tracker.rs) | 32 LIF neurons + 4 output zone neurons with STDP learning | S (<5ms) |
+| PageRank Influence | [`spt_pagerank_influence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/spt_pagerank_influence.rs) | Đồ thị tương quan chéo 4x4 với PageRank power iteration | L (<2ms) |
+| Micro HNSW | [`spt_micro_hnsw.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/spt_micro_hnsw.rs) | Đồ thị navigable small-world 64 vector cho tìm kiếm hàng xóm gần nhất | S (<5ms) |
+| Spiking Tracker | [`spt_spiking_tracker.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/spt_spiking_tracker.rs) | 32 neuron LIF + 4 neuron vùng đầu ra với học STDP | S (<5ms) |
 
-**⏱️ Temporal Analysis** — Activity patterns, logic verification, autonomous planning
+**⏱️ Phân Tích Thời Gian** — Mẫu hoạt động, xác minh logic, lập kế hoạch tự trị
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Pattern Sequence | [`tmp_pattern_sequence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/tmp_pattern_sequence.rs) | Activity routine detection and deviation alerts | S (<5ms) |
-| Temporal Logic Guard | [`tmp_temporal_logic_guard.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/tmp_temporal_logic_guard.rs) | LTL formula verification on CSI event streams | S (<5ms) |
-| GOAP Autonomy | [`tmp_goap_autonomy.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/tmp_goap_autonomy.rs) | Goal-Oriented Action Planning for autonomous module management | S (<5ms) |
+| Pattern Sequence | [`tmp_pattern_sequence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/tmp_pattern_sequence.rs) | Phát hiện thói quen hoạt động và cảnh báo lệch | S (<5ms) |
+| Temporal Logic Guard | [`tmp_temporal_logic_guard.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/tmp_temporal_logic_guard.rs) | Xác minh công thức LTL trên CSI event streams | S (<5ms) |
+| GOAP Autonomy | [`tmp_goap_autonomy.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/tmp_goap_autonomy.rs) | Goal-Oriented Action Planning để quản lý module tự trị | S (<5ms) |
 
-**🛡️ AI Security** — Tamper detection and behavioral anomaly profiling
+**🛡️ Bảo Mật AI** — Phát hiện giả mạo và lập hồ sơ bất thường hành vi
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Prompt Shield | [`ais_prompt_shield.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ais_prompt_shield.rs) | FNV-1a replay detection, injection detection (10x amplitude), jamming (SNR) | L (<2ms) |
-| Behavioral Profiler | [`ais_behavioral_profiler.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ais_behavioral_profiler.rs) | 6D behavioral profile with Mahalanobis anomaly scoring | S (<5ms) |
+| Prompt Shield | [`ais_prompt_shield.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ais_prompt_shield.rs) | Phát hiện replay FNV-1a, phát hiện injection (biên độ 10x), jamming (SNR) | L (<2ms) |
+| Behavioral Profiler | [`ais_behavioral_profiler.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ais_behavioral_profiler.rs) | Hồ sơ hành vi 6D với tính điểm bất thường Mahalanobis | S (<5ms) |
 
-**⚛️ Quantum-Inspired** — Quantum computing metaphors applied to CSI analysis
+**⚛️ Lấy Cảm Hứng Từ Lượng Tử** — Ẩn dụ điện toán lượng tử áp dụng cho phân tích CSI
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Quantum Coherence | [`qnt_quantum_coherence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/qnt_quantum_coherence.rs) | Bloch sphere mapping, Von Neumann entropy, decoherence detection | S (<5ms) |
-| Interference Search | [`qnt_interference_search.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/qnt_interference_search.rs) | 16 room-state hypotheses with Grover-inspired oracle + diffusion | S (<5ms) |
+| Quantum Coherence | [`qnt_quantum_coherence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/qnt_quantum_coherence.rs) | Ánh xạ Bloch sphere, entropy Von Neumann, phát hiện decoherence | S (<5ms) |
+| Interference Search | [`qnt_interference_search.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/qnt_interference_search.rs) | 16 giả thuyết trạng thái phòng với oracle lấy cảm hứng Grover + khuếch tán | S (<5ms) |
 
-**🤖 Autonomous Systems** — Self-governing and self-healing behaviors
+**🤖 Hệ Thống Tự Trị** — Các hành vi tự quản và tự phục hồi
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Psycho-Symbolic | [`aut_psycho_symbolic.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/aut_psycho_symbolic.rs) | 16-rule forward-chaining knowledge base with contradiction detection | S (<5ms) |
-| Self-Healing Mesh | [`aut_self_healing_mesh.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/aut_self_healing_mesh.rs) | 8-node mesh with health tracking, degradation/recovery, coverage healing | S (<5ms) |
+| Psycho-Symbolic | [`aut_psycho_symbolic.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/aut_psycho_symbolic.rs) | Cơ sở tri thức forward-chaining 16 quy tắc với phát hiện mâu thuẫn | S (<5ms) |
+| Self-Healing Mesh | [`aut_self_healing_mesh.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/aut_self_healing_mesh.rs) | Mesh 8 node với theo dõi sức khỏe, xuống cấp/phục hồi, phục hồi phủ sóng | S (<5ms) |
 
-**🔮 Exotic (Vendor)** — Novel mathematical models for CSI interpretation
+**🔮 Thực Nghiệm (Vendor)** — Các mô hình toán học mới cho diễn giải CSI
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Time Crystal | [`exo_time_crystal.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_time_crystal.rs) | Autocorrelation subharmonic detection in 256-frame history | S (<5ms) |
-| Hyperbolic Space | [`exo_hyperbolic_space.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_hyperbolic_space.rs) | Poincare ball embedding with 32 reference locations, hyperbolic distance | S (<5ms) |
+| Time Crystal | [`exo_time_crystal.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_time_crystal.rs) | Phát hiện subharmonic autocorrelation trong lịch sử 256 frame | S (<5ms) |
+| Hyperbolic Space | [`exo_hyperbolic_space.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_hyperbolic_space.rs) | Nhúng Poincare ball với 32 vị trí tham chiếu, khoảng cách hyperbolic | S (<5ms) |
 
-**🏥 Medical & Health** (Category 1) — Contactless health monitoring
+**🏥 Y Tế & Sức Khỏe** (Danh mục 1) — Giám sát sức khỏe không tiếp xúc
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Sleep Apnea | [`med_sleep_apnea.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_sleep_apnea.rs) | Detects breathing pauses during sleep | S (<5ms) |
-| Cardiac Arrhythmia | [`med_cardiac_arrhythmia.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_cardiac_arrhythmia.rs) | Monitors heart rate for irregular rhythms | S (<5ms) |
-| Respiratory Distress | [`med_respiratory_distress.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_respiratory_distress.rs) | Alerts on abnormal breathing patterns | S (<5ms) |
-| Gait Analysis | [`med_gait_analysis.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_gait_analysis.rs) | Tracks walking patterns and detects changes | S (<5ms) |
-| Seizure Detection | [`med_seizure_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_seizure_detect.rs) | 6-state machine for tonic-clonic seizure recognition | S (<5ms) |
+| Sleep Apnea | [`med_sleep_apnea.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_sleep_apnea.rs) | Phát hiện khoảng dừng nhịp thở khi ngủ | S (<5ms) |
+| Cardiac Arrhythmia | [`med_cardiac_arrhythmia.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_cardiac_arrhythmia.rs) | Giám sát nhịp tim để phát hiện nhịp không đều | S (<5ms) |
+| Respiratory Distress | [`med_respiratory_distress.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_respiratory_distress.rs) | Cảnh báo về mẫu nhịp thở bất thường | S (<5ms) |
+| Gait Analysis | [`med_gait_analysis.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_gait_analysis.rs) | Theo dõi mẫu đi bộ và phát hiện thay đổi | S (<5ms) |
+| Seizure Detection | [`med_seizure_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/med_seizure_detect.rs) | Máy 6 trạng thái để nhận dạng co giật tonic-clonic | S (<5ms) |
 
-**🔐 Security & Safety** (Category 2) — Perimeter and threat detection
+**🔐 Bảo Mật & An Toàn** (Danh mục 2) — Phát hiện vành đai và mối đe dọa
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Perimeter Breach | [`sec_perimeter_breach.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_perimeter_breach.rs) | Detects boundary crossings with approach/departure | S (<5ms) |
-| Weapon Detection | [`sec_weapon_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_weapon_detect.rs) | Metal anomaly detection via CSI amplitude shifts | S (<5ms) |
-| Tailgating | [`sec_tailgating.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_tailgating.rs) | Detects unauthorized follow-through at access points | S (<5ms) |
-| Loitering | [`sec_loitering.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_loitering.rs) | Alerts when someone lingers too long in a zone | S (<5ms) |
-| Panic Motion | [`sec_panic_motion.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_panic_motion.rs) | Detects fleeing, struggling, or panic movement | S (<5ms) |
+| Perimeter Breach | [`sec_perimeter_breach.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_perimeter_breach.rs) | Phát hiện vượt ranh giới với tiếp cận/rời đi | S (<5ms) |
+| Weapon Detection | [`sec_weapon_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_weapon_detect.rs) | Phát hiện dị thường kim loại qua thay đổi biên độ CSI | S (<5ms) |
+| Tailgating | [`sec_tailgating.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_tailgating.rs) | Phát hiện theo vào trái phép tại điểm kiểm soát truy cập | S (<5ms) |
+| Loitering | [`sec_loitering.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_loitering.rs) | Cảnh báo khi ai đó nán lại quá lâu trong một vùng | S (<5ms) |
+| Panic Motion | [`sec_panic_motion.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/sec_panic_motion.rs) | Phát hiện chuyển động tháo chạy, vật lộn, hoặc hoảng loạn | S (<5ms) |
 
-**🏢 Smart Building** (Category 3) — Automation and energy efficiency
+**🏢 Tòa Nhà Thông Minh** (Danh mục 3) — Tự động hóa và tiết kiệm năng lượng
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| HVAC Presence | [`bld_hvac_presence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_hvac_presence.rs) | Occupancy-driven HVAC control with departure countdown | S (<5ms) |
-| Lighting Zones | [`bld_lighting_zones.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_lighting_zones.rs) | Auto-dim/off lighting based on zone activity | S (<5ms) |
-| Elevator Count | [`bld_elevator_count.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_elevator_count.rs) | Counts people entering/leaving with overload warning | S (<5ms) |
-| Meeting Room | [`bld_meeting_room.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_meeting_room.rs) | Tracks meeting lifecycle: start, headcount, end, availability | S (<5ms) |
-| Energy Audit | [`bld_energy_audit.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_energy_audit.rs) | Tracks after-hours usage and room utilization rates | S (<5ms) |
+| HVAC Presence | [`bld_hvac_presence.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_hvac_presence.rs) | Điều khiển HVAC dựa trên chiếm dụng với đếm ngược rời đi | S (<5ms) |
+| Lighting Zones | [`bld_lighting_zones.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_lighting_zones.rs) | Tự động làm mờ/tắt đèn dựa trên hoạt động vùng | S (<5ms) |
+| Elevator Count | [`bld_elevator_count.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_elevator_count.rs) | Đếm người vào/ra với cảnh báo quá tải | S (<5ms) |
+| Meeting Room | [`bld_meeting_room.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_meeting_room.rs) | Theo dõi vòng đời cuộc họp: bắt đầu, đếm đầu người, kết thúc, khả dụng | S (<5ms) |
+| Energy Audit | [`bld_energy_audit.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/bld_energy_audit.rs) | Theo dõi sử dụng ngoài giờ và tỷ lệ sử dụng phòng | S (<5ms) |
 
-**🛒 Retail & Hospitality** (Category 4) — Customer insights without cameras
+**🛒 Bán Lẻ & Khách Sạn** (Danh mục 4) — Thông tin khách hàng không cần camera
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Queue Length | [`ret_queue_length.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_queue_length.rs) | Estimates queue size and wait times | S (<5ms) |
-| Dwell Heatmap | [`ret_dwell_heatmap.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_dwell_heatmap.rs) | Shows where people spend time (hot/cold zones) | S (<5ms) |
-| Customer Flow | [`ret_customer_flow.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_customer_flow.rs) | Counts ins/outs and tracks net occupancy | S (<5ms) |
-| Table Turnover | [`ret_table_turnover.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_table_turnover.rs) | Restaurant table lifecycle: seated, dining, vacated | S (<5ms) |
-| Shelf Engagement | [`ret_shelf_engagement.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_shelf_engagement.rs) | Detects browsing, considering, and reaching for products | S (<5ms) |
+| Queue Length | [`ret_queue_length.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_queue_length.rs) | Ước lượng kích thước hàng chờ và thời gian chờ | S (<5ms) |
+| Dwell Heatmap | [`ret_dwell_heatmap.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_dwell_heatmap.rs) | Hiển thị nơi người dành thời gian (vùng nóng/lạnh) | S (<5ms) |
+| Customer Flow | [`ret_customer_flow.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_customer_flow.rs) | Đếm vào/ra và theo dõi số người net | S (<5ms) |
+| Table Turnover | [`ret_table_turnover.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_table_turnover.rs) | Vòng đời bàn nhà hàng: ngồi, ăn, đã rời | S (<5ms) |
+| Shelf Engagement | [`ret_shelf_engagement.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ret_shelf_engagement.rs) | Phát hiện duyệt, cân nhắc, và với lấy sản phẩm | S (<5ms) |
 
-**🏭 Industrial & Specialized** (Category 5) — Safety and compliance
+**🏭 Công Nghiệp & Chuyên Biệt** (Danh mục 5) — An toàn và tuân thủ
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Forklift Proximity | [`ind_forklift_proximity.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_forklift_proximity.rs) | Warns when people get too close to vehicles | S (<5ms) |
-| Confined Space | [`ind_confined_space.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_confined_space.rs) | OSHA-compliant worker monitoring with extraction alerts | S (<5ms) |
-| Clean Room | [`ind_clean_room.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_clean_room.rs) | Occupancy limits and turbulent motion detection | S (<5ms) |
-| Livestock Monitor | [`ind_livestock_monitor.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_livestock_monitor.rs) | Animal presence, stillness, and escape alerts | S (<5ms) |
-| Structural Vibration | [`ind_structural_vibration.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_structural_vibration.rs) | Seismic events, mechanical resonance, structural drift | S (<5ms) |
+| Forklift Proximity | [`ind_forklift_proximity.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_forklift_proximity.rs) | Cảnh báo khi người lại gần xe quá | S (<5ms) |
+| Confined Space | [`ind_confined_space.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_confined_space.rs) | Giám sát công nhân tuân thủ OSHA với cảnh báo sơ tán | S (<5ms) |
+| Clean Room | [`ind_clean_room.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_clean_room.rs) | Giới hạn số người và phát hiện chuyển động rối loạn | S (<5ms) |
+| Livestock Monitor | [`ind_livestock_monitor.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_livestock_monitor.rs) | Hiện diện động vật, bất động, và cảnh báo trốn thoát | S (<5ms) |
+| Structural Vibration | [`ind_structural_vibration.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/ind_structural_vibration.rs) | Sự kiện địa chấn, cộng hưởng cơ học, drift cơ cấu | S (<5ms) |
 
-**🔮 Exotic & Research** (Category 6) — Experimental sensing applications
+**🔮 Thực Nghiệm & Nghiên Cứu** (Danh mục 6) — Các ứng dụng sensing thực nghiệm
 
-| Module | File | What It Does | Budget |
+| Module | File | Tính năng | Ngân sách |
 |--------|------|-------------|--------|
-| Dream Stage | [`exo_dream_stage.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_dream_stage.rs) | Contactless sleep stage classification (wake/light/deep/REM) | S (<5ms) |
-| Emotion Detection | [`exo_emotion_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_emotion_detect.rs) | Arousal, stress, and calm detection from micro-movements | S (<5ms) |
-| Gesture Language | [`exo_gesture_language.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_gesture_language.rs) | Sign language letter recognition via WiFi | S (<5ms) |
-| Music Conductor | [`exo_music_conductor.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_music_conductor.rs) | Tempo and dynamic tracking from conducting gestures | S (<5ms) |
-| Plant Growth | [`exo_plant_growth.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_plant_growth.rs) | Monitors plant growth, circadian rhythms, wilt detection | S (<5ms) |
-| Ghost Hunter | [`exo_ghost_hunter.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_ghost_hunter.rs) | Environmental anomaly classification (draft/insect/wind/unknown) | S (<5ms) |
-| Rain Detection | [`exo_rain_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_rain_detect.rs) | Detects rain onset, intensity, and cessation via signal scatter | S (<5ms) |
-| Breathing Sync | [`exo_breathing_sync.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_breathing_sync.rs) | Detects synchronized breathing between multiple people | S (<5ms) |
+| Dream Stage | [`exo_dream_stage.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_dream_stage.rs) | Phân loại giai đoạn giấc ngủ không tiếp xúc (thức/nhẹ/sâu/REM) | S (<5ms) |
+| Emotion Detection | [`exo_emotion_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_emotion_detect.rs) | Phát hiện kích thích, căng thẳng, và bình tĩnh từ vi chuyển động | S (<5ms) |
+| Gesture Language | [`exo_gesture_language.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_gesture_language.rs) | Nhận dạng chữ ngôn ngữ ký hiệu qua WiFi | S (<5ms) |
+| Music Conductor | [`exo_music_conductor.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_music_conductor.rs) | Theo dõi tempo và dynamics từ cử chỉ chỉ huy | S (<5ms) |
+| Plant Growth | [`exo_plant_growth.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_plant_growth.rs) | Giám sát tăng trưởng cây, nhịp sinh học, phát hiện héo | S (<5ms) |
+| Ghost Hunter | [`exo_ghost_hunter.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_ghost_hunter.rs) | Phân loại dị thường môi trường (gió lùa/côn trùng/gió/không xác định) | S (<5ms) |
+| Rain Detection | [`exo_rain_detect.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_rain_detect.rs) | Phát hiện bắt đầu mưa, cường độ, và kết thúc qua tán xạ tín hiệu | S (<5ms) |
+| Breathing Sync | [`exo_breathing_sync.rs`](rust-port/wifi-densepose-rs/crates/wifi-densepose-wasm-edge/src/exo_breathing_sync.rs) | Phát hiện nhịp thở đồng bộ giữa nhiều người | S (<5ms) |
 
 </details>
 
 ---
 
 <details>
-<summary><strong>🧠 Self-Learning WiFi AI (ADR-024)</strong> — Adaptive recognition, self-optimization, and intelligent anomaly detection</summary>
+<summary><strong>🧠 WiFi AI Tự Học (ADR-024)</strong> — Nhận dạng thích nghi, tự tối ưu, và phát hiện bất thường thông minh</summary>
 
-Every WiFi signal that passes through a room creates a unique fingerprint of that space. WiFi-DensePose already reads these fingerprints to track people, but until now it threw away the internal "understanding" after each reading. The Self-Learning WiFi AI captures and preserves that understanding as compact, reusable vectors — and continuously optimizes itself for each new environment.
+Mỗi tín hiệu WiFi đi qua phòng tạo ra fingerprint độc đáo của không gian đó. WiFi-DensePose đã đọc các fingerprint này để theo dõi người, nhưng đến nay nó đã bỏ đi "hiểu biết" nội bộ sau mỗi lần đọc. WiFi AI Tự Học ghi lại và bảo tồn sự hiểu biết đó dưới dạng các vector nhỏ gọn, có thể tái sử dụng — và liên tục tự tối ưu hóa cho mỗi môi trường mới.
 
-**What it does in plain terms:**
-- Turns any WiFi signal into a 128-number "fingerprint" that uniquely describes what's happening in a room
-- Learns entirely on its own from raw WiFi data — no cameras, no labeling, no human supervision needed
-- Recognizes rooms, detects intruders, identifies people, and classifies activities using only WiFi
-- Runs on an $8 ESP32 chip (the entire model fits in 55 KB of memory)
-- Produces both body pose tracking AND environment fingerprints in a single computation
+**Tính năng bằng ngôn ngữ đơn giản:**
+- Biến bất kỳ tín hiệu WiFi nào thành "fingerprint" 128 số mô tả độc đáo những gì đang xảy ra trong phòng
+- Tự học hoàn toàn từ dữ liệu WiFi thô — không camera, không gán nhãn, không cần giám sát của con người
+- Nhận dạng phòng, phát hiện kẻ xâm nhập, nhận dạng người, và phân loại hoạt động chỉ bằng WiFi
+- Chạy trên chip ESP32 $8 (toàn bộ mô hình vừa trong 55 KB bộ nhớ)
+- Tạo cả theo dõi tư thế cơ thể VÀ fingerprint môi trường trong một lần tính toán
 
-**Key Capabilities**
+**Khả năng Chính**
 
-| What | How it works | Why it matters |
+| Tính năng | Cách hoạt động | Tại sao quan trọng |
 |------|-------------|----------------|
-| **Self-supervised learning** | The model watches WiFi signals and teaches itself what "similar" and "different" look like, without any human-labeled data | Deploy anywhere — just plug in a WiFi sensor and wait 10 minutes |
-| **Room identification** | Each room produces a distinct WiFi fingerprint pattern | Know which room someone is in without GPS or beacons |
-| **Anomaly detection** | An unexpected person or event creates a fingerprint that doesn't match anything seen before | Automatic intrusion and fall detection as a free byproduct |
-| **Person re-identification** | Each person disturbs WiFi in a slightly different way, creating a personal signature | Track individuals across sessions without cameras |
-| **Environment adaptation** | MicroLoRA adapters (1,792 parameters per room) fine-tune the model for each new space | Adapts to a new room with minimal data — 93% less than retraining from scratch |
-| **Memory preservation** | EWC++ regularization remembers what was learned during pretraining | Switching to a new task doesn't erase prior knowledge |
-| **Hard-negative mining** | Training focuses on the most confusing examples to learn faster | Better accuracy with the same amount of training data |
+| **Học tự giám sát** | Mô hình xem tín hiệu WiFi và tự dạy mình "giống" và "khác" trông như thế nào, mà không có dữ liệu được gán nhãn bởi con người | Triển khai ở mọi nơi — chỉ cần cắm sensor WiFi và chờ 10 phút |
+| **Nhận dạng phòng** | Mỗi phòng tạo ra mẫu fingerprint WiFi đặc biệt | Biết ai đang ở phòng nào mà không cần GPS hay beacon |
+| **Phát hiện bất thường** | Người hoặc sự kiện bất ngờ tạo ra fingerprint không khớp với bất cứ điều gì đã thấy trước đây | Phát hiện xâm nhập và té ngã tự động như sản phẩm phụ miễn phí |
+| **Tái nhận dạng người** | Mỗi người làm xáo trộn WiFi theo cách hơi khác nhau, tạo ra chữ ký cá nhân | Theo dõi cá nhân qua các phiên mà không cần camera |
+| **Thích nghi môi trường** | Các adapter MicroLoRA (1.792 tham số mỗi phòng) tinh chỉnh mô hình cho mỗi không gian mới | Thích nghi với phòng mới với dữ liệu tối thiểu — ít hơn 93% so với huấn luyện lại từ đầu |
+| **Bảo tồn bộ nhớ** | Regularization EWC++ nhớ những gì đã học trong quá trình tiền huấn luyện | Chuyển sang task mới không xóa kiến thức trước đó |
+| **Khai thác negative khó** | Huấn luyện tập trung vào các ví dụ gây nhầm lẫn nhất để học nhanh hơn | Độ chính xác tốt hơn với cùng lượng dữ liệu huấn luyện |
 
-**Architecture**
+**Kiến Trúc**
 
 ```
-WiFi Signal [56 channels] → Transformer + Graph Neural Network
-                                  ├→ 128-dim environment fingerprint (for search + identification)
-                                  └→ 17-joint body pose (for human tracking)
+Tín Hiệu WiFi [56 kênh] → Transformer + Graph Neural Network
+                                  ├→ Fingerprint môi trường 128 chiều (để tìm kiếm + nhận dạng)
+                                  └→ Tư thế cơ thể 17 khớp (để theo dõi người)
 ```
 
-**Quick Start**
+**Bắt Đầu Nhanh**
 
 ```bash
-# Step 1: Learn from raw WiFi data (no labels needed)
+# Bước 1: Học từ dữ liệu WiFi thô (không cần nhãn)
 cargo run -p wifi-densepose-sensing-server -- --pretrain --dataset data/csi/ --pretrain-epochs 50
 
-# Step 2: Fine-tune with pose labels for full capability
+# Bước 2: Tinh chỉnh với nhãn pose để có đầy đủ khả năng
 cargo run -p wifi-densepose-sensing-server -- --train --dataset data/mmfi/ --epochs 100 --save-rvf model.rvf
 
-# Step 3: Use the model — extract fingerprints from live WiFi
+# Bước 3: Sử dụng mô hình — trích xuất fingerprint từ WiFi trực tiếp
 cargo run -p wifi-densepose-sensing-server -- --model model.rvf --embed
 
-# Step 4: Search — find similar environments or detect anomalies
+# Bước 4: Tìm kiếm — tìm môi trường tương tự hoặc phát hiện bất thường
 cargo run -p wifi-densepose-sensing-server -- --model model.rvf --build-index env
 ```
 
-**Training Modes**
+**Các Chế Độ Huấn Luyện**
 
-| Mode | What you need | What you get |
+| Chế độ | Bạn cần | Bạn nhận được |
 |------|--------------|-------------|
-| Self-Supervised | Just raw WiFi data | A model that understands WiFi signal structure |
-| Supervised | WiFi data + body pose labels | Full pose tracking + environment fingerprints |
-| Cross-Modal | WiFi data + camera footage | Fingerprints aligned with visual understanding |
+| Tự giám sát | Chỉ dữ liệu WiFi thô | Mô hình hiểu cấu trúc tín hiệu WiFi |
+| Có giám sát | Dữ liệu WiFi + nhãn tư thế cơ thể | Theo dõi pose đầy đủ + fingerprint môi trường |
+| Đa phương thức | Dữ liệu WiFi + video camera | Fingerprint được căn chỉnh với hiểu biết thị giác |
 
-**Fingerprint Index Types**
+**Các Loại Fingerprint Index**
 
-| Index | What it stores | Real-world use |
+| Index | Lưu trữ gì | Sử dụng thực tế |
 |-------|---------------|----------------|
-| `env_fingerprint` | Average room fingerprint | "Is this the kitchen or the bedroom?" |
-| `activity_pattern` | Activity boundaries | "Is someone cooking, sleeping, or exercising?" |
-| `temporal_baseline` | Normal conditions | "Something unusual just happened in this room" |
-| `person_track` | Individual movement signatures | "Person A just entered the living room" |
+| `env_fingerprint` | Fingerprint phòng trung bình | "Đây là nhà bếp hay phòng ngủ?" |
+| `activity_pattern` | Ranh giới hoạt động | "Ai đó đang nấu ăn, ngủ, hay tập thể dục?" |
+| `temporal_baseline` | Điều kiện bình thường | "Điều gì đó bất thường vừa xảy ra trong phòng này" |
+| `person_track` | Chữ ký chuyển động cá nhân | "Người A vừa vào phòng khách" |
 
-**Model Size**
+**Kích Thước Mô Hình**
 
-| Component | Parameters | Memory (on ESP32) |
+| Thành phần | Tham số | Bộ nhớ (trên ESP32) |
 |-----------|-----------|-------------------|
-| Transformer backbone | ~28,000 | 28 KB |
-| Embedding projection head | ~25,000 | 25 KB |
-| Per-room MicroLoRA adapter | ~1,800 | 2 KB |
-| **Total** | **~55,000** | **55 KB** (of 520 KB available) |
+| Transformer backbone | ~28.000 | 28 KB |
+| Đầu chiếu embedding | ~25.000 | 25 KB |
+| Adapter MicroLoRA mỗi phòng | ~1.800 | 2 KB |
+| **Tổng cộng** | **~55.000** | **55 KB** (trong 520 KB có sẵn) |
 
-The self-learning system builds on the [AI Backbone (RuVector)](#ai-backbone-ruvector) signal-processing layer — attention, graph algorithms, and compression — adding contrastive learning on top.
+Hệ thống tự học xây dựng trên tầng xử lý tín hiệu [AI Backbone (RuVector)](#ai-backbone-ruvector) — attention, thuật toán đồ thị, và nén — thêm học contrastive lên trên.
 
-See [`docs/adr/ADR-024-contrastive-csi-embedding-model.md`](docs/adr/ADR-024-contrastive-csi-embedding-model.md) for full architectural details.
+Xem [`docs/adr/ADR-024-contrastive-csi-embedding-model.md`](docs/adr/ADR-024-contrastive-csi-embedding-model.md) để biết chi tiết kiến trúc đầy đủ.
 
 </details>
 
 ---
 
-## 📦 Installation
+## 📦 Cài Đặt
 
 <details>
-<summary><strong>Guided Installer</strong> — Interactive hardware detection and profile selection</summary>
+<summary><strong>Trình Cài Đặt Có Hướng Dẫn</strong> — Phát hiện phần cứng tương tác và lựa chọn hồ sơ</summary>
 
 ```bash
 ./install.sh
 ```
 
-The installer walks through 7 steps: system detection, toolchain check, WiFi hardware scan, profile recommendation, dependency install, build, and verification.
+Trình cài đặt hướng dẫn qua 7 bước: phát hiện hệ thống, kiểm tra toolchain, quét phần cứng WiFi, đề xuất hồ sơ, cài đặt dependency, build, và xác minh.
 
-| Profile | What it installs | Size | Requirements |
+| Hồ sơ | Cài đặt | Kích thước | Yêu cầu |
 |---------|-----------------|------|-------------|
-| `verify` | Pipeline verification only | ~5 MB | Python 3.8+ |
-| `python` | Full Python API server + sensing | ~500 MB | Python 3.8+ |
-| `rust` | Rust pipeline (~810x faster) | ~200 MB | Rust 1.70+ |
-| `browser` | WASM for in-browser execution | ~10 MB | Rust + wasm-pack |
-| `iot` | ESP32 sensor mesh + aggregator | varies | Rust + ESP-IDF |
-| `docker` | Docker-based deployment | ~1 GB | Docker |
-| `field` | WiFi-Mat disaster response kit | ~62 MB | Rust + wasm-pack |
-| `full` | Everything available | ~2 GB | All toolchains |
+| `verify` | Chỉ xác minh pipeline | ~5 MB | Python 3.8+ |
+| `python` | API server Python đầy đủ + sensing | ~500 MB | Python 3.8+ |
+| `rust` | Pipeline Rust (~810x nhanh hơn) | ~200 MB | Rust 1.70+ |
+| `browser` | WASM để thực thi trong trình duyệt | ~10 MB | Rust + wasm-pack |
+| `iot` | ESP32 sensor mesh + aggregator | thay đổi | Rust + ESP-IDF |
+| `docker` | Triển khai dựa trên Docker | ~1 GB | Docker |
+| `field` | Bộ phản ứng thảm họa WiFi-Mat | ~62 MB | Rust + wasm-pack |
+| `full` | Tất cả mọi thứ | ~2 GB | Tất cả toolchains |
 
 ```bash
-# Non-interactive
+# Không tương tác
 ./install.sh --profile rust --yes
 
-# Hardware check only
+# Chỉ kiểm tra phần cứng
 ./install.sh --check-only
 ```
 
 </details>
 
 <details>
-<summary><strong>From Source</strong> — Rust (primary) or Python</summary>
+<summary><strong>Từ Source</strong> — Rust (chính) hoặc Python</summary>
 
 ```bash
 git clone https://github.com/ruvnet/RuView.git
 cd RuView
 
-# Rust (primary — 810x faster)
+# Rust (chính — 810x nhanh hơn)
 cd rust-port/wifi-densepose-rs
 cargo build --release
 cargo test --workspace
@@ -554,19 +554,19 @@ cargo test --workspace
 pip install -r requirements.txt
 pip install -e .
 
-# Or via pip
+# Hoặc qua pip
 pip install wifi-densepose
-pip install wifi-densepose[gpu]   # GPU acceleration
-pip install wifi-densepose[all]   # All optional deps
+pip install wifi-densepose[gpu]   # Tăng tốc GPU
+pip install wifi-densepose[all]   # Tất cả optional deps
 ```
 
 </details>
 
 <details>
-<summary><strong>Docker</strong> — Pre-built images, no toolchain needed</summary>
+<summary><strong>Docker</strong> — Images có sẵn, không cần toolchain</summary>
 
 ```bash
-# Rust sensing server (132 MB — recommended)
+# Rust sensing server (132 MB — khuyến nghị)
 docker pull ruvnet/wifi-densepose:latest
 docker run -p 3000:3000 -p 3001:3001 -p 5005:5005/udp ruvnet/wifi-densepose:latest
 
@@ -574,14 +574,14 @@ docker run -p 3000:3000 -p 3001:3001 -p 5005:5005/udp ruvnet/wifi-densepose:late
 docker pull ruvnet/wifi-densepose:python
 docker run -p 8765:8765 -p 8080:8080 ruvnet/wifi-densepose:python
 
-# Both via docker-compose
+# Cả hai qua docker-compose
 cd docker && docker compose up
 
-# Export RVF model
+# Xuất model RVF
 docker run --rm -v $(pwd):/out ruvnet/wifi-densepose:latest --export-rvf /out/model.rvf
 ```
 
-| Image | Tag | Platforms | Ports |
+| Image | Tag | Nền tảng | Cổng |
 |-------|-----|-----------|-------|
 | `ruvnet/wifi-densepose` | `latest`, `rust` | linux/amd64, linux/arm64 | 3000 (REST), 3001 (WS), 5005/udp (ESP32) |
 | `ruvnet/wifi-densepose` | `python` | linux/amd64 | 8765 (WS), 8080 (UI) |
@@ -589,77 +589,76 @@ docker run --rm -v $(pwd):/out ruvnet/wifi-densepose:latest --export-rvf /out/mo
 </details>
 
 <details>
-<summary><strong>System Requirements</strong></summary>
+<summary><strong>Yêu Cầu Hệ Thống</strong></summary>
 
-- **Rust**: 1.70+ (primary runtime — install via [rustup](https://rustup.rs/))
-- **Python**: 3.8+ (for verification and legacy v1 API)
+- **Rust**: 1.70+ (runtime chính — cài đặt qua [rustup](https://rustup.rs/))
+- **Python**: 3.8+ (để xác minh và legacy v1 API)
 - **OS**: Linux (Ubuntu 18.04+), macOS (10.15+), Windows 10+
-- **Memory**: Minimum 4GB RAM, Recommended 8GB+
-- **Storage**: 2GB free space for models and data
-- **Network**: WiFi interface with CSI capability (optional — installer detects what you have)
-- **GPU**: Optional (NVIDIA CUDA or Apple Metal)
+- **Bộ nhớ**: Tối thiểu 4GB RAM, Khuyến nghị 8GB+
+- **Lưu trữ**: 2GB dung lượng trống cho models và dữ liệu
+- **Mạng**: Giao diện WiFi có khả năng CSI (tùy chọn — trình cài đặt phát hiện những gì bạn có)
+- **GPU**: Tùy chọn (NVIDIA CUDA hoặc Apple Metal)
 
 </details>
 
 <details>
-<summary><strong>Rust Crates</strong> — Individual crates on crates.io</summary>
+<summary><strong>Rust Crates</strong> — Các crate riêng lẻ trên crates.io</summary>
 
-The Rust workspace consists of 15 crates, all published to [crates.io](https://crates.io/):
+Rust workspace bao gồm 15 crates, tất cả đã được phát hành lên [crates.io](https://crates.io/):
 
 ```bash
-# Add individual crates to your Cargo.toml
-cargo add wifi-densepose-core       # Types, traits, errors
-cargo add wifi-densepose-signal     # CSI signal processing (6 SOTA algorithms)
-cargo add wifi-densepose-nn         # Neural inference (ONNX, PyTorch, Candle)
-cargo add wifi-densepose-vitals     # Vital sign extraction (breathing + heart rate)
-cargo add wifi-densepose-mat        # Disaster response (MAT survivor detection)
-cargo add wifi-densepose-hardware   # ESP32, Intel 5300, Atheros sensors
-cargo add wifi-densepose-train      # Training pipeline (MM-Fi dataset)
-cargo add wifi-densepose-wifiscan   # Multi-BSSID WiFi scanning
-cargo add wifi-densepose-ruvector   # RuVector v2.0.4 integration layer (ADR-017)
+# Thêm crate riêng lẻ vào Cargo.toml của bạn
+cargo add wifi-densepose-core       # Kiểu dữ liệu, traits, lỗi
+cargo add wifi-densepose-signal     # Xử lý tín hiệu CSI (6 thuật toán SOTA)
+cargo add wifi-densepose-nn         # Suy luận neural (ONNX, PyTorch, Candle)
+cargo add wifi-densepose-vitals     # Trích xuất vital sign (nhịp thở + nhịp tim)
+cargo add wifi-densepose-mat        # Ứng phó thảm họa (phát hiện người sống sót MAT)
+cargo add wifi-densepose-hardware   # Sensor ESP32, Intel 5300, Atheros
+cargo add wifi-densepose-train      # Pipeline huấn luyện (bộ dữ liệu MM-Fi)
+cargo add wifi-densepose-wifiscan   # Quét WiFi Multi-BSSID
+cargo add wifi-densepose-ruvector   # Tầng tích hợp RuVector v2.0.4 (ADR-017)
 ```
 
-| Crate | Description | RuVector | crates.io |
+| Crate | Mô tả | RuVector | crates.io |
 |-------|-------------|----------|-----------|
-| [`wifi-densepose-core`](https://crates.io/crates/wifi-densepose-core) | Foundation types, traits, and utilities | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-core.svg)](https://crates.io/crates/wifi-densepose-core) |
-| [`wifi-densepose-signal`](https://crates.io/crates/wifi-densepose-signal) | SOTA CSI signal processing (SpotFi, FarSense, Widar 3.0) | `mincut`, `attn-mincut`, `attention`, `solver` | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-signal.svg)](https://crates.io/crates/wifi-densepose-signal) |
-| [`wifi-densepose-nn`](https://crates.io/crates/wifi-densepose-nn) | Multi-backend inference (ONNX, PyTorch, Candle) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-nn.svg)](https://crates.io/crates/wifi-densepose-nn) |
-| [`wifi-densepose-train`](https://crates.io/crates/wifi-densepose-train) | Training pipeline with MM-Fi dataset (NeurIPS 2023) | **All 5** | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-train.svg)](https://crates.io/crates/wifi-densepose-train) |
-| [`wifi-densepose-mat`](https://crates.io/crates/wifi-densepose-mat) | Mass Casualty Assessment Tool (disaster survivor detection) | `solver`, `temporal-tensor` | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-mat.svg)](https://crates.io/crates/wifi-densepose-mat) |
-| [`wifi-densepose-ruvector`](https://crates.io/crates/wifi-densepose-ruvector) | RuVector v2.0.4 integration layer — 7 signal+MAT integration points (ADR-017) | **All 5** | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-ruvector.svg)](https://crates.io/crates/wifi-densepose-ruvector) |
-| [`wifi-densepose-vitals`](https://crates.io/crates/wifi-densepose-vitals) | Vital signs: breathing (6-30 BPM), heart rate (40-120 BPM) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-vitals.svg)](https://crates.io/crates/wifi-densepose-vitals) |
-| [`wifi-densepose-hardware`](https://crates.io/crates/wifi-densepose-hardware) | ESP32, Intel 5300, Atheros CSI sensor interfaces | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-hardware.svg)](https://crates.io/crates/wifi-densepose-hardware) |
-| [`wifi-densepose-wifiscan`](https://crates.io/crates/wifi-densepose-wifiscan) | Multi-BSSID WiFi scanning (Windows, macOS, Linux) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-wifiscan.svg)](https://crates.io/crates/wifi-densepose-wifiscan) |
-| [`wifi-densepose-wasm`](https://crates.io/crates/wifi-densepose-wasm) | WebAssembly bindings for browser deployment | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-wasm.svg)](https://crates.io/crates/wifi-densepose-wasm) |
-| [`wifi-densepose-sensing-server`](https://crates.io/crates/wifi-densepose-sensing-server) | Axum server: UDP ingestion, WebSocket broadcast | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-sensing-server.svg)](https://crates.io/crates/wifi-densepose-sensing-server) |
-| [`wifi-densepose-cli`](https://crates.io/crates/wifi-densepose-cli) | Command-line tool for MAT disaster scanning | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-cli.svg)](https://crates.io/crates/wifi-densepose-cli) |
-| [`wifi-densepose-api`](https://crates.io/crates/wifi-densepose-api) | REST + WebSocket API layer | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-api.svg)](https://crates.io/crates/wifi-densepose-api) |
-| [`wifi-densepose-config`](https://crates.io/crates/wifi-densepose-config) | Configuration management | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-config.svg)](https://crates.io/crates/wifi-densepose-config) |
-| [`wifi-densepose-db`](https://crates.io/crates/wifi-densepose-db) | Database persistence (PostgreSQL, SQLite, Redis) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-db.svg)](https://crates.io/crates/wifi-densepose-db) |
+| [`wifi-densepose-core`](https://crates.io/crates/wifi-densepose-core) | Kiểu nền tảng, traits, và tiện ích | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-core.svg)](https://crates.io/crates/wifi-densepose-core) |
+| [`wifi-densepose-signal`](https://crates.io/crates/wifi-densepose-signal) | Xử lý tín hiệu CSI SOTA (SpotFi, FarSense, Widar 3.0) | `mincut`, `attn-mincut`, `attention`, `solver` | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-signal.svg)](https://crates.io/crates/wifi-densepose-signal) |
+| [`wifi-densepose-nn`](https://crates.io/crates/wifi-densepose-nn) | Suy luận đa backend (ONNX, PyTorch, Candle) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-nn.svg)](https://crates.io/crates/wifi-densepose-nn) |
+| [`wifi-densepose-train`](https://crates.io/crates/wifi-densepose-train) | Pipeline huấn luyện với bộ dữ liệu MM-Fi (NeurIPS 2023) | **Tất cả 5** | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-train.svg)](https://crates.io/crates/wifi-densepose-train) |
+| [`wifi-densepose-mat`](https://crates.io/crates/wifi-densepose-mat) | Công Cụ Đánh Giá Thương Vong Hàng Loạt (phát hiện người sống sót sau thảm họa) | `solver`, `temporal-tensor` | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-mat.svg)](https://crates.io/crates/wifi-densepose-mat) |
+| [`wifi-densepose-ruvector`](https://crates.io/crates/wifi-densepose-ruvector) | Tầng tích hợp RuVector v2.0.4 — 7 điểm tích hợp tín hiệu+MAT (ADR-017) | **Tất cả 5** | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-ruvector.svg)](https://crates.io/crates/wifi-densepose-ruvector) |
+| [`wifi-densepose-vitals`](https://crates.io/crates/wifi-densepose-vitals) | Vital signs: nhịp thở (6-30 BPM), nhịp tim (40-120 BPM) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-vitals.svg)](https://crates.io/crates/wifi-densepose-vitals) |
+| [`wifi-densepose-hardware`](https://crates.io/crates/wifi-densepose-hardware) | Giao diện sensor CSI ESP32, Intel 5300, Atheros | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-hardware.svg)](https://crates.io/crates/wifi-densepose-hardware) |
+| [`wifi-densepose-wifiscan`](https://crates.io/crates/wifi-densepose-wifiscan) | Quét WiFi Multi-BSSID (Windows, macOS, Linux) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-wifiscan.svg)](https://crates.io/crates/wifi-densepose-wifiscan) |
+| [`wifi-densepose-wasm`](https://crates.io/crates/wifi-densepose-wasm) | WebAssembly bindings cho triển khai trình duyệt | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-wasm.svg)](https://crates.io/crates/wifi-densepose-wasm) |
+| [`wifi-densepose-sensing-server`](https://crates.io/crates/wifi-densepose-sensing-server) | Axum server: tiếp nhận UDP, broadcast WebSocket | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-sensing-server.svg)](https://crates.io/crates/wifi-densepose-sensing-server) |
+| [`wifi-densepose-cli`](https://crates.io/crates/wifi-densepose-cli) | Công cụ command-line để quét thảm họa MAT | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-cli.svg)](https://crates.io/crates/wifi-densepose-cli) |
+| [`wifi-densepose-api`](https://crates.io/crates/wifi-densepose-api) | Tầng REST + WebSocket API | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-api.svg)](https://crates.io/crates/wifi-densepose-api) |
+| [`wifi-densepose-config`](https://crates.io/crates/wifi-densepose-config) | Quản lý cấu hình | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-config.svg)](https://crates.io/crates/wifi-densepose-config) |
+| [`wifi-densepose-db`](https://crates.io/crates/wifi-densepose-db) | Lưu trữ cơ sở dữ liệu (PostgreSQL, SQLite, Redis) | -- | [![crates.io](https://img.shields.io/crates/v/wifi-densepose-db.svg)](https://crates.io/crates/wifi-densepose-db) |
 
-All crates integrate with [RuVector v2.0.4](https://github.com/ruvnet/ruvector) — see [AI Backbone](#ai-backbone-ruvector) below.
+Tất cả crates tích hợp với [RuVector v2.0.4](https://github.com/ruvnet/ruvector) — xem [AI Backbone](#ai-backbone-ruvector) bên dưới.
 
 </details>
 
 ---
-
-## 🚀 Quick Start
+## 🚀 Bắt Đầu Nhanh
 
 <details open>
-<summary><strong>First API call in 3 commands</strong></summary>
+<summary><strong>Lần gọi API đầu tiên trong 3 lệnh</strong></summary>
 
-### 1. Install
+### 1. Cài Đặt
 
 ```bash
-# Fastest path — Docker
+# Đường nhanh nhất — Docker
 docker pull ruvnet/wifi-densepose:latest
 docker run -p 3000:3000 ruvnet/wifi-densepose:latest
 
-# Or from source (Rust)
+# Hoặc từ source (Rust)
 ./install.sh --profile rust --yes
 ```
 
-### 2. Start the System
+### 2. Khởi Động Hệ Thống
 
 ```python
 from wifi_densepose import WiFiDensePose
@@ -674,10 +673,10 @@ system.stop()
 ### 3. REST API
 
 ```bash
-# Health check
+# Kiểm tra sức khỏe
 curl http://localhost:3000/health
 
-# Latest sensing frame
+# Frame sensing mới nhất
 curl http://localhost:3000/api/v1/sensing/latest
 
 # Vital signs
@@ -686,11 +685,11 @@ curl http://localhost:3000/api/v1/vital-signs
 # Pose estimation
 curl http://localhost:3000/api/v1/pose/current
 
-# Server info
+# Thông tin server
 curl http://localhost:3000/api/v1/info
 ```
 
-### 4. Real-time WebSocket
+### 4. WebSocket Thời Gian Thực
 
 ```python
 import asyncio, websockets, json
@@ -708,274 +707,274 @@ asyncio.run(stream())
 
 ---
 
-## 📋 Table of Contents
+## 📋 Mục Lục
 
 <details open>
-<summary><strong>📡 Signal Processing & Sensing</strong> — From raw WiFi frames to vital signs</summary>
+<summary><strong>📡 Xử Lý Tín Hiệu & Sensing</strong> — Từ WiFi frames thô đến vital signs</summary>
 
-The signal processing stack transforms raw WiFi Channel State Information into actionable human sensing data. Starting from 56-192 subcarrier complex values captured at 20 Hz, the pipeline applies research-grade algorithms (SpotFi phase correction, Hampel outlier rejection, Fresnel zone modeling) to extract breathing rate, heart rate, motion level, and multi-person body pose — all in pure Rust with zero external ML dependencies.
+Stack xử lý tín hiệu biến đổi Channel State Information WiFi thô thành dữ liệu sensing người có thể hành động. Bắt đầu từ 56-192 giá trị phức subcarrier được thu thập ở 20 Hz, pipeline áp dụng các thuật toán cấp độ nghiên cứu (sửa pha SpotFi, loại bỏ ngoại lệ Hampel, mô hình vùng Fresnel) để trích xuất nhịp thở, nhịp tim, mức độ chuyển động, và tư thế cơ thể đa người — tất cả trong Rust thuần với không có dependencies ML bên ngoài.
 
-| Section | Description | Docs |
+| Phần | Mô tả | Tài liệu |
 |---------|-------------|------|
-| [Key Features](#key-features) | Sensing, Intelligence, and Performance & Deployment capabilities | — |
-| [How It Works](#how-it-works) | End-to-end pipeline: radio waves → CSI capture → signal processing → AI → pose + vitals | — |
-| [ESP32-S3 Hardware Pipeline](#esp32-s3-hardware-pipeline) | 20 Hz CSI streaming, binary frame parsing, flash & provision | [ADR-018](docs/adr/ADR-018-esp32-dev-implementation.md) · [Tutorial #34](https://github.com/ruvnet/RuView/issues/34) |
-| [Vital Sign Detection](#vital-sign-detection) | Breathing 6-30 BPM, heartbeat 40-120 BPM, FFT peak detection | [ADR-021](docs/adr/ADR-021-vital-sign-detection-rvdna-pipeline.md) |
-| [WiFi Scan Domain Layer](#wifi-scan-domain-layer) | 8-stage RSSI pipeline, multi-BSSID fingerprinting, Windows WiFi | [ADR-022](docs/adr/ADR-022-windows-wifi-enhanced-fidelity-ruvector.md) · [Tutorial #36](https://github.com/ruvnet/RuView/issues/36) |
-| [WiFi-Mat Disaster Response](#wifi-mat-disaster-response) | Search & rescue, START triage, 3D localization through debris | [ADR-001](docs/adr/ADR-001-wifi-mat-disaster-detection.md) · [User Guide](docs/wifi-mat-user-guide.md) |
-| [SOTA Signal Processing](#sota-signal-processing) | SpotFi, Hampel, Fresnel, STFT spectrogram, subcarrier selection, BVP | [ADR-014](docs/adr/ADR-014-sota-signal-processing.md) |
+| [Tính Năng Chính](#key-features) | Khả năng Sensing, Trí tuệ, và Hiệu suất & Triển khai | — |
+| [Cách Hoạt Động](#how-it-works) | Pipeline end-to-end: sóng radio → thu CSI → xử lý tín hiệu → AI → pose + vitals | — |
+| [Pipeline Phần Cứng ESP32-S3](#esp32-s3-hardware-pipeline) | Streaming CSI 20 Hz, phân tích frame nhị phân, flash & provision | [ADR-018](docs/adr/ADR-018-esp32-dev-implementation.md) · [Tutorial #34](https://github.com/ruvnet/RuView/issues/34) |
+| [Phát Hiện Vital Signs](#vital-sign-detection) | Nhịp thở 6-30 BPM, nhịp tim 40-120 BPM, phát hiện đỉnh FFT | [ADR-021](docs/adr/ADR-021-vital-sign-detection-rvdna-pipeline.md) |
+| [Tầng Domain Quét WiFi](#wifi-scan-domain-layer) | Pipeline RSSI 8 giai đoạn, fingerprinting multi-BSSID, Windows WiFi | [ADR-022](docs/adr/ADR-022-windows-wifi-enhanced-fidelity-ruvector.md) · [Tutorial #36](https://github.com/ruvnet/RuView/issues/36) |
+| [WiFi-Mat Ứng Phó Thảm Họa](#wifi-mat-disaster-response) | Tìm kiếm & cứu nạn, phân loại START triage, định vị 3D qua đống đổ nát | [ADR-001](docs/adr/ADR-001-wifi-mat-disaster-detection.md) · [Hướng Dẫn Người Dùng](docs/wifi-mat-user-guide.md) |
+| [Xử Lý Tín Hiệu SOTA](#sota-signal-processing) | SpotFi, Hampel, Fresnel, STFT spectrogram, lựa chọn subcarrier, BVP | [ADR-014](docs/adr/ADR-014-sota-signal-processing.md) |
 
 </details>
 
 <details>
-<summary><strong>🧠 Models & Training</strong> — DensePose pipeline, RVF containers, SONA adaptation, RuVector integration</summary>
+<summary><strong>🧠 Models & Huấn Luyện</strong> — Pipeline DensePose, container RVF, thích nghi SONA, tích hợp RuVector</summary>
 
-The neural pipeline uses a graph transformer with cross-attention to map CSI feature matrices to 17 COCO body keypoints and DensePose UV coordinates. Models are packaged as single-file `.rvf` containers with progressive loading (Layer A instant, Layer B warm, Layer C full). SONA (Self-Optimizing Neural Architecture) enables continuous on-device adaptation via micro-LoRA + EWC++ without catastrophic forgetting. Signal processing is powered by 5 [RuVector](https://github.com/ruvnet/ruvector) crates (v2.0.4) with 7 integration points across the Rust workspace, plus 6 additional vendored crates for inference and graph intelligence.
+Pipeline neural sử dụng graph transformer với cross-attention để ánh xạ ma trận đặc trưng CSI đến 17 COCO body keypoints và tọa độ DensePose UV. Các mô hình được đóng gói dưới dạng container `.rvf` một file với tải lũy tiến (Layer A tức thì, Layer B ấm, Layer C đầy đủ). SONA (Self-Optimizing Neural Architecture) cho phép thích nghi liên tục trên thiết bị qua micro-LoRA + EWC++ mà không quên thảm họa. Xử lý tín hiệu được cung cấp bởi 5 crates [RuVector](https://github.com/ruvnet/ruvector) (v2.0.4) với 7 điểm tích hợp trên Rust workspace, cộng thêm 6 crates vendored bổ sung cho suy luận và tình báo đồ thị.
 
-| Section | Description | Docs |
+| Phần | Mô tả | Tài liệu |
 |---------|-------------|------|
-| [RVF Model Container](#rvf-model-container) | Binary packaging with Ed25519 signing, progressive 3-layer loading, SIMD quantization | [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md) |
-| [Training & Fine-Tuning](#training--fine-tuning) | 8-phase pure Rust pipeline (7,832 lines), MM-Fi/Wi-Pose pre-training, 6-term composite loss, SONA LoRA | [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md) |
-| [RuVector Crates](#ruvector-crates) | 11 vendored Rust crates from [ruvector](https://github.com/ruvnet/ruvector): attention, min-cut, solver, GNN, HNSW, temporal compression, sparse inference | [GitHub](https://github.com/ruvnet/ruvector) · [Source](vendor/ruvector/) |
-| [AI Backbone (RuVector)](#ai-backbone-ruvector) | 5 AI capabilities replacing hand-tuned thresholds: attention, graph min-cut, sparse solvers, tiered compression | [crates.io](https://crates.io/crates/wifi-densepose-ruvector) |
-| [Self-Learning WiFi AI (ADR-024)](#self-learning-wifi-ai-adr-024) | Contrastive self-supervised learning, room fingerprinting, anomaly detection, 55 KB model | [ADR-024](docs/adr/ADR-024-contrastive-csi-embedding-model.md) |
-| [Cross-Environment Generalization (ADR-027)](docs/adr/ADR-027-cross-environment-domain-generalization.md) | Domain-adversarial training, geometry-conditioned inference, hardware normalization, zero-shot deployment | [ADR-027](docs/adr/ADR-027-cross-environment-domain-generalization.md) |
+| [Container Mô Hình RVF](#rvf-model-container) | Đóng gói nhị phân với ký Ed25519, tải lũy tiến 3 lớp, lượng tử hóa SIMD | [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md) |
+| [Huấn Luyện & Tinh Chỉnh](#training--fine-tuning) | Pipeline Rust thuần 8 giai đoạn (7.832 dòng), tiền huấn luyện MM-Fi/Wi-Pose, loss tổng hợp 6 thành phần, SONA LoRA | [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md) |
+| [RuVector Crates](#ruvector-crates) | 11 Rust crates vendored từ [ruvector](https://github.com/ruvnet/ruvector): attention, min-cut, solver, GNN, HNSW, nén thời gian, suy luận thưa | [GitHub](https://github.com/ruvnet/ruvector) · [Source](vendor/ruvector/) |
+| [AI Backbone (RuVector)](#ai-backbone-ruvector) | 5 khả năng AI thay thế ngưỡng tinh chỉnh thủ công: attention, đồ thị min-cut, solver thưa, nén phân tầng | [crates.io](https://crates.io/crates/wifi-densepose-ruvector) |
+| [WiFi AI Tự Học (ADR-024)](#self-learning-wifi-ai-adr-024) | Học tự giám sát contrastive, fingerprinting phòng, phát hiện bất thường, mô hình 55 KB | [ADR-024](docs/adr/ADR-024-contrastive-csi-embedding-model.md) |
+| [Tổng Quát Hóa Xuyên Môi Trường (ADR-027)](docs/adr/ADR-027-cross-environment-domain-generalization.md) | Huấn luyện domain-adversarial, suy luận có điều kiện hình học, chuẩn hóa phần cứng, triển khai zero-shot | [ADR-027](docs/adr/ADR-027-cross-environment-domain-generalization.md) |
 
 </details>
 
 <details>
-<summary><strong>🖥️ Usage & Configuration</strong> — CLI flags, API endpoints, hardware setup</summary>
+<summary><strong>🖥️ Sử Dụng & Cấu Hình</strong> — Cờ CLI, API endpoints, thiết lập phần cứng</summary>
 
-The Rust sensing server is the primary interface, offering a comprehensive CLI with flags for data source selection, model loading, training, benchmarking, and RVF export. A REST API (Axum) and WebSocket server provide real-time data access. The Python v1 CLI remains available for legacy workflows.
+Rust sensing server là giao diện chính, cung cấp CLI toàn diện với cờ để lựa chọn nguồn dữ liệu, tải mô hình, huấn luyện, benchmark, và xuất RVF. REST API (Axum) và WebSocket server cung cấp truy cập dữ liệu thời gian thực. Python v1 CLI vẫn khả dụng cho các quy trình làm việc legacy.
 
-| Section | Description | Docs |
+| Phần | Mô tả | Tài liệu |
 |---------|-------------|------|
-| [CLI Usage](#cli-usage) | `--source`, `--train`, `--benchmark`, `--export-rvf`, `--model`, `--progressive` | — |
-| [REST API & WebSocket](#rest-api--websocket) | 6 REST endpoints (sensing, vitals, BSSID, SONA), WebSocket real-time stream | — |
-| [Hardware Support](#hardware-support-1) | ESP32-S3 ($8), Intel 5300 ($15), Atheros AR9580 ($20), Windows RSSI ($0) | [ADR-012](docs/adr/ADR-012-esp32-csi-sensor-mesh.md) · [ADR-013](docs/adr/ADR-013-feature-level-sensing-commodity-gear.md) |
+| [Sử Dụng CLI](#cli-usage) | `--source`, `--train`, `--benchmark`, `--export-rvf`, `--model`, `--progressive` | — |
+| [REST API & WebSocket](#rest-api--websocket) | 6 REST endpoints (sensing, vitals, BSSID, SONA), luồng WebSocket thời gian thực | — |
+| [Hỗ Trợ Phần Cứng](#hardware-support-1) | ESP32-S3 ($8), Intel 5300 ($15), Atheros AR9580 ($20), Windows RSSI ($0) | [ADR-012](docs/adr/ADR-012-esp32-csi-sensor-mesh.md) · [ADR-013](docs/adr/ADR-013-feature-level-sensing-commodity-gear.md) |
 
 </details>
 
 <details>
-<summary><strong>⚙️ Development & Testing</strong> — 542+ tests, CI, deployment</summary>
+<summary><strong>⚙️ Phát Triển & Kiểm Thử</strong> — 542+ tests, CI, triển khai</summary>
 
-The project maintains 542+ pure-Rust tests across 7 crate suites with zero mocks — every test runs against real algorithm implementations. Hardware-free simulation mode (`--source simulate`) enables full-stack testing without physical devices. Docker images are published on Docker Hub for zero-setup deployment.
+Dự án duy trì 542+ Rust tests thuần trên 7 bộ crate với không có mocks — mọi test chạy với các triển khai thuật toán thực tế. Chế độ mô phỏng không cần phần cứng (`--source simulate`) cho phép kiểm thử full-stack mà không cần thiết bị vật lý. Các Docker images được phát hành trên Docker Hub để triển khai không cần thiết lập.
 
-| Section | Description | Docs |
+| Phần | Mô tả | Tài liệu |
 |---------|-------------|------|
-| [Testing](#testing) | 7 test suites: sensing-server (229), signal (83), mat (139), wifiscan (91), RVF (16), vitals (18) | — |
-| [Deployment](#deployment) | Docker images (132 MB Rust / 569 MB Python), docker-compose, env vars | — |
-| [Contributing](#contributing) | Fork → branch → test → PR workflow, Rust and Python dev setup | — |
+| [Kiểm Thử](#testing) | 7 bộ test: sensing-server (229), signal (83), mat (139), wifiscan (91), RVF (16), vitals (18) | — |
+| [Triển Khai](#deployment) | Docker images (132 MB Rust / 569 MB Python), docker-compose, env vars | — |
+| [Đóng Góp](#contributing) | Quy trình Fork → branch → test → PR, thiết lập dev Rust và Python | — |
 
 </details>
 
 <details>
-<summary><strong>📊 Performance & Benchmarks</strong> — Measured throughput, latency, resource usage</summary>
+<summary><strong>📊 Hiệu Suất & Benchmarks</strong> — Thông lượng đo, độ trễ, sử dụng tài nguyên</summary>
 
-All benchmarks are measured on the Rust sensing server using `cargo bench` and the built-in `--benchmark` CLI flag. The Rust v2 implementation delivers 810x end-to-end speedup over the Python v1 baseline, with motion detection reaching 5,400x improvement. The vital sign detector processes 11,665 frames/second in a single-threaded benchmark.
+Tất cả benchmarks được đo trên Rust sensing server sử dụng `cargo bench` và cờ CLI `--benchmark` tích hợp. Triển khai Rust v2 cung cấp tăng tốc end-to-end 810x so với Python v1 baseline, với phát hiện chuyển động đạt cải thiện 5.400x. Bộ phát hiện vital signs xử lý 11.665 frames/giây trong benchmark single-threaded.
 
-| Section | Description | Key Metric |
+| Phần | Mô tả | Chỉ số chính |
 |---------|-------------|------------|
-| [Performance Metrics](#performance-metrics) | Vital signs, CSI pipeline, motion detection, Docker image, memory | 11,665 fps vitals · 54K fps pipeline |
-| [Rust vs Python](#python-vs-rust) | Side-by-side benchmarks across 5 operations | **810x** full pipeline speedup |
+| [Chỉ Số Hiệu Suất](#performance-metrics) | Vital signs, pipeline CSI, phát hiện chuyển động, Docker image, bộ nhớ | 11.665 fps vitals · 54K fps pipeline |
+| [Rust vs Python](#python-vs-rust) | So sánh trực tiếp trên 5 thao tác | Tăng tốc **810x** full pipeline |
 
 </details>
 
 <details>
-<summary><strong>📄 Meta</strong> — License, changelog, support</summary>
+<summary><strong>📄 Meta</strong> — Giấy phép, changelog, hỗ trợ</summary>
 
-WiFi DensePose is MIT-licensed open source, developed by [ruvnet](https://github.com/ruvnet). The project has been in active development since March 2025, with 3 major releases delivering the Rust port, SOTA signal processing, disaster response module, and end-to-end training pipeline.
+WiFi DensePose là mã nguồn mở MIT, được phát triển bởi [ruvnet](https://github.com/ruvnet). Dự án đã được phát triển tích cực từ tháng 3 năm 2025, với 3 phiên bản chính cung cấp Rust port, xử lý tín hiệu SOTA, module ứng phó thảm họa, và pipeline huấn luyện end-to-end.
 
-| Section | Description | Link |
+| Phần | Mô tả | Liên kết |
 |---------|-------------|------|
 | [Changelog](#changelog) | v3.0.0 (AETHER AI + Docker), v2.0.0 (Rust port + SOTA + WiFi-Mat) | [CHANGELOG.md](CHANGELOG.md) |
-| [License](#license) | MIT License | [LICENSE](LICENSE) |
-| [Support](#support) | Bug reports, feature requests, community discussion | [Issues](https://github.com/ruvnet/RuView/issues) · [Discussions](https://github.com/ruvnet/RuView/discussions) |
+| [Giấy Phép](#license) | MIT License | [LICENSE](LICENSE) |
+| [Hỗ Trợ](#support) | Báo cáo lỗi, yêu cầu tính năng, thảo luận cộng đồng | [Issues](https://github.com/ruvnet/RuView/issues) · [Discussions](https://github.com/ruvnet/RuView/discussions) |
 
 </details>
 
 ---
 
 <details>
-<summary><strong>🌍 Cross-Environment Generalization (ADR-027 — Project MERIDIAN)</strong> — Train once, deploy in any room without retraining</summary>
+<summary><strong>🌍 Tổng Quát Hóa Xuyên Môi Trường (ADR-027 — Project MERIDIAN)</strong> — Huấn luyện một lần, triển khai ở bất kỳ phòng nào mà không cần huấn luyện lại</summary>
 
-| What | How it works | Why it matters |
+| Tính năng | Cách hoạt động | Tại sao quan trọng |
 |------|-------------|----------------|
-| **Gradient Reversal Layer** | An adversarial classifier tries to guess which room the signal came from; the main network is trained to fool it | Forces the model to discard room-specific shortcuts |
-| **Geometry Encoder (FiLM)** | Transmitter/receiver positions are Fourier-encoded and injected as scale+shift conditioning on every layer | The model knows *where* the hardware is, so it doesn't need to memorize layout |
-| **Hardware Normalizer** | Resamples any chipset's CSI to a canonical 56-subcarrier format with standardized amplitude | Intel 5300 and ESP32 data look identical to the model |
-| **Virtual Domain Augmentation** | Generates synthetic environments with random room scale, wall reflections, scatterers, and noise profiles | Training sees 1000s of rooms even with data from just 2-3 |
-| **Rapid Adaptation (TTT)** | Contrastive test-time training with LoRA weight generation from a few unlabeled frames | Zero-shot deployment — the model self-tunes on arrival |
-| **Cross-Domain Evaluator** | Leave-one-out evaluation across all training environments with per-environment PCK/OKS metrics | Proves generalization, not just memorization |
+| **Gradient Reversal Layer** | Bộ phân loại đối kháng cố gắng đoán tín hiệu đến từ phòng nào; mạng chính được huấn luyện để đánh lừa nó | Buộc mô hình loại bỏ các shortcut đặc thù của phòng |
+| **Geometry Encoder (FiLM)** | Vị trí phát/thu được mã hóa Fourier và tiêm vào dưới dạng điều kiện scale+shift trên mỗi lớp | Mô hình biết *vị trí* phần cứng, vì vậy không cần ghi nhớ bố cục |
+| **Hardware Normalizer** | Lấy mẫu lại CSI của bất kỳ chipset nào về định dạng 56 subcarrier chuẩn với biên độ tiêu chuẩn hóa | Dữ liệu Intel 5300 và ESP32 trông giống hệt nhau với mô hình |
+| **Virtual Domain Augmentation** | Tạo ra các môi trường tổng hợp với tỷ lệ phòng ngẫu nhiên, phản xạ tường, scatterers, và biên dạng nhiễu | Huấn luyện thấy hàng nghìn phòng ngay cả với dữ liệu chỉ từ 2-3 phòng |
+| **Rapid Adaptation (TTT)** | Huấn luyện contrastive test-time với tạo LoRA weights từ một số frame không có nhãn | Triển khai zero-shot — mô hình tự điều chỉnh khi đến |
+| **Cross-Domain Evaluator** | Đánh giá leave-one-out trên tất cả môi trường huấn luyện với chỉ số PCK/OKS mỗi môi trường | Chứng minh tổng quát hóa, không chỉ ghi nhớ |
 
-**Architecture**
+**Kiến Trúc**
 
 ```
-CSI Frame [any chipset]
+CSI Frame [bất kỳ chipset]
     │
     ▼
-HardwareNormalizer ──→ canonical 56 subcarriers, N(0,1) amplitude
+HardwareNormalizer ──→ 56 subcarriers chuẩn, biên độ N(0,1)
     │
     ▼
-CSI Encoder (existing) ──→ latent features
+CSI Encoder (hiện có) ──→ đặc trưng latent
     │
-    ├──→ Pose Head ──→ 17-joint pose (environment-invariant)
+    ├──→ Pose Head ──→ tư thế 17 khớp (bất biến môi trường)
     │
-    ├──→ Gradient Reversal Layer ──→ Domain Classifier (adversarial)
-    │         λ ramps 0→1 via cosine/exponential schedule
+    ├──→ Gradient Reversal Layer ──→ Domain Classifier (đối kháng)
+    │         λ tăng dần 0→1 theo lịch cosine/exponential
     │
     └──→ Geometry Encoder ──→ FiLM conditioning (scale + shift)
-              Fourier positional encoding → DeepSets → per-layer modulation
+              Mã hóa vị trí Fourier → DeepSets → điều chỉnh mỗi lớp
 ```
 
-**Security hardening:**
-- Bounded calibration buffer (max 10,000 frames) prevents memory exhaustion
-- `adapt()` returns `Result<_, AdaptError>` — no panics on bad input
-- Atomic instance counter ensures unique weight initialization across threads
-- Division-by-zero guards on all augmentation parameters
+**Tăng cường bảo mật:**
+- Buffer hiệu chỉnh giới hạn (tối đa 10.000 frames) ngăn chặn cạn kiệt bộ nhớ
+- `adapt()` trả về `Result<_, AdaptError>` — không có panic trên đầu vào không hợp lệ
+- Bộ đếm instance atomic đảm bảo khởi tạo weights độc đáo qua các luồng
+- Guard chia-cho-không trên tất cả tham số augmentation
 
-See [`docs/adr/ADR-027-cross-environment-domain-generalization.md`](docs/adr/ADR-027-cross-environment-domain-generalization.md) for full architectural details.
+Xem [`docs/adr/ADR-027-cross-environment-domain-generalization.md`](docs/adr/ADR-027-cross-environment-domain-generalization.md) để biết chi tiết kiến trúc đầy đủ.
 
 </details>
 
 <details>
-<summary><strong>🔍 Independent Capability Audit (ADR-028)</strong> — 1,031 tests, SHA-256 proof, self-verifying witness bundle</summary>
+<summary><strong>🔍 Kiểm Toán Khả Năng Độc Lập (ADR-028)</strong> — 1.031 tests, bằng chứng SHA-256, bundle witness tự xác minh</summary>
 
-A [3-agent parallel audit](docs/adr/ADR-028-esp32-capability-audit.md) independently verified every claim in this repository — ESP32 hardware, signal processing, neural networks, training pipeline, deployment, and security. Results:
+Một [kiểm toán song song 3 agent](docs/adr/ADR-028-esp32-capability-audit.md) đã độc lập xác minh mọi tuyên bố trong repository này. Kết quả:
 
 ```
-Rust tests:     1,031 passed, 0 failed
+Rust tests:     1.031 đạt, 0 thất bại
 Python proof:   VERDICT: PASS (SHA-256: 8c0680d7...)
-Bundle verify:  7/7 checks PASS
+Bundle verify:  7/7 kiểm tra PASS
 ```
 
-**33-row attestation matrix:** 31 capabilities verified YES, 2 not measured at audit time (benchmark throughput, Kubernetes deploy).
+**Ma trận attestation 33 hàng:** 31 khả năng được xác minh CÓ, 2 chưa đo tại thời điểm kiểm toán.
 
-**Verify it yourself** (no hardware needed):
+**Tự xác minh** (không cần phần cứng):
 ```bash
-# Run all tests
+# Chạy tất cả tests
 cd rust-port/wifi-densepose-rs && cargo test --workspace --no-default-features
 
-# Run the deterministic proof
+# Chạy proof tất định
 python v1/data/proof/verify.py
 
-# Generate + verify the witness bundle
+# Tạo + xác minh witness bundle
 bash scripts/generate-witness-bundle.sh
 cd dist/witness-bundle-ADR028-*/ && bash VERIFY.sh
 ```
 
-| Document | What it contains |
-|----------|-----------------|
-| [ADR-028](docs/adr/ADR-028-esp32-capability-audit.md) | Full audit: ESP32 specs, signal algorithms, NN architectures, training phases, deployment infra |
-| [Witness Log](docs/WITNESS-LOG-028.md) | 11 reproducible verification steps + 33-row attestation matrix with evidence per row |
-| [`generate-witness-bundle.sh`](scripts/generate-witness-bundle.sh) | Creates self-contained tar.gz with test logs, proof output, firmware hashes, crate versions, VERIFY.sh |
+| Tài liệu | Nội dung |
+|----------|--------------------|
+| [ADR-028](docs/adr/ADR-028-esp32-capability-audit.md) | Kiểm toán đầy đủ: thông số ESP32, thuật toán tín hiệu, kiến trúc NN, các giai đoạn huấn luyện, cơ sở hạ tầng triển khai |
+| [Witness Log](docs/WITNESS-LOG-028.md) | 11 bước xác minh tái tạo + ma trận attestation 33 hàng với bằng chứng mỗi hàng |
+| [`generate-witness-bundle.sh`](scripts/generate-witness-bundle.sh) | Tạo tar.gz tự chứa với test logs, đầu ra proof, firmware hashes, phiên bản crate, VERIFY.sh |
 
 </details>
 
 <details>
-<summary><strong>📡 Multistatic Sensing (ADR-029/030/031 — Project RuvSense + RuView)</strong> — Multiple ESP32 nodes fuse viewpoints for production-grade pose, tracking, and exotic sensing</summary>
+<summary><strong>📡 Multistatic Sensing (ADR-029/030/031 — Project RuvSense + RuView)</strong> — Nhiều node ESP32 hợp nhất viewpoints để đạt pose, theo dõi, và sensing cấp production</summary>
 
-A single WiFi receiver can track people, but has blind spots — limbs behind the torso are invisible, depth is ambiguous, and two people at similar range create overlapping signals. RuvSense solves this by coordinating multiple ESP32 nodes into a **multistatic mesh** where every node acts as both transmitter and receiver, creating N×(N-1) measurement links from N devices.
+Một WiFi receiver đơn có thể theo dõi người nhưng có điểm mù — các chi sau thân thể không thể nhìn thấy, chiều sâu mơ hồ, và hai người ở phạm vi tương tự tạo ra tín hiệu chồng chéo. RuvSense giải quyết điều này bằng cách điều phối nhiều node ESP32 vào **multistatic mesh** nơi mỗi node vừa là phát vừa là thu, tạo ra N×(N-1) liên kết đo từ N thiết bị.
 
-**What it does in plain terms:**
-- 4 ESP32-S3 nodes ($48 total) provide 12 TX-RX measurement links covering 360 degrees
-- Each node hops across WiFi channels 1/6/11, tripling effective bandwidth from 20→60 MHz
-- Coherence gating rejects noisy frames automatically — no manual tuning, stable for days
-- Two-person tracking at 20 Hz with zero identity swaps over 10 minutes
-- The room itself becomes a persistent model — the system remembers, predicts, and explains
+**Tính năng bằng ngôn ngữ đơn giản:**
+- 4 node ESP32-S3 (tổng cộng $48) cung cấp 12 liên kết đo TX-RX phủ sóng 360 độ
+- Mỗi node nhảy qua WiFi kênh 1/6/11, tăng gấp ba băng thông hiệu quả từ 20→60 MHz
+- Coherence gating tự động từ chối các frame nhiễu — không cần điều chỉnh thủ công, ổn định trong nhiều ngày
+- Theo dõi hai người ở 20 Hz với không có hoán đổi identity trong 10 phút
+- Bản thân phòng trở thành mô hình liên tục — hệ thống nhớ, dự đoán, và giải thích
 
-**Three ADRs, one pipeline:**
+**Ba ADR, một pipeline:**
 
-| ADR | Codename | What it adds |
+| ADR | Mã danh | Tính năng thêm |
 |-----|----------|-------------|
-| [ADR-029](docs/adr/ADR-029-ruvsense-multistatic-sensing-mode.md) | **RuvSense** | Channel hopping, TDM protocol, multi-node fusion, coherence gating, 17-keypoint Kalman tracker |
-| [ADR-030](docs/adr/ADR-030-ruvsense-persistent-field-model.md) | **RuvSense Field** | Room electromagnetic eigenstructure (SVD), RF tomography, longitudinal drift detection, intention prediction, gesture recognition, adversarial detection |
-| [ADR-031](docs/adr/ADR-031-ruview-sensing-first-rf-mode.md) | **RuView** | Cross-viewpoint attention with geometric bias, viewpoint diversity optimization, embedding-level fusion |
+| [ADR-029](docs/adr/ADR-029-ruvsense-multistatic-sensing-mode.md) | **RuvSense** | Channel hopping, giao thức TDM, hợp nhất đa node, coherence gating, bộ theo dõi Kalman 17 keypoint |
+| [ADR-030](docs/adr/ADR-030-ruvsense-persistent-field-model.md) | **RuvSense Field** | Cấu trúc eigenstructure điện từ phòng (SVD), RF tomography, phát hiện drift dài hạn, dự đoán ý định, nhận dạng cử chỉ, phát hiện đối kháng |
+| [ADR-031](docs/adr/ADR-031-ruview-sensing-first-rf-mode.md) | **RuView** | Cross-viewpoint attention với geometric bias, tối ưu hóa viewpoint diversity, hợp nhất cấp embedding |
 
-**Architecture**
+**Kiến Trúc**
 
 ```
-4x ESP32-S3 nodes ($48)     TDM: each transmits in turn, all others receive
-        │                    Channel hop: ch1→ch6→ch11 per dwell (50ms)
+4x node ESP32-S3 ($48)     TDM: mỗi node phát theo lượt, tất cả các node khác thu
+        │                    Channel hop: ch1→ch6→ch11 mỗi dwell (50ms)
         ▼
-Per-Node Signal Processing   Phase sanitize → Hampel → BVP → subcarrier select
-        │                    (ADR-014, unchanged per viewpoint)
+Xử Lý Tín Hiệu Mỗi Node   Làm sạch pha → Hampel → BVP → chọn subcarrier
+        │                    (ADR-014, không thay đổi mỗi viewpoint)
         ▼
-Multi-Band Frame Fusion      3 channels × 56 subcarriers = 168 virtual subcarriers
-        │                    Cross-channel phase alignment via NeumannSolver
+Hợp Nhất Frame Đa Băng Tần  3 kênh × 56 subcarriers = 168 subcarrier ảo
+        │                    Căn chỉnh pha cross-kênh qua NeumannSolver
         ▼
-Multistatic Viewpoint Fusion  N nodes → attention-weighted fusion → single embedding
-        │                    Geometric bias from node placement angles
+Hợp Nhất Viewpoint Multistatic  N node → hợp nhất có trọng số attention → embedding đơn
+        │                    Geometric bias từ góc đặt node
         ▼
 Coherence Gate               Accept / PredictOnly / Reject / Recalibrate
-        │                    Prevents model drift, stable for days
+        │                    Ngăn chặn drift mô hình, ổn định trong nhiều ngày
         ▼
-Persistent Field Model       SVD baseline → body = observation - environment
-        │                    RF tomography, drift detection, intention signals
+Mô Hình Field Liên Tục       SVD baseline → cơ thể = quan sát - môi trường
+        │                    RF tomography, phát hiện drift, tín hiệu ý định
         ▼
-Pose Tracker + DensePose     17-keypoint Kalman, re-ID via AETHER embeddings
-                             Multi-person min-cut separation, zero ID swaps
+Pose Tracker + DensePose     Kalman 17 keypoint, re-ID qua AETHER embeddings
+                             Tách đa người min-cut, không hoán đổi ID
 ```
 
-**Seven Exotic Sensing Tiers (ADR-030)**
+**Bảy Tầng Sensing Thực Nghiệm (ADR-030)**
 
-| Tier | Capability | What it detects |
+| Tầng | Khả năng | Phát hiện gì |
 |------|-----------|-----------------|
-| 1 | Field Normal Modes | Room electromagnetic eigenstructure via SVD |
-| 2 | Coarse RF Tomography | 3D occupancy volume from link attenuations |
-| 3 | Intention Lead Signals | Pre-movement prediction 200-500ms before action |
-| 4 | Longitudinal Biomechanics | Personal movement changes over days/weeks |
-| 5 | Cross-Room Continuity | Identity preserved across rooms without cameras |
-| 6 | Invisible Interaction | Multi-user gesture control through walls |
-| 7 | Adversarial Detection | Physically impossible signal identification |
+| 1 | Field Normal Modes | Cấu trúc eigenstructure điện từ phòng qua SVD |
+| 2 | Coarse RF Tomography | Khối lượng chiếm dụng 3D từ suy hao liên kết |
+| 3 | Intention Lead Signals | Dự đoán trước chuyển động 200-500ms |
+| 4 | Longitudinal Biomechanics | Thay đổi chuyển động cá nhân qua ngày/tuần |
+| 5 | Cross-Room Continuity | Identity được bảo tồn qua các phòng mà không cần camera |
+| 6 | Invisible Interaction | Điều khiển cử chỉ đa người qua tường |
+| 7 | Adversarial Detection | Nhận dạng tín hiệu bất khả thi về vật lý |
 
-**Acceptance Test**
+**Bài Kiểm Tra Chấp Nhận**
 
-| Metric | Threshold | What it proves |
+| Chỉ số | Ngưỡng | Chứng minh gì |
 |--------|-----------|---------------|
-| Torso keypoint jitter | < 30mm RMS | Precision sufficient for applications |
-| Identity swaps | 0 over 10 minutes (12,000 frames) | Reliable multi-person tracking |
-| Update rate | 20 Hz (50ms cycle) | Real-time response |
-| Breathing SNR | > 10 dB at 3m | Small-motion sensitivity confirmed |
+| Jitter keypoint thân | < 30mm RMS | Độ chính xác đủ cho ứng dụng |
+| Hoán đổi identity | 0 trong 10 phút (12.000 frames) | Theo dõi đa người đáng tin cậy |
+| Tốc độ cập nhật | 20 Hz (chu kỳ 50ms) | Phản hồi thời gian thực |
+| SNR nhịp thở | > 10 dB ở 3m | Độ nhạy chuyển động nhỏ được xác nhận |
 
-**New Rust modules (9,000+ lines)**
+**Các module Rust mới (9.000+ dòng)**
 
-| Crate | New modules | Purpose |
+| Crate | Module mới | Mục đích |
 |-------|------------|---------|
-| `wifi-densepose-signal` | `ruvsense/` (10 modules) | Multiband fusion, phase alignment, multistatic fusion, coherence, field model, tomography, longitudinal drift, intention detection |
-| `wifi-densepose-ruvector` | `viewpoint/` (5 modules) | Cross-viewpoint attention with geometric bias, diversity index, coherence gating, fusion orchestrator |
-| `wifi-densepose-hardware` | `esp32/tdm.rs` | TDM sensing protocol, sync beacons, clock drift compensation |
+| `wifi-densepose-signal` | `ruvsense/` (10 modules) | Hợp nhất đa băng, căn chỉnh pha, hợp nhất multistatic, coherence, mô hình field, tomography, drift dài hạn, phát hiện ý định |
+| `wifi-densepose-ruvector` | `viewpoint/` (5 modules) | Cross-viewpoint attention với geometric bias, chỉ số diversity, coherence gating, điều phối hợp nhất |
+| `wifi-densepose-hardware` | `esp32/tdm.rs` | Giao thức sensing TDM, sync beacons, bù drift đồng hồ |
 
-**Firmware extensions (C, backward-compatible)**
+**Mở rộng firmware (C, tương thích ngược)**
 
-| File | Addition |
+| File | Bổ sung |
 |------|---------|
-| `csi_collector.c` | Channel hop table, timer-driven hop, NDP injection stub |
-| `nvs_config.c` | 5 new NVS keys: hop_count, channel_list, dwell_ms, tdm_slot, tdm_node_count |
+| `csi_collector.c` | Bảng hop kênh, hop điều khiển timer, stub NDP injection |
+| `nvs_config.c` | 5 NVS keys mới: hop_count, channel_list, dwell_ms, tdm_slot, tdm_node_count |
 
-**DDD Domain Model** — 6 bounded contexts: Multistatic Sensing, Coherence, Pose Tracking, Field Model, Cross-Room Identity, Adversarial Detection. Full specification: [`docs/ddd/ruvsense-domain-model.md`](docs/ddd/ruvsense-domain-model.md).
+**Mô Hình Domain DDD** — 6 bounded contexts: Multistatic Sensing, Coherence, Pose Tracking, Field Model, Cross-Room Identity, Adversarial Detection. Đặc tả đầy đủ: [`docs/ddd/ruvsense-domain-model.md`](docs/ddd/ruvsense-domain-model.md).
 
-See the ADR documents for full architectural details, GOAP integration plans, and research references.
+Xem các tài liệu ADR để biết chi tiết kiến trúc đầy đủ, kế hoạch tích hợp GOAP, và tham chiếu nghiên cứu.
 
 </details>
 
 <details>
-<summary><b>🔮 Signal-Line Protocol (CRV)</b></summary>
+<summary><b>🔮 Giao Thức Signal-Line (CRV)</b></summary>
 
 ### 6-Stage CSI Signal Line
 
-Maps the CRV (Coordinate Remote Viewing) signal-line methodology to WiFi CSI processing via `ruvector-crv`:
+Ánh xạ phương pháp signal-line CRV (Coordinate Remote Viewing) đến xử lý WiFi CSI qua `ruvector-crv`:
 
-| Stage | CRV Name | WiFi CSI Mapping | ruvector Component |
+| Giai đoạn | Tên CRV | Ánh xạ WiFi CSI | Thành phần ruvector |
 |-------|----------|-----------------|-------------------|
-| I | Ideograms | Raw CSI gestalt (manmade/natural/movement/energy) | Poincare ball hyperbolic embeddings |
-| II | Sensory | Amplitude textures, phase patterns, frequency colors | Multi-head attention vectors |
-| III | Dimensional | AP mesh spatial topology, node geometry | GNN graph topology |
-| IV | Emotional/AOL | Coherence gating — signal vs noise separation | SNN temporal encoding |
-| V | Interrogation | Cross-stage probing — query pose against CSI history | Differentiable search |
-| VI | 3D Model | Composite person estimation, MinCut partitioning | Graph partitioning |
+| I | Ideograms | Gestalt CSI thô (nhân tạo/tự nhiên/chuyển động/năng lượng) | Nhúng hyperbolic Poincare ball |
+| II | Sensory | Kết cấu biên độ, mẫu pha, màu sắc tần số | Vectors attention đa đầu |
+| III | Dimensional | Cấu trúc liên kết mesh AP, hình học node | Cấu trúc liên kết đồ thị GNN |
+| IV | Emotional/AOL | Coherence gating — phân tách tín hiệu vs nhiễu | Mã hóa thời gian SNN |
+| V | Interrogation | Thăm dò cross-stage — truy vấn pose với lịch sử CSI | Tìm kiếm khả vi |
+| VI | 3D Model | Ước lượng người tổng hợp, phân chia MinCut | Phân chia đồ thị |
 
-**Cross-Session Convergence**: When multiple AP clusters observe the same person, CRV convergence analysis finds agreement in their signal embeddings — directly mapping to cross-room identity continuity.
+**Hội tụ Cross-Session**: Khi nhiều cụm AP quan sát cùng một người, phân tích hội tụ CRV tìm sự đồng thuận trong các signal embeddings — ánh xạ trực tiếp đến tính liên tục identity cross-room.
 
 ```rust
 use wifi_densepose_ruvector::crv::WifiCrvPipeline;
@@ -983,87 +982,86 @@ use wifi_densepose_ruvector::crv::WifiCrvPipeline;
 let mut pipeline = WifiCrvPipeline::new(WifiCrvConfig::default());
 pipeline.create_session("room-a", "person-001")?;
 
-// Process CSI frames through 6-stage pipeline
+// Xử lý CSI frames qua pipeline 6 giai đoạn
 let result = pipeline.process_csi_frame("room-a", &amplitudes, &phases)?;
 // result.gestalt = Movement, confidence = 0.87
 // result.sensory_embedding = [0.12, -0.34, ...]
 
-// Cross-room identity matching via convergence
+// Khớp identity cross-room qua hội tụ
 let convergence = pipeline.find_cross_room_convergence("person-001", 0.75)?;
 ```
 
-**Architecture**:
-- `CsiGestaltClassifier` — Maps CSI amplitude/phase patterns to 6 gestalt types
-- `CsiSensoryEncoder` — Extracts texture/color/temperature/luminosity features from subcarriers
-- `MeshTopologyEncoder` — Encodes AP mesh as GNN graph (Stage III)
-- `CoherenceAolDetector` — Maps coherence gate states to AOL noise detection (Stage IV)
-- `WifiCrvPipeline` — Orchestrates all 6 stages into unified sensing session
+**Kiến Trúc**:
+- `CsiGestaltClassifier` — Ánh xạ mẫu biên độ/pha CSI đến 6 loại gestalt
+- `CsiSensoryEncoder` — Trích xuất đặc trưng kết cấu/màu sắc/nhiệt độ/độ sáng từ subcarriers
+- `MeshTopologyEncoder` — Mã hóa mesh AP như đồ thị GNN (Giai đoạn III)
+- `CoherenceAolDetector` — Ánh xạ trạng thái coherence gate đến phát hiện nhiễu AOL (Giai đoạn IV)
+- `WifiCrvPipeline` — Điều phối tất cả 6 giai đoạn vào phiên sensing thống nhất
 
 </details>
 
 ---
 
-## 📡 Signal Processing & Sensing
-
+## 📡 Xử Lý Tín Hiệu & Sensing
 <details>
-<summary><a id="esp32-s3-hardware-pipeline"></a><strong>📡 ESP32-S3 Hardware Pipeline (ADR-018)</strong> — 28 Hz CSI streaming, flash & provision</summary>
+<summary><a id="esp32-s3-hardware-pipeline"></a><strong>📡 Pipeline Phần Cứng ESP32-S3 (ADR-018)</strong> — Streaming CSI 28 Hz, flash & provision</summary>
 
-A single ESP32-S3 board (~$9) captures WiFi signal data 28 times per second and streams it over UDP. A host server can visualize and record the data, but the ESP32 can also run on its own — detecting presence, measuring breathing and heart rate, and alerting on falls without any server at all.
+Một bo mạch ESP32-S3 (~$9) thu dữ liệu tín hiệu WiFi 28 lần mỗi giây và truyền qua UDP. Một host server có thể trực quan hóa và ghi dữ liệu, nhưng ESP32 cũng có thể chạy tự đơn — phát hiện hiện diện, đo nhịp thở và nhịp tim, và cảnh báo té ngã mà không cần bất kỳ server nào.
 
 ```
-ESP32-S3 node                    UDP/5005        Host server (optional)
+Node ESP32-S3                    UDP/5005        Host server (tùy chọn)
 ┌───────────────────────┐      ──────────>      ┌──────────────────────┐
-│ Captures WiFi signals │      binary frames    │ Parses frames        │
-│ 28 Hz, up to 192 sub- │      or 32-byte       │ Visualizes poses     │
-│ carriers per frame     │      vitals packets   │ Records CSI data     │
+│ Thu tín hiệu WiFi     │      binary frames    │ Phân tích frames     │
+│ 28 Hz, đến 192 sub-   │      hoặc 32-byte     │ Trực quan hóa poses  │
+│ carriers mỗi frame    │      vitals packets   │ Ghi dữ liệu CSI      │
 │                        │                       │ REST API + WebSocket │
-│ On-device (optional):  │                       └──────────────────────┘
-│  Presence detection    │
-│  Breathing + heart rate│
-│  Fall detection        │
-│  WASM custom modules   │
+│ Trên thiết bị (tùy):  │                       └──────────────────────┘
+│  Phát hiện hiện diện  │
+│  Nhịp thở + nhịp tim  │
+│  Phát hiện té ngã     │
+│  Modules WASM tùy chỉnh│
 └───────────────────────┘
 ```
 
-| Metric | Measured on hardware |
+| Chỉ số | Đo trên phần cứng |
 |--------|----------------------|
-| CSI frame rate | 28.5 Hz (channel 5, BW20) |
-| Subcarriers per frame | 64 / 128 / 192 (depends on WiFi mode) |
-| UDP latency | < 1 ms on local network |
-| Presence detection range | Reliable at 3 m through walls |
-| Binary size | 947 KB (fits in 1 MB flash partition) |
-| Boot to ready | ~3.9 seconds |
+| Tốc độ CSI frame | 28,5 Hz (kênh 5, BW20) |
+| Subcarriers mỗi frame | 64 / 128 / 192 (phụ thuộc chế độ WiFi) |
+| Độ trễ UDP | < 1 ms trên mạng cục bộ |
+| Phạm vi phát hiện hiện diện | Đáng tin cậy ở 3 m xuyên tường |
+| Kích thước binary | 947 KB (vừa trong phân vùng flash 1 MB) |
+| Khởi động đến sẵn sàng | ~3,9 giây |
 
-### Flash and provision
+### Flash và provision
 
-Download a pre-built binary — no build toolchain needed:
+Tải binary có sẵn — không cần toolchain build:
 
-| Release | What's included | Tag |
+| Bản phát hành | Nội dung | Tag |
 |---------|-----------------|-----|
-| [v0.2.0](https://github.com/ruvnet/RuView/releases/tag/v0.2.0-esp32) | Stable — raw CSI streaming, multi-node TDM, channel hopping | `v0.2.0-esp32` |
-| [v0.3.0-alpha](https://github.com/ruvnet/RuView/releases/tag/v0.3.0-alpha-esp32) | Alpha — adds on-device edge intelligence and WASM modules ([ADR-039](docs/adr/ADR-039-esp32-edge-intelligence.md), [ADR-040](docs/adr/ADR-040-wasm-programmable-sensing.md)) | `v0.3.0-alpha-esp32` |
+| [v0.2.0](https://github.com/ruvnet/RuView/releases/tag/v0.2.0-esp32) | Ổn định — streaming CSI thô, TDM đa node, channel hopping | `v0.2.0-esp32` |
+| [v0.3.0-alpha](https://github.com/ruvnet/RuView/releases/tag/v0.3.0-alpha-esp32) | Alpha — thêm edge intelligence trên thiết bị và WASM modules ([ADR-039](docs/adr/ADR-039-esp32-edge-intelligence.md), [ADR-040](docs/adr/ADR-040-wasm-programmable-sensing.md)) | `v0.3.0-alpha-esp32` |
 
 ```bash
-# 1. Flash the firmware to your ESP32-S3
+# 1. Flash firmware lên ESP32-S3 của bạn
 python -m esptool --chip esp32s3 --port COM7 --baud 460800 \
   write_flash --flash_mode dio --flash_size 8MB \
   0x0 bootloader.bin 0x8000 partition-table.bin 0x10000 esp32-csi-node.bin
 
-# 2. Set WiFi credentials and server address (stored in flash, survives reboots)
+# 2. Đặt thông tin xác thực WiFi và địa chỉ server (lưu trong flash, tồn tại qua khởi động lại)
 python firmware/esp32-csi-node/provision.py --port COM7 \
   --ssid "YourWiFi" --password "secret" --target-ip 192.168.1.20
 
-# 3. (Optional) Start the host server to visualize data
+# 3. (Tùy chọn) Khởi động host server để trực quan hóa dữ liệu
 cargo run -p wifi-densepose-sensing-server -- --http-port 3000 --source auto
-# Open http://localhost:3000
+# Mở http://localhost:3000
 ```
 
 ### Multi-node mesh
 
-For better accuracy and room coverage, deploy 3-6 nodes with time-division multiplexing (TDM) so they take turns transmitting:
+Để có độ chính xác và phủ sóng phòng tốt hơn, triển khai 3-6 node với time-division multiplexing (TDM) để chúng luân phiên phát:
 
 ```bash
-# Node 0 of a 3-node mesh
+# Node 0 của mesh 3 node
 python firmware/esp32-csi-node/provision.py --port COM7 \
   --ssid "YourWiFi" --password "secret" --target-ip 192.168.1.20 \
   --node-id 0 --tdm-slot 0 --tdm-total 3
@@ -1074,58 +1072,58 @@ python firmware/esp32-csi-node/provision.py --port COM8 \
   --node-id 1 --tdm-slot 1 --tdm-total 3
 ```
 
-Nodes can also hop across WiFi channels (1, 6, 11) to increase sensing bandwidth — configured via [ADR-029](docs/adr/ADR-029-ruvsense-multistatic-sensing-mode.md) channel hopping.
+Các node cũng có thể nhảy qua các kênh WiFi (1, 6, 11) để tăng băng thông sensing — được cấu hình qua [ADR-029](docs/adr/ADR-029-ruvsense-multistatic-sensing-mode.md) channel hopping.
 
-### On-device intelligence (v0.3.0-alpha)
+### Trí tuệ trên thiết bị (v0.3.0-alpha)
 
-The alpha firmware can analyze signals locally and send compact results instead of raw data. This means the ESP32 works standalone — no server needed for basic sensing. Disabled by default for backward compatibility.
+Firmware alpha có thể phân tích tín hiệu cục bộ và gửi kết quả nhỏ gọn thay vì dữ liệu thô. Điều này có nghĩa là ESP32 hoạt động độc lập — không cần server cho sensing cơ bản. Bị vô hiệu hóa theo mặc định để tương thích ngược.
 
-| Tier | What it does | RAM used |
+| Tầng | Tính năng | RAM sử dụng |
 |------|-------------|----------|
-| **0** | Off — streams raw CSI only (same as v0.2.0) | 0 KB |
-| **1** | Cleans up signals, picks the best subcarriers, compresses data (saves 30-50% bandwidth) | ~30 KB |
-| **2** | Everything in Tier 1 + detects presence, measures breathing and heart rate, detects falls | ~33 KB |
-| **3** | Everything in Tier 2 + runs custom WASM modules (gesture recognition, intrusion detection, and [63 more](docs/edge-modules/README.md)) | ~160 KB/module |
+| **0** | Tắt — chỉ stream CSI thô (giống v0.2.0) | 0 KB |
+| **1** | Làm sạch tín hiệu, chọn subcarrier tốt nhất, nén dữ liệu (tiết kiệm 30-50% băng thông) | ~30 KB |
+| **2** | Mọi thứ trong Tầng 1 + phát hiện hiện diện, đo nhịp thở và nhịp tim, phát hiện té ngã | ~33 KB |
+| **3** | Mọi thứ trong Tầng 2 + chạy WASM modules tùy chỉnh (nhận dạng cử chỉ, phát hiện xâm nhập, và [63 nữa](docs/edge-modules/README.md)) | ~160 KB/module |
 
-Enable without reflashing — just reprovision:
+Bật mà không cần flash lại — chỉ provision lại:
 
 ```bash
-# Turn on Tier 2 (vitals) on an already-flashed node
+# Bật Tầng 2 (vitals) trên node đã flash
 python firmware/esp32-csi-node/provision.py --port COM7 \
   --ssid "YourWiFi" --password "secret" --target-ip 192.168.1.20 \
   --edge-tier 2
 
-# Fine-tune detection thresholds
+# Tinh chỉnh ngưỡng phát hiện
 python firmware/esp32-csi-node/provision.py --port COM7 \
   --edge-tier 2 --vital-int 500 --fall-thresh 5000 --subk-count 16
 ```
 
-When Tier 2 is active, the node sends a 32-byte vitals packet once per second containing: presence, motion level, breathing BPM, heart rate BPM, confidence scores, fall alert flag, and occupancy count.
+Khi Tầng 2 hoạt động, node gửi một packet vitals 32 byte mỗi giây chứa: hiện diện, mức chuyển động, nhịp thở BPM, nhịp tim BPM, điểm confidence, cờ cảnh báo té ngã, và số người.
 
-See [firmware/esp32-csi-node/README.md](firmware/esp32-csi-node/README.md), [ADR-039](docs/adr/ADR-039-esp32-edge-intelligence.md), [ADR-044](docs/adr/ADR-044-provisioning-tool-enhancements.md), and [Tutorial #34](https://github.com/ruvnet/RuView/issues/34).
+Xem [firmware/esp32-csi-node/README.md](firmware/esp32-csi-node/README.md), [ADR-039](docs/adr/ADR-039-esp32-edge-intelligence.md), [ADR-044](docs/adr/ADR-044-provisioning-tool-enhancements.md), và [Tutorial #34](https://github.com/ruvnet/RuView/issues/34).
 
 </details>
 
 <details>
-<summary><strong>🦀 Rust Implementation (v2)</strong> — 810x faster, 54K fps pipeline</summary>
+<summary><strong>🦀 Triển Khai Rust (v2)</strong> — Nhanh hơn 810x, pipeline 54K fps</summary>
 
-### Performance Benchmarks (Validated)
+### Benchmark Hiệu Suất (Đã Xác Nhận)
 
-| Operation | Python (v1) | Rust (v2) | Speedup |
+| Thao tác | Python (v1) | Rust (v2) | Tăng tốc |
 |-----------|-------------|-----------|---------|
-| CSI Preprocessing (4x64) | ~5ms | **5.19 µs** | ~1000x |
-| Phase Sanitization (4x64) | ~3ms | **3.84 µs** | ~780x |
-| Feature Extraction (4x64) | ~8ms | **9.03 µs** | ~890x |
-| Motion Detection | ~1ms | **186 ns** | ~5400x |
-| **Full Pipeline** | ~15ms | **18.47 µs** | ~810x |
-| **Vital Signs** | N/A | **86 µs** | 11,665 fps |
+| Tiền xử lý CSI (4x64) | ~5ms | **5,19 µs** | ~1000x |
+| Làm sạch pha (4x64) | ~3ms | **3,84 µs** | ~780x |
+| Trích xuất đặc trưng (4x64) | ~8ms | **9,03 µs** | ~890x |
+| Phát hiện chuyển động | ~1ms | **186 ns** | ~5400x |
+| **Pipeline đầy đủ** | ~15ms | **18,47 µs** | ~810x |
+| **Vital Signs** | N/A | **86 µs** | 11.665 fps |
 
-| Resource | Python (v1) | Rust (v2) |
+| Tài nguyên | Python (v1) | Rust (v2) |
 |----------|-------------|-----------|
-| Memory | ~500 MB | ~100 MB |
+| Bộ nhớ | ~500 MB | ~100 MB |
 | Docker Image | 569 MB | 132 MB |
 | Tests | 41 | 542+ |
-| WASM Support | No | Yes |
+| Hỗ trợ WASM | Không | Có |
 
 ```bash
 cd rust-port/wifi-densepose-rs
@@ -1137,69 +1135,69 @@ cargo bench --package wifi-densepose-signal
 </details>
 
 <details>
-<summary><a id="vital-sign-detection"></a><strong>💓 Vital Sign Detection (ADR-021)</strong> — Breathing and heartbeat via FFT</summary>
+<summary><a id="vital-sign-detection"></a><strong>💓 Phát Hiện Vital Signs (ADR-021)</strong> — Nhịp thở và nhịp tim qua FFT</summary>
 
-| Capability | Range | Method |
+| Khả năng | Phạm vi | Phương pháp |
 |------------|-------|--------|
-| **Breathing Rate** | 6-30 BPM (0.1-0.5 Hz) | Bandpass filter + FFT peak detection |
-| **Heart Rate** | 40-120 BPM (0.8-2.0 Hz) | Bandpass filter + FFT peak detection |
-| **Sampling Rate** | 20 Hz (ESP32 CSI) | Real-time streaming |
-| **Confidence** | 0.0-1.0 per sign | Spectral coherence + signal quality |
+| **Nhịp Thở** | 6-30 BPM (0,1-0,5 Hz) | Bộ lọc bandpass + phát hiện đỉnh FFT |
+| **Nhịp Tim** | 40-120 BPM (0,8-2,0 Hz) | Bộ lọc bandpass + phát hiện đỉnh FFT |
+| **Tốc Độ Lấy Mẫu** | 20 Hz (ESP32 CSI) | Streaming thời gian thực |
+| **Confidence** | 0,0-1,0 mỗi dấu hiệu | Spectral coherence + chất lượng tín hiệu |
 
 ```bash
 ./target/release/sensing-server --source simulate --http-port 3000 --ws-port 3001 --ui-path ../../ui
 curl http://localhost:3000/api/v1/vital-signs
 ```
 
-See [ADR-021](docs/adr/ADR-021-vital-sign-detection-rvdna-pipeline.md).
+Xem [ADR-021](docs/adr/ADR-021-vital-sign-detection-rvdna-pipeline.md).
 
 </details>
 
 <details>
-<summary><a id="wifi-scan-domain-layer"></a><strong>📡 WiFi Scan Domain Layer (ADR-022/025)</strong> — 8-stage RSSI pipeline for Windows, macOS, and Linux WiFi</summary>
+<summary><a id="wifi-scan-domain-layer"></a><strong>📡 Tầng Domain Quét WiFi (ADR-022/025)</strong> — Pipeline RSSI 8 giai đoạn cho WiFi Windows, macOS, và Linux</summary>
 
-| Stage | Purpose |
+| Giai đoạn | Mục đích |
 |-------|---------|
-| **Predictive Gating** | Pre-filter scan results using temporal prediction |
-| **Attention Weighting** | Weight BSSIDs by signal relevance |
-| **Spatial Correlation** | Cross-AP spatial signal correlation |
-| **Motion Estimation** | Detect movement from RSSI variance |
-| **Breathing Extraction** | Extract respiratory rate from sub-Hz oscillations |
-| **Quality Gating** | Reject low-confidence estimates |
-| **Fingerprint Matching** | Location and posture classification via RF fingerprints |
-| **Orchestration** | Fuse all stages into unified sensing output |
+| **Predictive Gating** | Lọc trước kết quả quét bằng dự đoán thời gian |
+| **Attention Weighting** | Cân BSSID theo độ liên quan tín hiệu |
+| **Spatial Correlation** | Tương quan tín hiệu không gian cross-AP |
+| **Motion Estimation** | Phát hiện chuyển động từ phương sai RSSI |
+| **Breathing Extraction** | Trích xuất nhịp thở từ dao động sub-Hz |
+| **Quality Gating** | Từ chối ước lượng có confidence thấp |
+| **Fingerprint Matching** | Phân loại vị trí và tư thế qua RF fingerprints |
+| **Orchestration** | Hợp nhất tất cả giai đoạn vào đầu ra sensing thống nhất |
 
 ```bash
 cargo test -p wifi-densepose-wifiscan
 ```
 
-See [ADR-022](docs/adr/ADR-022-windows-wifi-enhanced-fidelity-ruvector.md) and [Tutorial #36](https://github.com/ruvnet/RuView/issues/36).
+Xem [ADR-022](docs/adr/ADR-022-windows-wifi-enhanced-fidelity-ruvector.md) và [Tutorial #36](https://github.com/ruvnet/RuView/issues/36).
 
 </details>
 
 <details>
-<summary><a id="wifi-mat-disaster-response"></a><strong>🚨 WiFi-Mat: Disaster Response</strong> — Search & rescue, START triage, 3D localization</summary>
+<summary><a id="wifi-mat-disaster-response"></a><strong>🚨 WiFi-Mat: Ứng Phó Thảm Họa</strong> — Tìm kiếm & cứu nạn, phân loại START triage, định vị 3D</summary>
 
-WiFi signals penetrate non-metallic debris (concrete, wood, drywall) where cameras and thermal sensors cannot reach. The WiFi-Mat module (`wifi-densepose-mat`, 139 tests) uses CSI analysis to detect survivors trapped under rubble, classify their condition using the START triage protocol, and estimate their 3D position — giving rescue teams actionable intelligence within seconds of deployment.
+Tín hiệu WiFi xuyên qua đống đổ nát không có kim loại (bê tông, gỗ, thạch cao) nơi camera và sensor nhiệt không thể tiếp cận. Module WiFi-Mat (`wifi-densepose-mat`, 139 tests) sử dụng phân tích CSI để phát hiện người sống sót bị mắc kẹt dưới đống đổ nát, phân loại tình trạng của họ sử dụng giao thức START triage, và ước tính vị trí 3D của họ — cung cấp thông tin tình báo có thể hành động cho đội cứu hộ trong vòng vài giây triển khai.
 
-| Capability | How It Works | Performance Target |
+| Khả năng | Cách Hoạt Động | Mục tiêu Hiệu Suất |
 |------------|-------------|-------------------|
-| **Breathing Detection** | Bandpass 0.07-1.0 Hz + Fresnel zone modeling detects chest displacement of 5-10mm at 5 GHz | 4-60 BPM, <500ms latency |
-| **Heartbeat Detection** | Micro-Doppler shift extraction from fine-grained CSI phase variation | Via ruvector-temporal-tensor |
-| **3D Localization** | Multi-AP triangulation + CSI fingerprint matching + depth estimation through rubble layers | 3-5m penetration |
-| **START Triage** | Ensemble classifier votes on breathing + movement + vital stability → P1-P4 priority | <1% false negative |
-| **Zone Scanning** | 16+ concurrent scan zones with periodic re-scan and audit logging | Full disaster site |
+| **Phát Hiện Nhịp Thở** | Bandpass 0,07-1,0 Hz + mô hình vùng Fresnel phát hiện dịch chuyển ngực 5-10mm ở 5 GHz | 4-60 BPM, độ trễ <500ms |
+| **Phát Hiện Nhịp Tim** | Trích xuất dịch chuyển micro-Doppler từ biến thiên pha CSI tinh tế | Qua ruvector-temporal-tensor |
+| **Định Vị 3D** | Tam giác đo đa AP + khớp fingerprint CSI + ước lượng độ sâu qua các lớp đống đổ nát | Xuyên sâu 3-5m |
+| **START Triage** | Bộ phân loại ensemble bỏ phiếu về nhịp thở + chuyển động + ổn định vitals → ưu tiên P1-P4 | <1% false negative |
+| **Quét Vùng** | 16+ vùng quét đồng thời với quét lại định kỳ và ghi kiểm toán | Toàn bộ địa điểm thảm họa |
 
-**Triage classification (START protocol compatible):**
+**Phân loại triage (tương thích giao thức START):**
 
-| Status | Color | Detection Criteria | Priority |
+| Trạng thái | Màu | Tiêu chí phát hiện | Ưu tiên |
 |--------|-------|-------------------|----------|
-| Immediate | Red | Breathing detected, no movement | P1 |
-| Delayed | Yellow | Movement + breathing, stable vitals | P2 |
-| Minor | Green | Strong movement, responsive patterns | P3 |
-| Deceased | Black | No vitals for >30 min continuous scan | P4 |
+| Tức thì | Đỏ | Phát hiện nhịp thở, không chuyển động | P1 |
+| Trì hoãn | Vàng | Chuyển động + nhịp thở, vitals ổn định | P2 |
+| Nhẹ | Xanh lá | Chuyển động mạnh, mẫu phản hồi | P3 |
+| Đã mất | Đen | Không vitals trong >30 phút quét liên tục | P4 |
 
-**Deployment modes:** portable (single TX/RX handheld), distributed (multiple APs around collapse site), drone-mounted (UAV scanning), vehicle-mounted (mobile command post).
+**Các chế độ triển khai:** di động (cầm tay TX/RX đơn), phân tán (nhiều AP quanh địa điểm sụp đổ), gắn trên drone (quét UAV), gắn trên xe (sở chỉ huy di động).
 
 ```rust
 use wifi_densepose_mat::{DisasterResponse, DisasterConfig, DisasterType, ScanZone, ZoneBounds};
@@ -1216,86 +1214,85 @@ response.add_zone(ScanZone::new("North Wing", ZoneBounds::rectangle(0.0, 0.0, 30
 response.start_scanning().await?;
 ```
 
-**Safety guarantees:** fail-safe defaults (assume life present on ambiguous signals), redundant multi-algorithm voting, complete audit trail, offline-capable (no network required).
+**Đảm bảo an toàn:** mặc định fail-safe (giả định có sự sống khi tín hiệu mơ hồ), bỏ phiếu đa thuật toán dự phòng, trail kiểm toán đầy đủ, có thể hoạt động offline (không cần mạng).
 
-- [WiFi-Mat User Guide](docs/wifi-mat-user-guide.md) | [ADR-001](docs/adr/ADR-001-wifi-mat-disaster-detection.md) | [Domain Model](docs/ddd/wifi-mat-domain-model.md)
+- [Hướng Dẫn WiFi-Mat](docs/wifi-mat-user-guide.md) | [ADR-001](docs/adr/ADR-001-wifi-mat-disaster-detection.md) | [Mô Hình Domain](docs/ddd/wifi-mat-domain-model.md)
 
 </details>
 
 <details>
-<summary><a id="sota-signal-processing"></a><strong>🔬 SOTA Signal Processing (ADR-014)</strong> — 6 research-grade algorithms</summary>
+<summary><a id="sota-signal-processing"></a><strong>🔬 Xử Lý Tín Hiệu SOTA (ADR-014)</strong> — 6 thuật toán cấp độ nghiên cứu</summary>
 
-The signal processing layer bridges the gap between raw commodity WiFi hardware output and research-grade sensing accuracy. Each algorithm addresses a specific limitation of naive CSI processing — from hardware-induced phase corruption to environment-dependent multipath interference. All six are implemented in `wifi-densepose-signal/src/` with deterministic tests and no mock data.
+Tầng xử lý tín hiệu thu hẹp khoảng cách giữa đầu ra phần cứng WiFi thông thường và độ chính xác sensing cấp nghiên cứu. Mỗi thuật toán giải quyết một hạn chế cụ thể của xử lý CSI ngây thơ — từ hỏng pha do phần cứng đến nhiễu multipath phụ thuộc môi trường. Tất cả sáu đều được triển khai trong `wifi-densepose-signal/src/` với các tests tất định và không có dữ liệu mock.
 
-| Algorithm | What It Does | Why It Matters | Math | Source |
+| Thuật toán | Tính năng | Tại sao quan trọng | Toán | Nguồn |
 |-----------|-------------|----------------|------|--------|
-| **Conjugate Multiplication** | Multiplies CSI antenna pairs: `H₁[k] × conj(H₂[k])` | Cancels CFO, SFO, and packet detection delay that corrupt raw phase — preserves only environment-caused phase differences | `CSI_ratio[k] = H₁[k] * conj(H₂[k])` | [SpotFi](https://dl.acm.org/doi/10.1145/2789168.2790124) (SIGCOMM 2015) |
-| **Hampel Filter** | Replaces outliers using running median ± scaled MAD | Z-score uses mean/std which are corrupted by the very outliers it detects (masking effect). Hampel uses median/MAD, resisting up to 50% contamination | `σ̂ = 1.4826 × MAD` | Standard DSP; WiGest (2015) |
-| **Fresnel Zone Model** | Models signal variation from chest displacement crossing Fresnel zone boundaries | Zero-crossing counting fails in multipath-rich environments. Fresnel predicts *where* breathing should appear based on TX-RX-body geometry | `ΔΦ = 2π × 2Δd / λ`, `A = \|sin(ΔΦ/2)\|` | [FarSense](https://dl.acm.org/doi/10.1145/3300061.3345431) (MobiCom 2019) |
-| **CSI Spectrogram** | Sliding-window FFT (STFT) per subcarrier → 2D time-frequency matrix | Breathing = 0.2-0.4 Hz band, walking = 1-2 Hz, static = noise. 2D structure enables CNN spatial pattern recognition that 1D features miss | `S[t,f] = \|Σₙ x[n] w[n-t] e^{-j2πfn}\|²` | Standard since 2018 |
-| **Subcarrier Selection** | Ranks subcarriers by motion sensitivity (variance ratio) and selects top-K | Not all subcarriers respond to motion — some sit in multipath nulls. Selecting the 10-20 most sensitive improves SNR by 6-10 dB | `sensitivity[k] = var_motion / var_static` | [WiDance](https://dl.acm.org/doi/10.1145/3117811.3117826) (MobiCom 2017) |
-| **Body Velocity Profile** | Extracts velocity distribution from Doppler shifts across subcarriers | BVP is domain-independent — same velocity profile regardless of room layout, furniture, or AP placement. Basis for cross-environment recognition | `BVP[v,t] = Σₖ \|STFTₖ[v,t]\|` | [Widar 3.0](https://dl.acm.org/doi/10.1145/3328916) (MobiSys 2019) |
+| **Conjugate Multiplication** | Nhân các cặp anten CSI: `H₁[k] × conj(H₂[k])` | Hủy CFO, SFO, và độ trễ phát hiện gói làm hỏng pha thô — chỉ giữ lại sự khác biệt pha do môi trường gây ra | `CSI_ratio[k] = H₁[k] * conj(H₂[k])` | [SpotFi](https://dl.acm.org/doi/10.1145/2789168.2790124) (SIGCOMM 2015) |
+| **Hampel Filter** | Thay thế ngoại lệ bằng median chạy ± MAD có tỷ lệ | Z-score sử dụng mean/std bị hỏng bởi chính các ngoại lệ nó phát hiện (masking effect). Hampel sử dụng median/MAD, kháng đến 50% contamination | `σ̂ = 1.4826 × MAD` | DSP chuẩn; WiGest (2015) |
+| **Fresnel Zone Model** | Mô hình biến thiên tín hiệu từ dịch chuyển ngực qua ranh giới vùng Fresnel | Đếm zero-crossing thất bại trong môi trường giàu multipath. Fresnel dự đoán *nơi* nhịp thở xuất hiện dựa trên hình học TX-RX-thân | `ΔΦ = 2π × 2Δd / λ`, `A = |sin(ΔΦ/2)|` | [FarSense](https://dl.acm.org/doi/10.1145/3300061.3345431) (MobiCom 2019) |
+| **CSI Spectrogram** | FFT cửa sổ trượt (STFT) mỗi subcarrier → ma trận thời gian-tần số 2D | Nhịp thở = dải 0,2-0,4 Hz, đi bộ = 1-2 Hz, tĩnh = nhiễu. Cấu trúc 2D cho phép nhận dạng mẫu không gian CNN mà đặc trưng 1D bỏ lỡ | `S[t,f] = |Σₙ x[n] w[n-t] e^{-j2πfn}|²` | Chuẩn từ 2018 |
+| **Subcarrier Selection** | Xếp hạng subcarrier theo độ nhạy chuyển động (tỷ lệ phương sai) và chọn top-K | Không phải tất cả subcarrier phản hồi với chuyển động — một số nằm ở null multipath. Chọn 10-20 nhạy nhất cải thiện SNR 6-10 dB | `sensitivity[k] = var_motion / var_static` | [WiDance](https://dl.acm.org/doi/10.1145/3117811.3117826) (MobiCom 2017) |
+| **Body Velocity Profile** | Trích xuất phân phối vận tốc từ dịch chuyển Doppler qua các subcarrier | BVP là domain-independent — cùng biên dạng vận tốc bất kể bố cục phòng, đồ nội thất, hay đặt AP. Cơ sở cho nhận dạng cross-environment | `BVP[v,t] = Σₖ |STFTₖ[v,t]|` | [Widar 3.0](https://dl.acm.org/doi/10.1145/3328916) (MobiSys 2019) |
 
-**Processing pipeline order:** Raw CSI → Conjugate multiplication (phase cleaning) → Hampel filter (outlier removal) → Subcarrier selection (top-K) → CSI spectrogram (time-frequency) → Fresnel model (breathing) + BVP (activity)
+**Thứ tự pipeline xử lý:** CSI thô → Conjugate multiplication (làm sạch pha) → Hampel filter (loại bỏ ngoại lệ) → Subcarrier selection (top-K) → CSI spectrogram (thời gian-tần số) → Mô hình Fresnel (nhịp thở) + BVP (hoạt động)
 
-See [ADR-014](docs/adr/ADR-014-sota-signal-processing.md) for full mathematical derivations.
+Xem [ADR-014](docs/adr/ADR-014-sota-signal-processing.md) để biết các dẫn xuất toán học đầy đủ.
 
 </details>
 
 ---
 
-## 🧠 Models & Training
-
+## 🧠 Models & Huấn Luyện
 <details>
-<summary><a id="ai-backbone-ruvector"></a><strong>🤖 AI Backbone: RuVector</strong> — Attention, graph algorithms, and edge-AI compression powering the sensing pipeline</summary>
+<summary><a id="ai-backbone-ruvector"></a><strong>🤖 AI Backbone: RuVector</strong> — Attention, thuật toán đồ thị, và nén AI edge cung cấp cho pipeline sensing</summary>
 
-Raw WiFi signals are noisy, redundant, and environment-dependent. [RuVector](https://github.com/ruvnet/ruvector) is the AI intelligence layer that transforms them into clean, structured input for the DensePose neural network. It uses **attention mechanisms** to learn which signals to trust, **graph algorithms** that automatically discover which WiFi channels are sensitive to body motion, and **compressed representations** that make edge inference possible on an $8 microcontroller.
+Tín hiệu WiFi thô ồn ào, dư thừa, và phụ thuộc môi trường. [RuVector](https://github.com/ruvnet/ruvector) là tầng trí tuệ AI biến đổi chúng thành đầu vào sạch, có cấu trúc cho neural network DensePose. Nó sử dụng **cơ chế attention** để học tín hiệu nào đáng tin, **thuật toán đồ thị** tự động phát hiện kênh WiFi nào nhạy cảm với chuyển động cơ thể, và **biểu diễn nén** giúp suy luận edge khả thi trên vi điều khiển $8.
 
-Without RuVector, WiFi DensePose would need hand-tuned thresholds, brute-force matrix math, and 4x more memory — making real-time edge inference impossible.
+Không có RuVector, WiFi DensePose sẽ cần ngưỡng được tinh chỉnh thủ công, phép tính ma trận brute-force, và bộ nhớ gấp 4x — khiến suy luận edge thời gian thực không thể.
 
 ```
-Raw WiFi CSI (56 subcarriers, noisy)
+WiFi CSI thô (56 subcarriers, ồn ào)
     |
-    +-- ruvector-mincut ---------- Which channels carry body-motion signal? (learned graph partitioning)
-    +-- ruvector-attn-mincut ----- Which time frames are signal vs noise? (attention-gated filtering)
-    +-- ruvector-attention ------- How to fuse multi-antenna data? (learned weighted aggregation)
+    +-- ruvector-mincut ---------- Kênh nào mang tín hiệu chuyển động cơ thể? (phân chia đồ thị học)
+    +-- ruvector-attn-mincut ----- Frame thời gian nào là tín hiệu vs nhiễu? (lọc attention-gated)
+    +-- ruvector-attention ------- Hợp nhất dữ liệu đa anten như thế nào? (tổng hợp có trọng số học)
     |
     v
-Clean, structured signal --> DensePose Neural Network --> 17-keypoint body pose
-                         --> FFT Vital Signs -----------> breathing rate, heart rate
-                         --> ruvector-solver ------------> physics-based localization
+Tín hiệu sạch, có cấu trúc --> Neural Network DensePose --> Tư thế cơ thể 17 keypoint
+                          --> FFT Vital Signs -----------> nhịp thở, nhịp tim
+                          --> ruvector-solver ------------> định vị dựa trên vật lý
 ```
 
-The [`wifi-densepose-ruvector`](https://crates.io/crates/wifi-densepose-ruvector) crate ([ADR-017](docs/adr/ADR-017-ruvector-signal-mat-integration.md)) connects all 7 integration points:
+Crate [`wifi-densepose-ruvector`](https://crates.io/crates/wifi-densepose-ruvector) ([ADR-017](docs/adr/ADR-017-ruvector-signal-mat-integration.md)) kết nối tất cả 7 điểm tích hợp:
 
-| AI Capability | What It Replaces | RuVector Crate | Result |
+| Khả năng AI | Thay thế gì | RuVector Crate | Kết quả |
 |--------------|-----------------|----------------|--------|
-| **Self-optimizing channel selection** | Hand-tuned thresholds that break when rooms change | `ruvector-mincut` | Graph min-cut adapts to any environment automatically |
-| **Attention-based signal cleaning** | Fixed energy cutoffs that miss subtle breathing | `ruvector-attn-mincut` | Learned gating amplifies body signals, suppresses noise |
-| **Learned signal fusion** | Simple averaging where one bad channel corrupts all | `ruvector-attention` | Transformer-style attention downweights corrupted channels |
-| **Physics-informed localization** | Expensive nonlinear solvers | `ruvector-solver` | Sparse least-squares Fresnel geometry in real-time |
-| **O(1) survivor triangulation** | O(N^3) matrix inversion | `ruvector-solver` | Neumann series linearization for instant position updates |
-| **75% memory compression** | 13.4 MB breathing buffers that overflow edge devices | `ruvector-temporal-tensor` | Tiered 3-8 bit quantization fits 60s of vitals in 3.4 MB |
+| **Lựa chọn kênh tự tối ưu** | Ngưỡng tinh chỉnh thủ công bị hỏng khi phòng thay đổi | `ruvector-mincut` | Graph min-cut tự động thích nghi với bất kỳ môi trường |
+| **Làm sạch tín hiệu dựa trên attention** | Cắt năng lượng cố định bỏ lỡ nhịp thở tinh tế | `ruvector-attn-mincut` | Gating học khuếch đại tín hiệu cơ thể, triệt nhiễu |
+| **Hợp nhất tín hiệu học** | Trung bình đơn giản nơi một kênh xấu làm hỏng tất cả | `ruvector-attention` | Attention kiểu Transformer giảm trọng số kênh bị hỏng |
+| **Định vị dựa trên vật lý** | Solver phi tuyến đắt tiền | `ruvector-solver` | Hình học Fresnel least-squares thưa theo thời gian thực |
+| **Tam giác đo người sống sót O(1)** | Đảo ma trận O(N^3) | `ruvector-solver` | Tuyến tính hóa chuỗi Neumann để cập nhật vị trí tức thì |
+| **Nén bộ nhớ 75%** | Bộ đệm nhịp thở 13,4 MB làm tràn thiết bị edge | `ruvector-temporal-tensor` | Lượng tử hóa phân tầng 3-8 bit vừa 60s vitals trong 3,4 MB |
 
-See [issue #67](https://github.com/ruvnet/RuView/issues/67) for a deep dive with code examples, or [`cargo add wifi-densepose-ruvector`](https://crates.io/crates/wifi-densepose-ruvector) to use it directly.
+Xem [issue #67](https://github.com/ruvnet/RuView/issues/67) để tìm hiểu sâu với ví dụ code, hoặc [`cargo add wifi-densepose-ruvector`](https://crates.io/crates/wifi-densepose-ruvector) để sử dụng trực tiếp.
 
 </details>
 
 <details>
-<summary><a id="rvf-model-container"></a><strong>📦 RVF Model Container</strong> — Single-file deployment with progressive loading</summary>
+<summary><a id="rvf-model-container"></a><strong>📦 Container Mô Hình RVF</strong> — Triển khai một file với tải lũy tiến</summary>
 
-The [RuVector Format (RVF)](https://github.com/ruvnet/ruvector/tree/main/crates/rvf) packages an entire trained model — weights, HNSW indexes, quantization codebooks, SONA adaptation deltas, and WASM inference runtime — into a single self-contained binary file. No external dependencies are needed at deployment time.
+[RuVector Format (RVF)](https://github.com/ruvnet/ruvector/tree/main/crates/rvf) đóng gói toàn bộ mô hình đã huấn luyện — weights, HNSW indexes, quantization codebooks, deltas thích nghi SONA, và runtime suy luận WASM — vào một file nhị phân tự chứa duy nhất. Không cần dependencies bên ngoài tại thời điểm triển khai.
 
-**Container structure:**
+**Cấu trúc container:**
 
 ```
 ┌──────────────────────────────────────────────────────┐
 │ RVF Container (.rvf)                                  │
 │                                                       │
-│  ┌─────────────┐  64-byte header per segment          │
+│  ┌─────────────┐  Header 64 byte mỗi segment          │
 │  │ Manifest     │  Magic: 0x52564653 ("RVFS")         │
-│  ├─────────────┤  Type + content hash + compression   │
-│  │ Weights      │  Model parameters (f32/f16/u8)      │
+│  ├─────────────┤  Kiểu + content hash + nén          │
+│  │ Weights      │  Tham số mô hình (f32/f16/u8)      │
 │  ├─────────────┤                                      │
 │  │ HNSW Index   │  Vector search index                │
 │  ├─────────────┤                                      │
@@ -1303,129 +1300,131 @@ The [RuVector Format (RVF)](https://github.com/ruvnet/ruvector/tree/main/crates/
 │  ├─────────────┤                                      │
 │  │ SONA Profile │  LoRA deltas + EWC++ Fisher matrix  │
 │  ├─────────────┤                                      │
-│  │ Witness      │  Ed25519 training proof              │
+│  │ Witness      │  Bằng chứng huấn luyện Ed25519      │
 │  ├─────────────┤                                      │
-│  │ Vitals Config│  Breathing/HR filter parameters     │
+│  │ Vitals Config│  Tham số bộ lọc nhịp thở/HR        │
 │  └─────────────┘                                      │
 └──────────────────────────────────────────────────────┘
 ```
 
-**Deployment targets:**
+**Các mục tiêu triển khai:**
 
-| Target | Quantization | Size | Load Time | Use Case |
+| Mục tiêu | Lượng tử hóa | Kích thước | Thời gian tải | Trường hợp sử dụng |
 |--------|-------------|------|-----------|----------|
-| **ESP32 / IoT** | int4 | ~0.7 MB | <5ms (Layer A) | Presence + breathing only |
-| **Mobile / WebView** | int8 | ~6 MB | ~200ms (Layer B) | Pose estimation on phone |
-| **Browser (WASM)** | int8 | ~10 MB | ~500ms (Layer B) | In-browser demo |
-| **Field (WiFi-Mat)** | fp16 | ~62 MB | ~2s (Layer C) | Full DensePose + disaster triage |
-| **Server / Cloud** | f32 | ~50+ MB | ~3s (Layer C) | Training + full inference |
+| **ESP32 / IoT** | int4 | ~0,7 MB | <5ms (Layer A) | Chỉ hiện diện + nhịp thở |
+| **Mobile / WebView** | int8 | ~6 MB | ~200ms (Layer B) | Pose estimation trên điện thoại |
+| **Trình duyệt (WASM)** | int8 | ~10 MB | ~500ms (Layer B) | Demo trong trình duyệt |
+| **Field (WiFi-Mat)** | fp16 | ~62 MB | ~2s (Layer C) | DensePose đầy đủ + phân loại triage thảm họa |
+| **Server / Cloud** | f32 | ~50+ MB | ~3s (Layer C) | Huấn luyện + suy luận đầy đủ |
 
-| Property | Detail |
+| Thuộc tính | Chi tiết |
 |----------|--------|
-| **Format** | Segment-based binary, 20+ segment types, CRC32 integrity per segment |
-| **Progressive Loading** | **Layer A** (<5ms): manifest + entry points → **Layer B** (100ms-1s): hot weights + adjacency → **Layer C** (seconds): full graph |
-| **Signing** | Ed25519 training proofs for verifiable provenance — chain of custody from training data to deployed model |
-| **Quantization** | Per-segment temperature-tiered: f32 (full), f16 (half), u8 (int8), int4 — with SIMD-accelerated distance computation |
-| **CLI** | `--export-rvf` (generate), `--load-rvf` (config), `--save-rvf` (persist), `--model` (inference), `--progressive` (3-layer load) |
+| **Định dạng** | Nhị phân dựa trên segment, 20+ loại segment, toàn vẹn CRC32 mỗi segment |
+| **Tải Lũy Tiến** | **Layer A** (<5ms): manifest + entry points → **Layer B** (100ms-1s): hot weights + adjacency → **Layer C** (giây): đồ thị đầy đủ |
+| **Ký** | Bằng chứng huấn luyện Ed25519 để xác minh xuất xứ — chuỗi lưu ký từ dữ liệu huấn luyện đến mô hình đã triển khai |
+| **Lượng tử hóa** | Phân tầng theo nhiệt độ mỗi segment: f32 (đầy đủ), f16 (nửa), u8 (int8), int4 — với tính toán khoảng cách SIMD |
+| **CLI** | `--export-rvf` (tạo), `--load-rvf` (config), `--save-rvf` (lưu), `--model` (suy luận), `--progressive` (tải 3 lớp) |
 
 ```bash
-# Export model package
+# Xuất gói model
 ./target/release/sensing-server --export-rvf wifi-densepose-v1.rvf
 
-# Load and run with progressive loading
+# Tải và chạy với tải lũy tiến
 ./target/release/sensing-server --model wifi-densepose-v1.rvf --progressive
 
-# Export via Docker
+# Xuất qua Docker
 docker run --rm -v $(pwd):/out ruvnet/wifi-densepose:latest --export-rvf /out/model.rvf
 ```
 
-Built on the [rvf](https://github.com/ruvnet/ruvector/tree/main/crates/rvf) crate family (rvf-types, rvf-wire, rvf-manifest, rvf-index, rvf-quant, rvf-crypto, rvf-runtime). See [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md).
+Được xây dựng trên họ crate [rvf](https://github.com/ruvnet/ruvector/tree/main/crates/rvf) (rvf-types, rvf-wire, rvf-manifest, rvf-index, rvf-quant, rvf-crypto, rvf-runtime). Xem [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md).
 
 </details>
 
 <details>
-<summary><a id="training--fine-tuning"></a><strong>🧬 Training & Fine-Tuning</strong> — MM-Fi/Wi-Pose pre-training, SONA adaptation</summary>
+<summary><a id="training--fine-tuning"></a><strong>🧬 Huấn Luyện & Tinh Chỉnh</strong> — Tiền huấn luyện MM-Fi/Wi-Pose, thích nghi SONA</summary>
 
-The training pipeline implements 8 phases in pure Rust (7,832 lines, zero external ML dependencies). It trains a graph transformer with cross-attention to map CSI feature matrices to 17 COCO body keypoints and DensePose UV coordinates — following the approach from the CMU "DensePose From WiFi" paper ([arXiv:2301.00250](https://arxiv.org/abs/2301.00250)). RuVector crates provide the core building blocks: [ruvector-attention](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attention) for cross-attention layers, [ruvector-mincut](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-mincut) for multi-person matching, and [ruvector-temporal-tensor](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-temporal-tensor) for CSI buffer compression.
+Pipeline huấn luyện triển khai 8 giai đoạn trong Rust thuần (7.832 dòng, không có dependencies ML bên ngoài). Nó huấn luyện graph transformer với cross-attention để ánh xạ ma trận đặc trưng CSI đến 17 COCO body keypoints và tọa độ DensePose UV — theo cách tiếp cận từ bài báo CMU "DensePose From WiFi" ([arXiv:2301.00250](https://arxiv.org/abs/2301.00250)). Các crates RuVector cung cấp các khối xây dựng cốt lõi: [ruvector-attention](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attention) cho các lớp cross-attention, [ruvector-mincut](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-mincut) cho khớp đa người, và [ruvector-temporal-tensor](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-temporal-tensor) cho nén bộ đệm CSI.
 
-**Three-tier data strategy:**
+**Chiến lược dữ liệu ba tầng:**
 
-| Tier | Method | Purpose | RuVector Integration |
+| Tầng | Phương pháp | Mục đích | Tích hợp RuVector |
 |------|--------|---------|---------------------|
-| **1. Pre-train** | MM-Fi + Wi-Pose public datasets | Cross-environment generalization (multi-subject, multi-room) | `ruvector-temporal-tensor` compresses CSI windows (114→56 subcarrier resampling) |
-| **2. Fine-tune** | ESP32 CSI + camera pseudo-labels | Environment-specific multipath adaptation | `ruvector-solver` for Fresnel geometry, `ruvector-attn-mincut` for subcarrier gating |
-| **3. SONA adapt** | Micro-LoRA (rank-4) + EWC++ | Continuous on-device learning without catastrophic forgetting | [SONA](https://github.com/ruvnet/ruvector/tree/main/crates/sona) architecture (Self-Optimizing Neural Architecture) |
+| **1. Tiền huấn luyện** | Bộ dữ liệu công khai MM-Fi + Wi-Pose | Tổng quát hóa cross-environment (đa đối tượng, đa phòng) | `ruvector-temporal-tensor` nén cửa sổ CSI (lấy mẫu lại subcarrier 114→56) |
+| **2. Tinh chỉnh** | ESP32 CSI + camera pseudo-labels | Thích nghi multipath đặc thù môi trường | `ruvector-solver` cho hình học Fresnel, `ruvector-attn-mincut` cho gating subcarrier |
+| **3. SONA adapt** | Micro-LoRA (rank-4) + EWC++ | Học liên tục trên thiết bị mà không quên thảm họa | Kiến trúc [SONA](https://github.com/ruvnet/ruvector/tree/main/crates/sona) (Self-Optimizing Neural Architecture) |
 
-**Training pipeline components:**
+**Các thành phần pipeline huấn luyện:**
 
-| Phase | Module | What It Does | RuVector Crate |
+| Giai đoạn | Module | Tính năng | RuVector Crate |
 |-------|--------|-------------|----------------|
-| 1 | `dataset.rs` (850 lines) | MM-Fi `.npy` + Wi-Pose `.mat` loaders, subcarrier resampling (114→56, 30→56), windowing | [ruvector-temporal-tensor](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-temporal-tensor) |
-| 2 | `graph_transformer.rs` (855 lines) | COCO BodyGraph (17 kp, 16 edges), AntennaGraph, multi-head CrossAttention, GCN message passing | [ruvector-attention](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attention) |
-| 3 | `trainer.rs` (881 lines) | 6-term composite loss (MSE, CE, UV, temporal, bone, symmetry), SGD+momentum, cosine+warmup, PCK/OKS | [ruvector-mincut](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-mincut) (person matching) |
-| 4 | `sona.rs` (639 lines) | LoRA adapters (A×B delta), EWC++ Fisher regularization, EnvironmentDetector (3-sigma drift) | [sona](https://github.com/ruvnet/ruvector/tree/main/crates/sona) |
-| 5 | `sparse_inference.rs` (753 lines) | NeuronProfiler hot/cold partitioning, SparseLinear (skip cold rows), INT8/FP16 quantization | [ruvector-sparse-inference](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-sparse-inference) |
-| 6 | `rvf_pipeline.rs` (1,027 lines) | Progressive 3-layer loader, HNSW index, OverlayGraph, `RvfModelBuilder` | [ruvector-core](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-core) (HNSW) |
-| 7 | `rvf_container.rs` (914 lines) | Binary container format, 6+ segment types, CRC32 integrity | [rvf](https://github.com/ruvnet/ruvector/tree/main/crates/rvf) |
-| 8 | `main.rs` integration | `--train`, `--model`, `--progressive` CLI flags, REST endpoints | — |
+| 1 | `dataset.rs` (850 dòng) | Bộ tải MM-Fi `.npy` + Wi-Pose `.mat`, lấy mẫu lại subcarrier (114→56, 30→56), windowing | [ruvector-temporal-tensor](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-temporal-tensor) |
+| 2 | `graph_transformer.rs` (855 dòng) | COCO BodyGraph (17 kp, 16 edges), AntennaGraph, CrossAttention đa đầu, GCN message passing | [ruvector-attention](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attention) |
+| 3 | `trainer.rs` (881 dòng) | Loss tổng hợp 6 thành phần (MSE, CE, UV, thời gian, xương, đối xứng), SGD+momentum, cosine+warmup, PCK/OKS | [ruvector-mincut](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-mincut) (khớp người) |
+| 4 | `sona.rs` (639 dòng) | Adapter LoRA (delta A×B), regularization Fisher EWC++, EnvironmentDetector (drift 3-sigma) | [sona](https://github.com/ruvnet/ruvector/tree/main/crates/sona) |
+| 5 | `sparse_inference.rs` (753 dòng) | NeuronProfiler phân chia nóng/lạnh, SparseLinear (bỏ qua hàng lạnh), lượng tử hóa INT8/FP16 | [ruvector-sparse-inference](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-sparse-inference) |
+| 6 | `rvf_pipeline.rs` (1.027 dòng) | Bộ tải 3 lớp lũy tiến, HNSW index, OverlayGraph, `RvfModelBuilder` | [ruvector-core](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-core) (HNSW) |
+| 7 | `rvf_container.rs` (914 dòng) | Định dạng container nhị phân, 6+ loại segment, toàn vẹn CRC32 | [rvf](https://github.com/ruvnet/ruvector/tree/main/crates/rvf) |
+| 8 | Tích hợp `main.rs` | Cờ CLI `--train`, `--model`, `--progressive`, REST endpoints | — |
 
-**SONA (Self-Optimizing Neural Architecture)** — the continuous adaptation system:
+**SONA (Self-Optimizing Neural Architecture)** — hệ thống thích nghi liên tục:
 
-| Component | What It Does | Why It Matters |
+| Thành phần | Tính năng | Tại sao quan trọng |
 |-----------|-------------|----------------|
-| **Micro-LoRA (rank-4)** | Trains small A×B weight deltas instead of full weights | 100x fewer parameters to update → runs on ESP32 |
-| **EWC++ (Fisher matrix)** | Penalizes changes to important weights from previous environments | Prevents catastrophic forgetting when moving between rooms |
-| **EnvironmentDetector** | Monitors CSI feature drift with 3-sigma threshold | Auto-triggers adaptation when the model is moved to a new space |
-| **Best-epoch snapshot** | Saves best validation loss weights, restores before export | Prevents shipping overfit final-epoch parameters |
+| **Micro-LoRA (rank-4)** | Huấn luyện các delta weight A×B nhỏ thay vì weights đầy đủ | Ít hơn 100x tham số cần cập nhật → chạy trên ESP32 |
+| **EWC++ (Fisher matrix)** | Phạt các thay đổi đối với weights quan trọng từ môi trường trước | Ngăn quên thảm họa khi di chuyển giữa các phòng |
+| **EnvironmentDetector** | Giám sát drift đặc trưng CSI với ngưỡng 3-sigma | Tự động kích hoạt thích nghi khi mô hình được chuyển đến không gian mới |
+| **Snapshot tốt nhất** | Lưu weights mất xác nhận tốt nhất, khôi phục trước khi xuất | Ngăn xuất tham số cuối epoch quá fit |
 
 ```bash
-# Pre-train on MM-Fi dataset
+# Tiền huấn luyện trên bộ dữ liệu MM-Fi
 ./target/release/sensing-server --train --dataset data/ --dataset-type mmfi --epochs 100
 
-# Train and export to RVF in one step
+# Huấn luyện và xuất sang RVF trong một bước
 ./target/release/sensing-server --train --dataset data/ --epochs 100 --save-rvf model.rvf
 
-# Via Docker (no toolchain needed)
+# Qua Docker (không cần toolchain)
 docker run --rm -v $(pwd)/data:/data ruvnet/wifi-densepose:latest \
   --train --dataset /data --epochs 100 --export-rvf /data/model.rvf
 ```
 
-See [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md) · [SONA crate](https://github.com/ruvnet/ruvector/tree/main/crates/sona) · [arXiv:2301.00250](https://arxiv.org/abs/2301.00250)
+Xem [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md) · [SONA crate](https://github.com/ruvnet/ruvector/tree/main/crates/sona) · [arXiv:2301.00250](https://arxiv.org/abs/2301.00250)
 
 </details>
 
 <details>
-<summary><a id="ruvector-crates"></a><strong>🔩 RuVector Crates</strong> — 11 vendored signal intelligence crates from <a href="https://github.com/ruvnet/ruvector">github.com/ruvnet/ruvector</a></summary>
+<summary><a id="ruvector-crates"></a><strong>🔩 RuVector Crates</strong> — 11 crates tình báo tín hiệu vendored từ <a href="https://github.com/ruvnet/ruvector">github.com/ruvnet/ruvector</a></summary>
 
-**5 directly-used crates** (v2.0.4, declared in `Cargo.toml`, 7 integration points):
+**5 crates được sử dụng trực tiếp** (v2.0.4, khai báo trong `Cargo.toml`, 7 điểm tích hợp):
 
-| Crate | What It Does | Where It's Used in WiFi-DensePose | Source |
+| Crate | Tính năng | Nơi sử dụng trong WiFi-DensePose | Nguồn |
 |-------|-------------|-----------------------------------|--------|
-| [`ruvector-attention`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attention) | Scaled dot-product attention, MoE routing, sparse attention | `model.rs` (spatial attention), `bvp.rs` (sensitivity-weighted velocity profiles) | [crate](https://crates.io/crates/ruvector-attention) |
-| [`ruvector-mincut`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-mincut) | Subpolynomial dynamic min-cut O(n^1.5 log n) | `metrics.rs` (DynamicPersonMatcher — multi-person assignment), `subcarrier_selection.rs` (sensitive/insensitive split) | [crate](https://crates.io/crates/ruvector-mincut) |
-| [`ruvector-attn-mincut`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attn-mincut) | Attention-gated spectrogram noise suppression | `model.rs` (antenna attention gating), `spectrogram.rs` (gate noisy time-frequency bins) | [crate](https://crates.io/crates/ruvector-attn-mincut) |
-| [`ruvector-solver`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-solver) | Sparse Neumann series solver O(sqrt(n)) | `fresnel.rs` (TX-body-RX geometry), `triangulation.rs` (3D localization), `subcarrier.rs` (sparse interpolation 114→56) | [crate](https://crates.io/crates/ruvector-solver) |
-| [`ruvector-temporal-tensor`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-temporal-tensor) | Tiered temporal compression (8/7/5/3-bit) | `dataset.rs` (CSI buffer compression), `breathing.rs` + `heartbeat.rs` (compressed vital sign spectrograms) | [crate](https://crates.io/crates/ruvector-temporal-tensor) |
+| [`ruvector-attention`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attention) | Attention tích vô hướng có tỷ lệ, định tuyến MoE, attention thưa | `model.rs` (spatial attention), `bvp.rs` (biên dạng vận tốc có trọng số độ nhạy) | [crate](https://crates.io/crates/ruvector-attention) |
+| [`ruvector-mincut`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-mincut) | Dynamic min-cut subpolynomial O(n^1.5 log n) | `metrics.rs` (DynamicPersonMatcher — gán đa người), `subcarrier_selection.rs` (phân chia nhạy/không nhạy) | [crate](https://crates.io/crates/ruvector-mincut) |
+| [`ruvector-attn-mincut`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-attn-mincut) | Suppression nhiễu spectrogram attention-gated | `model.rs` (antenna attention gating), `spectrogram.rs` (gate các bin thời gian-tần số nhiễu) | [crate](https://crates.io/crates/ruvector-attn-mincut) |
+| [`ruvector-solver`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-solver) | Solver chuỗi Neumann thưa O(sqrt(n)) | `fresnel.rs` (hình học TX-body-RX), `triangulation.rs` (định vị 3D), `subcarrier.rs` (nội suy thưa 114→56) | [crate](https://crates.io/crates/ruvector-solver) |
+| [`ruvector-temporal-tensor`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-temporal-tensor) | Nén thời gian phân tầng (8/7/5/3-bit) | `dataset.rs` (nén bộ đệm CSI), `breathing.rs` + `heartbeat.rs` (spectrogram vital sign nén) | [crate](https://crates.io/crates/ruvector-temporal-tensor) |
 
-**6 additional vendored crates** (used by training pipeline and inference):
+**6 crates vendored bổ sung** (được sử dụng bởi pipeline huấn luyện và suy luận):
 
-| Crate | What It Does | Source |
+| Crate | Tính năng | Nguồn |
 |-------|-------------|--------|
-| [`ruvector-core`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-core) | VectorDB engine, HNSW index, SIMD distance functions, quantization codebooks | [crate](https://crates.io/crates/ruvector-core) |
-| [`ruvector-gnn`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-gnn) | Graph neural network layers, graph attention, EWC-regularized training | [crate](https://crates.io/crates/ruvector-gnn) |
-| [`ruvector-graph-transformer`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-graph-transformer) | Proof-gated graph transformer with cross-attention | [crate](https://crates.io/crates/ruvector-graph-transformer) |
-| [`ruvector-sparse-inference`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-sparse-inference) | PowerInfer-style hot/cold neuron partitioning, skip cold rows at runtime | [crate](https://crates.io/crates/ruvector-sparse-inference) |
-| [`ruvector-nervous-system`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-nervous-system) | PredictiveLayer, OscillatoryRouter, Hopfield associative memory | [crate](https://crates.io/crates/ruvector-nervous-system) |
-| [`ruvector-coherence`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-coherence) | Spectral coherence monitoring, HNSW graph health, Fiedler connectivity | [crate](https://crates.io/crates/ruvector-coherence) |
+| [`ruvector-core`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-core) | VectorDB engine, HNSW index, hàm khoảng cách SIMD, quantization codebooks | [crate](https://crates.io/crates/ruvector-core) |
+| [`ruvector-gnn`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-gnn) | Các lớp graph neural network, graph attention, huấn luyện EWC-regularized | [crate](https://crates.io/crates/ruvector-gnn) |
+| [`ruvector-graph-transformer`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-graph-transformer) | Graph transformer proof-gated với cross-attention | [crate](https://crates.io/crates/ruvector-graph-transformer) |
+| [`ruvector-sparse-inference`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-sparse-inference) | Phân chia neuron nóng/lạnh kiểu PowerInfer, bỏ qua hàng lạnh lúc runtime | [crate](https://crates.io/crates/ruvector-sparse-inference) |
+| [`ruvector-nervous-system`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-nervous-system) | PredictiveLayer, OscillatoryRouter, bộ nhớ kết hợp Hopfield | [crate](https://crates.io/crates/ruvector-nervous-system) |
+| [`ruvector-coherence`](https://github.com/ruvnet/ruvector/tree/main/crates/ruvector-coherence) | Giám sát coherence phổ, sức khỏe đồ thị HNSW, kết nối Fiedler | [crate](https://crates.io/crates/ruvector-coherence) |
 
-The full RuVector ecosystem includes 90+ crates. See [github.com/ruvnet/ruvector](https://github.com/ruvnet/ruvector) for the complete library, and [`vendor/ruvector/`](vendor/ruvector/) for the vendored source in this project.
+Hệ sinh thái RuVector đầy đủ bao gồm 90+ crates. Xem [github.com/ruvnet/ruvector](https://github.com/ruvnet/ruvector) để có thư viện đầy đủ, và [`vendor/ruvector/`](vendor/ruvector/) cho mã nguồn vendored trong dự án này.
 
 </details>
 
 ---
 
 <details>
-<summary><strong>🏗️ System Architecture</strong> — End-to-end data flow from CSI capture to REST/WebSocket API</summary>
+<summary><strong>🏗️ Kiến Trúc Hệ Thống</strong> — Luồng dữ liệu end-to-end từ thu CSI đến REST/WebSocket API</summary>
+
+
 
 ### End-to-End Pipeline
 
@@ -1600,10 +1599,10 @@ graph TB
 
 ---
 
-## 🖥️ CLI Usage
+## 🖥️ Sử Dụng CLI
 
 <details>
-<summary><strong>Rust Sensing Server</strong> — Primary CLI interface</summary>
+<summary><strong>Rust Sensing Server</strong> — Giao diện CLI chính</summary>
 
 ```bash
 # Start with simulated data (no hardware)
@@ -1628,21 +1627,21 @@ graph TB
 ./target/release/sensing-server --model wifi-densepose-v1.rvf --progressive
 ```
 
-| Flag | Description |
+| Cờ | Mô tả |
 |------|-------------|
-| `--source` | Data source: `auto`, `wifi`, `esp32`, `simulate` |
-| `--http-port` | HTTP port for UI and REST API (default: 8080) |
-| `--ws-port` | WebSocket port (default: 8765) |
-| `--udp-port` | UDP port for ESP32 CSI frames (default: 5005) |
-| `--benchmark` | Run vital sign benchmark (1000 frames) and exit |
-| `--export-rvf` | Export RVF container package and exit |
-| `--load-rvf` | Load model config from RVF container |
-| `--save-rvf` | Save model state on shutdown |
-| `--model` | Load trained `.rvf` model for inference |
-| `--progressive` | Enable progressive loading (Layer A instant start) |
-| `--train` | Train a model and exit |
-| `--dataset` | Path to dataset directory (MM-Fi or Wi-Pose) |
-| `--epochs` | Training epochs (default: 100) |
+| `--source` | Nguồn dữ liệu: `auto`, `wifi`, `esp32`, `simulate` |
+| `--http-port` | Cổng HTTP cho UI và REST API (mặc định: 8080) |
+| `--ws-port` | Cổng WebSocket (mặc định: 8765) |
+| `--udp-port` | Cổng UDP cho ESP32 CSI frames (mặc định: 5005) |
+| `--benchmark` | Chạy benchmark vital sign (1000 frames) và thoát |
+| `--export-rvf` | Xuất gói container RVF và thoát |
+| `--load-rvf` | Tải cấu hình mô hình từ container RVF |
+| `--save-rvf` | Lưu trạng thái mô hình khi tắt |
+| `--model` | Tải mô hình `.rvf` đã huấn luyện để suy luận |
+| `--progressive` | Bật tải lũy tiến (Layer A khởi động tức thì) |
+| `--train` | Huấn luyện mô hình và thoát |
+| `--dataset` | Đường dẫn đến thư mục dataset (MM-Fi hoặc Wi-Pose) |
+| `--epochs` | Số epochs huấn luyện (mặc định: 100) |
 
 </details>
 
@@ -1660,16 +1659,16 @@ GET  /api/v1/model/sona/profiles  # SONA profiles
 POST /api/v1/model/sona/activate  # Activate SONA profile
 ```
 
-WebSocket: `ws://localhost:3001/ws/sensing` (real-time sensing + vital signs)
+WebSocket: `ws://localhost:3001/ws/sensing` (sensing thời gian thực + vital signs)
 
-> Default ports (Docker): HTTP 3000, WS 3001. Binary defaults: HTTP 8080, WS 8765. Override with `--http-port` / `--ws-port`.
+> Cổng mặc định (Docker): HTTP 3000, WS 3001. Mặc định binary: HTTP 8080, WS 8765. Ghi đè bằng `--http-port` / `--ws-port`.
 
 </details>
 
 <details>
-<summary><a id="hardware-support-1"></a><strong>Hardware Support</strong> — Devices, cost, and guides</summary>
+<summary><a id="hardware-support-1"></a><strong>Hỗ Trợ Phần Cứng</strong> — Thiết bị, chi phí, và hướng dẫn</summary>
 
-| Hardware | CSI | Cost | Guide |
+| Phần cứng | CSI | Chi phí | Hướng dẫn |
 |----------|-----|------|-------|
 | **ESP32-S3** | Native | ~$8 | [Tutorial #34](https://github.com/ruvnet/RuView/issues/34) |
 | Intel 5300 | Firmware mod | ~$15 | Linux `iwl-csi` |
@@ -1681,7 +1680,7 @@ WebSocket: `ws://localhost:3001/ws/sensing` (real-time sensing + vital signs)
 </details>
 
 <details>
-<summary><strong>Python Legacy CLI</strong> — v1 API server commands</summary>
+<summary><strong>Python Legacy CLI</strong> — Lệnh v1 API server</summary>
 
 ```bash
 wifi-densepose start                    # Start API server
@@ -1697,7 +1696,7 @@ wifi-densepose tasks list               # List background tasks
 </details>
 
 <details>
-<summary><strong>Documentation Links</strong></summary>
+<summary><strong>Liên Kết Tài Liệu</strong></summary>
 
 - [WiFi-Mat User Guide](docs/wifi-mat-user-guide.md) | [Domain Model](docs/ddd/wifi-mat-domain-model.md)
 - [ADR-021](docs/adr/ADR-021-vital-sign-detection-rvdna-pipeline.md) | [ADR-022](docs/adr/ADR-022-windows-wifi-enhanced-fidelity-ruvector.md) | [ADR-023](docs/adr/ADR-023-trained-densepose-model-ruvector-pipeline.md)
@@ -1706,10 +1705,10 @@ wifi-densepose tasks list               # List background tasks
 
 ---
 
-## 🧪 Testing
+## 🧪 Kiểm Thử
 
 <details>
-<summary><strong>542+ tests across 7 suites</strong> — zero mocks, hardware-free simulation</summary>
+<summary><strong>542+ tests trên 7 bộ</strong> — không có mocks, mô phỏng không cần phần cứng</summary>
 
 ```bash
 # Rust tests (primary — 542+ tests)
@@ -1729,24 +1728,24 @@ python -m pytest v1/tests/ -v
 ./verify
 ```
 
-| Suite | Tests | What It Covers |
+| Bộ | Tests | Tính năng được kiểm tra |
 |-------|-------|----------------|
 | sensing-server lib | 147 | Graph transformer, trainer, SONA, sparse inference, RVF |
-| sensing-server bin | 48 | CLI integration, WebSocket, REST API |
-| RVF integration | 16 | Container build, read, progressive load |
-| Vital signs integration | 18 | FFT detection, breathing, heartbeat |
-| wifi-densepose-signal | 83 | SOTA algorithms, Doppler, Fresnel |
-| wifi-densepose-mat | 139 | Disaster response, triage, localization |
-| wifi-densepose-wifiscan | 91 | 8-stage RSSI pipeline |
+| sensing-server bin | 48 | Tích hợp CLI, WebSocket, REST API |
+| RVF integration | 16 | Build container, đọc, tải lũy tiến |
+| Vital signs integration | 18 | Phát hiện FFT, nhịp thở, nhịp tim |
+| wifi-densepose-signal | 83 | Thuật toán SOTA, Doppler, Fresnel |
+| wifi-densepose-mat | 139 | Ứng phó thảm họa, triage, định vị |
+| wifi-densepose-wifiscan | 91 | Pipeline RSSI 8 giai đoạn |
 
 </details>
 
 ---
 
-## 🚀 Deployment
+## 🚀 Triển Khai
 
 <details>
-<summary><strong>Docker deployment</strong> — Production setup with docker-compose</summary>
+<summary><strong>Triển khai Docker</strong> — Thiết lập production với docker-compose</summary>
 
 ```bash
 # Rust sensing server (132 MB)
@@ -1764,7 +1763,7 @@ cd docker && docker compose up
 docker run --rm -v $(pwd):/out ruvnet/wifi-densepose:latest --export-rvf /out/model.rvf
 ```
 
-### Environment Variables
+### Biến Môi Trường
 
 ```bash
 RUST_LOG=info                    # Logging level
@@ -1777,40 +1776,40 @@ POSE_MAX_PERSONS=10              # Max tracked individuals
 
 ---
 
-## 📊 Performance Metrics
+## 📊 Chỉ Số Hiệu Suất
 
 <details>
-<summary><strong>Measured benchmarks</strong> — Rust sensing server, validated via cargo bench</summary>
+<summary><strong>Benchmarks đã đo</strong> — Rust sensing server, xác nhận qua cargo bench</summary>
 
 ### Rust Sensing Server
 
-| Metric | Value |
+| Chỉ số | Giá trị |
 |--------|-------|
-| Vital sign detection | **11,665 fps** (86 µs/frame) |
-| Full CSI pipeline | **54,000 fps** (18.47 µs/frame) |
-| Motion detection | **186 ns** (~5,400x vs Python) |
+| Phát hiện vital sign | **11.665 fps** (86 µs/frame) |
+| Pipeline CSI đầy đủ | **54.000 fps** (18,47 µs/frame) |
+| Phát hiện chuyển động | **186 ns** (~5.400x so Python) |
 | Docker image | 132 MB |
-| Memory usage | ~100 MB |
-| Test count | 542+ |
+| Sử dụng bộ nhớ | ~100 MB |
+| Số lượng tests | 542+ |
 
 ### Python vs Rust
 
-| Operation | Python | Rust | Speedup |
+| Thao tác | Python | Rust | Tăng tốc |
 |-----------|--------|------|---------|
-| CSI Preprocessing | ~5 ms | 5.19 µs | 1000x |
-| Phase Sanitization | ~3 ms | 3.84 µs | 780x |
-| Feature Extraction | ~8 ms | 9.03 µs | 890x |
-| Motion Detection | ~1 ms | 186 ns | 5400x |
-| **Full Pipeline** | ~15 ms | 18.47 µs | **810x** |
+| Tiền xử lý CSI | ~5 ms | 5,19 µs | 1000x |
+| Làm sạch pha | ~3 ms | 3,84 µs | 780x |
+| Trích xuất đặc trưng | ~8 ms | 9,03 µs | 890x |
+| Phát hiện chuyển động | ~1 ms | 186 ns | 5400x |
+| **Pipeline đầy đủ** | ~15 ms | 18,47 µs | **810x** |
 
 </details>
 
 ---
 
-## 🤝 Contributing
+## 🤝 Đóng Góp
 
 <details>
-<summary><strong>Dev setup, code standards, PR process</strong></summary>
+<summary><strong>Thiết lập dev, tiêu chuẩn code, quy trình PR</strong></summary>
 
 ```bash
 git clone https://github.com/ruvnet/RuView.git
@@ -1827,23 +1826,23 @@ pip install -r requirements-dev.txt && pip install -e .
 pre-commit install
 ```
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes
-4. **Push** and open a Pull Request
+1. **Fork** repository
+2. **Tạo** nhánh tính năng (`git checkout -b feature/amazing-feature`)
+3. **Commit** các thay đổi của bạn
+4. **Push** và mở Pull Request
 
 </details>
 
 ---
 
-## 📄 Changelog
+## 📄 Nhật Ký Thay Đổi
 
 <details>
-<summary><strong>Release history</strong></summary>
+<summary><strong>Lịch sử phiên bản</strong></summary>
 
 ### v3.2.0 — 2026-03-03
 
-Edge intelligence: 24 hot-loadable WASM modules for on-device CSI processing on ESP32-S3.
+Trí tuệ edge: 24 WASM modules có thể tải nóng để xử lý CSI trên thiết bị trên ESP32-S3.
 
 - **ADR-041 Edge Intelligence Modules** — 24 `no_std` Rust modules compiled to `wasm32-unknown-unknown`, loaded via WASM3 on ESP32; 8 categories covering signal intelligence, adaptive learning, spatial reasoning, temporal analysis, AI security, quantum-inspired, autonomous systems, and exotic algorithms
 - **Vendor Integration** — Algorithms ported from `midstream` (DTW, attractors, Flash Attention, min-cut, optimal transport) and `sublinear-time-solver` (PageRank, HNSW, sparse recovery, spiking NN)
@@ -1857,7 +1856,7 @@ Edge intelligence: 24 hot-loadable WASM modules for on-device CSI processing on 
 
 ### v3.1.0 — 2026-03-02
 
-Multistatic sensing, persistent field model, and cross-viewpoint fusion — the biggest capability jump since v2.0.
+Multistatic sensing, mô hình field liên tục, và cross-viewpoint fusion — bước nhảy khả năng lớn nhất kể từ v2.0.
 
 - **Project RuvSense (ADR-029)** — Multistatic mesh: TDM protocol, channel hopping (ch1/6/11), multi-band frame fusion, coherence gating, 17-keypoint Kalman tracker with re-ID; 10 new signal modules (5,300+ lines)
 - **RuvSense Persistent Field Model (ADR-030)** — 7 exotic sensing tiers: field normal modes (SVD), RF tomography, longitudinal drift detection, intention prediction, cross-room identity, gesture classification, adversarial detection
@@ -1877,7 +1876,7 @@ Multistatic sensing, persistent field model, and cross-viewpoint fusion — the 
 
 ### v3.0.0 — 2026-03-01
 
-Major release: AETHER contrastive embedding model, AI signal processing backbone, cross-platform adapters, Docker Hub images, and comprehensive README overhaul.
+Phiên bản chính: Model embedding contrastive AETHER, AI signal processing backbone, các adapter đa nền tảng, Docker Hub images, và cải tiến toàn diện README.
 
 - **Project AETHER (ADR-024)** — Self-supervised contrastive learning for WiFi CSI fingerprinting, similarity search, and anomaly detection; 55 KB model fits on ESP32
 - **AI Backbone (`wifi-densepose-ruvector`)** — 7 RuVector integration points replacing hand-tuned thresholds with attention, graph algorithms, and smart compression; [published to crates.io](https://crates.io/crates/wifi-densepose-ruvector)
@@ -1891,7 +1890,7 @@ Major release: AETHER contrastive embedding model, AI signal processing backbone
 
 ### v2.0.0 — 2026-02-28
 
-Complete Rust sensing server, SOTA signal processing, WiFi-Mat disaster response, ESP32 hardware, RuVector integration, guided installer, and security hardening.
+Rust sensing server hoàn chỉnh, xử lý tín hiệu SOTA, WiFi-Mat ứng phó thảm họa, phần cứng ESP32, tích hợp RuVector, trình cài đặt có hướng dẫn, và tăng cường bảo mật.
 
 - **Rust sensing server** — Axum REST API + WebSocket, 810x speedup over Python, 54K fps pipeline
 - **RuVector integration** — 11 vendored crates for HNSW, attention, GNN, temporal compression, min-cut, solver
@@ -1906,14 +1905,14 @@ Complete Rust sensing server, SOTA signal processing, WiFi-Mat disaster response
 
 ---
 
-## 📄 License
+## 📄 Giấy Phép
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — xem [LICENSE](LICENSE) để biết chi tiết.
 
-## 📞 Support
+## 📞 Hỗ Trợ
 
 [GitHub Issues](https://github.com/ruvnet/RuView/issues) | [Discussions](https://github.com/ruvnet/RuView/discussions) | [PyPI](https://pypi.org/project/wifi-densepose/)
 
 ---
 
-**WiFi DensePose** — Privacy-preserving human pose estimation through WiFi signals.
+**WiFi DensePose** — Ước lượng tư thế người bảo vệ quyền riêng tư qua tín hiệu WiFi.
